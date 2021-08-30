@@ -33,7 +33,7 @@ To be continued
 To run in docker use the following command after the container has been built (see build section)
 
 ```
-docker run -p 5000:5000 cmsc-495-project
+docker run --rm -it -p 5000:5000 cmsc-495-project
 ```
 
 TBD
