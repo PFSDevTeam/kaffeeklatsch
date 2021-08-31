@@ -42,7 +42,6 @@ next use pip to install the the dependancies
 ```
 pip install -r requirements.txt
 ```
-To be continued
 
 ## Running instructions
 
@@ -69,7 +68,33 @@ Using the run script on linux:
 
 Using the docker run command:
 ```
-docker run --rm -it -p 5000:5000 cmsc-495-project
+docker run --rm -it -p 5000:5000 --name kaffeeklatsch cmsc-495-project
+
 ```
 
-TBD
+## Stopping Instructions
+
+### Docker
+
+To stop the docker container and prune images you can:
+
+use the stop script:
+
+```
+./docker-stop.sh
+```
+
+**OR**
+
+use the docker stop command:
+```
+docker stop (CONTAINER NAME OR ID)
+
+# e.g
+
+docker stop kaffeeklatsch
+
+# OR
+
+docker stop 6c9d74d7e2ce
+```
