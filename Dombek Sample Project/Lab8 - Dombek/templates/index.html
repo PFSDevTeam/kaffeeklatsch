@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block body %}
+	<body>
+		{% for message in get_flashed_messages() %}
+			{{message}}
+		{% endfor %}<br><br>
+		<!-- sets up style for h1 -->
+		<style>
+		h1 {
+			text-align: center;
+			position:relative;
+			padding: 20px;
+		}
+		caption {
+			text-align:center;
+			caption-side:top;
+		}
+		</style>
+		<img src="{{ url_for('static', filename='images/NetworkAnalyzer.jpg')}}", style="left",width="200" height="100"><img src="{{ url_for('static', filename='images/87.jpg')}}", style="float: right",width="250" height="150"><h1>Welcome Calibration World!!!</h1>
+		<h2>Metrology is the Science of Measurement
+		<h3>My Fields of Measurement include:</h3></h2>
+		<!-- unordered list -->
+		<ul>
+			<li>Radio Frequence Measurements</li>
+			<li><a href="pagetwo">Biomedical Measurements</a></li>		
+			<li><a href="pagethree">General Purpose Measurements</a></li>
+			<li>Primary Standard Measurements</li>
+			<li>Physical Dimentional Meusurements</li>
+			<li>Avionic Measurements</li>
+		</ul>
+		<table border="10">
+		<caption>Calibration Times</caption>
+		 <tr>
+		  <th style="width:20%;">Equipment Type</th>
+		  <th style="width:20%;">Name</th>
+		  <th style="width:20%;">Calibration Type</th>
+		  <th style="width:20%;">Time</th>
+		 </tr>
+		 <tr>
+		  <td>GP</td>
+		  <td>Handheld DMM</td>
+		  <td>Automated</td>
+		  <td>30 min</td>
+		 </tr>
+		 <tr>
+		  <td>RF</td>
+		  <td>Spectrum Analyzer</td>
+		  <td>Automated</td>
+		  <td>4 hrs</td>
+		 </tr>
+		 <tr>
+		  <td>PD</td>
+		  <td>Weights</td>
+		  <td>Manual</td>
+		  <td>15 min</td>
+		 </tr>
+		</table><br><br>
+		<!-- links with descriptions -->
+		<p>"<em><a href="https://www.airforce.com/careers/detail/precision-measurement-equipment-laboratory">
+		PMEL Link</a></em>" More information can be found about military metrology program on the PMEL website.</p>
+		<p>You can follow this link to check out more about Metrology."<em><a href="https://en.wikipedia.org/wiki/Metrology">
+		Metrology</a></em>"</p>
+		<h4>Posts:</h4>
+		{% for post in posts %}
+			<strong>Title:</strong> {{ post.title }} <br>
+			<strong>Post:</strong> {{ post.description }} <br>
+		<br>
+		{% endfor %}
+		<img src="{{ url_for('static', filename='images/SI.jpg')}}", style="left",width="300" height="200"><img src="{{ url_for('static', filename='images/PMEL.png')}}", style="float: right",width="300" height="200">
+		<!-- sets up style for footer -->
+	</body>
+{% endblock %}

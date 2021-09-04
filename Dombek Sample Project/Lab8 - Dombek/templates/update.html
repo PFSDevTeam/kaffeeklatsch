@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block body %}
+<body>
+	<style>
+	  h1 {
+		padding-left: 80px;
+	  }
+      div {
+        margin-bottom: 5px;
+      }
+      label {
+        display: block;
+        float: left;
+        width: 150px;
+        text-align: right;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      input.submit {
+        margin-left: 80px;
+      }
+	</style>
+	<div class="container">
+	<h1>Password Update Form</h1>
+	<form method="POST">
+		<div class="form-group">
+		<div>
+			<label for="username">Username</label>
+			<input type="text" name="username">
+		</div>
+		<div>
+			<label for="oldpassword">Old Password</label>
+			<input type="password" name="oldpassword">
+		</div>
+		<div>
+			<label for="newpassword">New Password</label>
+			<input type="password" name="newpassword">
+		</div>
+		<div>
+			<input type="submit" class="submit" value="Update">
+		</div>
+		{% if feedback %}
+		<p class="text-danger float-center">{{ feedback }}</p>
+		{% endif %}
+		</div>
+	</form><br>
+	</div>
+</body>
+{% endblock %}

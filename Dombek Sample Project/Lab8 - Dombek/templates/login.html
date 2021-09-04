@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block body %}
+<body>
+	<style>
+	  h1 {
+		padding-left: 95px;
+	  }
+	  h5 {
+		padding-left: 179px;
+	  }
+      div {
+        margin-bottom: 2px;
+      }
+      label {
+        display: block;
+        float: left;
+        width: 150px;
+        text-align: right;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      input.submit {
+        margin-left: 110px;
+		margin-right: 30px;
+      }
+	</style>
+	<div class="container">
+	<h1>Please Login</h1>
+	<form method="POST">
+		<div>
+			<label for="username">Username</label>
+			<input type="text" name="username">
+		</div>
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input type="password" name="password">
+		</div>
+		<div>
+		  
+		</div>
+		<div>
+			<input type="submit" class="submit" value="Log In">
+			Update Password  <input type="checkbox" style="padding-left:40px" value="true" name="update">
+		</div>
+		<h5><a class="nav-link" href="/register">Register</a></h5>
+		<br>
+		{% if feedback %}
+		<p class="text-danger float-center">{{ feedback }}</p>
+		{% endif %}
+	</form><br>
+	</div>
+	{% for message in get_flashed_messages() %}
+		{{message}}
+	{% endfor %}
+
+</body>
+{% endblock %}
