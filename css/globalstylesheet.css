@@ -1,0 +1,54 @@
+/*Emily Godwin css styling v1.0*/
+/* to link this globalstylesheet to your html templates: 
+<link rel="stylesheet" type="text/css" href="css/globalstylesheet.css"> in the <head> tag*/
+
+/*page background*/
+pageBackground{
+    color: #E5FFF9
+}
+
+/*header class 
+NUMBERS ARE ARBITRARY AT THIS POINT UNTIL HTML TEMPLATE UPLOAD
+?? color should be background?*/
+headerBar{
+    color: #C3F1FF;
+    padding: 40px;
+    text-align: center;
+    margin:30px;
+    font-size:20px;
+}
+
+/*header image UNSURE ABOUT NUMBERS RIGHT NOW!*/
+headerImage{
+    height: 80px
+}
+
+/*post button*/
+postButton{
+    color: #96E6FF
+}
+
+/*sort buttons*/
+sortingCategories{
+    color: #96E6FF
+}
+
+/*back to top button*/
+backToTop{
+    color: #96E6FF
+}
+
+/*bean*/
+bean{
+    color: #FFD075
+}
+
+/* join button */
+joinButton{
+    color: #818DFF
+}
+
+/*dropdown arrow*/
+menuArrow{
+    color: #818DFF
+}
