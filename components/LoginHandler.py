@@ -3,8 +3,12 @@
 
 import hashlib
 import binascii
+import csv
 
 class LoginHandler:
+
+    users = []
+    FILE_NAME="credentials.csv"
 
     def __init__(self, inputUser, inputPass):
         #assign the local variables
@@ -20,6 +24,9 @@ class LoginHandler:
 
         #compare the username and hashed password against stored values
             #get access list
+        self.read_file(self.FILE_NAME)
+        for user in self.users:
+            print(f'user {user.userIndex} username: {user.loadedUsername}')
         #return result
 
     def hashedPass(self, stringPassword):
@@ -41,4 +48,19 @@ class LoginHandler:
         #return the decoded password
         return decodedPassword
 
+    def read_file(self, fileName):
+        with open(fileName) as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter=',')
+            line_count = 0
+            for row in csv_reader:
+                loadedUser = self.User(loadedUsername = row[0], loadedPassword = row[1], userIndex = line_count)
+                self.users.append(loadedUser)
+                line_count += 1
+
+    
+    class User:
+        def __init__(self, loadedUsername, loadedPassword, userIndex):
+            self.loadedUsername = loadedUsername
+            self.loadedPassword = loadedPassword
+            self.userIndex = userIndex
     # def comparePasswords(retrievedPass, inputPass):
