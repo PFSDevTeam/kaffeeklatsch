@@ -24,12 +24,12 @@ class RegistrationHanlder:
         #if user does not exist, hash the password
         #call  the write function and raise any file exceptions that may come up
 
-    def writeCredentials(username, password):
+    def writeCredentials(self, username, password):
         #TODO: remove pass after implementation
         pass
         #write the username and hashed pass to the file
 
-    def checkForExistingUser(username):
+    def checkForExistingUser(self, username):
         #TODO: remove pass after implementation
         pass
         #check to see if the username exists already, if so raise a user already exists exception
