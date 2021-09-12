@@ -8,6 +8,7 @@ import csv
 
 #custom clases
 from components.Errors import InvalidPasswordError, InvalidUsernameError
+from components.Hasher import Hasher
 
 class LoginHandler:
 
@@ -24,7 +25,7 @@ class LoginHandler:
         #print the username
         print("username: " + userName)
         #hash the password
-        stringHashedPassword = self.hashedPass(password)
+        stringHashedPassword = Hasher.hash(password)
         #print the password
         print(f'hashed password: {stringHashedPassword}')
 
@@ -53,25 +54,6 @@ class LoginHandler:
                 print(f'passwords do not match')
                 raise InvalidPasswordError
                 # return False
-
-    def hashedPass(self, stringPassword):
-            #hash the string password
-        #instantiate hasher
-        hasher = hashlib.sha256()
-        #salt the password with the class number
-        hasher.update(b"495")
-        #create byte array of input password
-        byteArray = bytes(stringPassword, 'utf-8')
-        #hash the input password
-        hasher.update(byteArray)
-        #output the digest of the hashed result
-        hashedPassword = hasher.digest()
-        #translate the hashed password
-        hashedPassResult = binascii.hexlify(hashedPassword)
-        #decode it to string
-        decodedPassword = hashedPassResult.decode()
-        #return the decoded password
-        return decodedPassword
 
     # retrieve the username and pasword from the credentials file
     def read_file(self, fileName):
