@@ -1,25 +1,30 @@
 # on init we're going to accept username and password
 # Login Handler should be created in the form On submit section so as to scope it to pressing the login button
 
+#libraries
 import hashlib
 import binascii
 import csv
+
+#custom clases
+from components.Errors import InvalidPasswordError, InvalidUsernameError
 
 class LoginHandler:
 
     users = []
     FILE_NAME="credentials.csv"
 
-    def __init__(self, inputUser, inputPass):
-        #assign the local variables
-        #convert input  username to lowercase
-        self.userName = inputUser.lower()
-        self.password = inputPass
+    # def __init__(self):
+    #     return None
+
+    def login(self, inputUser, inputPass):
+        userName = inputUser.lower()
+        password = inputPass
 
         #print the username
-        print("username: " + self.userName)
+        print("username: " + userName)
         #hash the password
-        stringHashedPassword = self.hashedPass(self.password)
+        stringHashedPassword = self.hashedPass(password)
         #print the password
         print(f'hashed password: {stringHashedPassword}')
 
@@ -30,14 +35,24 @@ class LoginHandler:
             print(f'user {user.userIndex} username: {user.loadedUsername}')
         #check if the username is present
         foundUser = self.getSelectedUser(inputUser)
-        print(f'found user: {foundUser}')
-        #check to see if the passwords match
-        if (self.comparePasswords(foundUser.loadedPassword, stringHashedPassword)):
-            print(f'passwords match')
-            return None
+        #empty the users array
+        self.users = []
+
+        #if the user is not present, raise invalid username error
+        if (foundUser == None):
+            print('no found user')
+            raise InvalidUsernameError()
         else:
-            print(f'passwords do not match')
-            return None
+            print(f'found user: {foundUser}')
+            #check to see if the passwords match
+            if (self.comparePasswords(foundUser.loadedPassword, stringHashedPassword)):
+                print(f'passwords match')
+                return True
+            else:
+                #if the passwords do not match, raise invalid password error
+                print(f'passwords do not match')
+                raise InvalidPasswordError
+                # return False
 
     def hashedPass(self, stringPassword):
             #hash the string password
