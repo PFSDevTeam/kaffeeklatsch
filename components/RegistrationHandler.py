@@ -33,9 +33,6 @@ class RegistrationHanlder:
 
         #TODO: remove pass after implementation
         #driver function for the rest of the functions
-        #check if user name already exists, if so, throw error 
-        #if user does not exist, hash the password
-        #call  the write function and raise any file exceptions that may come up
 
     def read_file(self, fileName):
         with open(fileName) as csv_file:
