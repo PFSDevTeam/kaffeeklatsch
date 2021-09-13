@@ -1,7 +1,7 @@
 from flask import Flask, render_template, flash, redirect, url_for, request
 
 from components.LoginHandler import LoginHandler
-from utilities.Errors import InvalidUsernameError, InvalidPasswordError, UserNotFoundError
+from utilities.Errors import InvalidUsernameError, InvalidPasswordError, UserAlreadyExistsError, UserNotFoundError
 from components.RegistrationHandler import RegistrationHanlder
 
 app = Flask(__name__)
@@ -24,9 +24,12 @@ def hello():
     print(err)
 
   #MORE TESTING
-  # regHandler = RegistrationHanlder()
-  # validReg = regHandler.register("scuba", "steven")
-  # print(f'valid registration: {validReg}')
+  regHandler = RegistrationHanlder()
+  try:
+    regHandler.register("steve", "scuba")
+    regHandler.register("scuba", "steven")
+  except UserAlreadyExistsError as err:
+    print(err)
 
   #render the html template 
   return render_template('index.html')
