@@ -1,0 +1,41 @@
+/* File: registrationstylesheet.css
+    @author: Geoff Floding, Emily Godwin
+    Description: This file contains the registration style sheet*/
+
+/*button to direct to login screen*/
+.button {
+    float: right;
+    margin-top: 25px;
+    margin-right: 40px;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #818DFF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: white;
+}
+
+/*container for form*/
+.container {
+    display: block;
+    float: center;
+    width: 375px;
+    text-align: left;
+    font-size: medium;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-left: 36%;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+
+/*submit and reset form*/
+.submit, .reset {
+    height: 40px;
+    width: 150px;
+    border-radius: 8px;
+    background-color: #818DFF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: white;
+}
