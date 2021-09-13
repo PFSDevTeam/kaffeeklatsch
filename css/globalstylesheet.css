@@ -1,0 +1,67 @@
+.header {
+    background-color: #C3F1FF;
+    font-size: 50px;
+    text-align: right;
+	height:95px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.logo {
+    width: 120px;
+    margin-top: 0px;
+    float: left;
+}
+
+.button {
+    float: right;
+    margin-top: 25px;
+    margin-right: 40px;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #818DFF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    /*font-weight: bold;*/
+    font-size: medium;
+    color: white;
+}
+
+.page {
+    margin: 0px;
+    height: 100vh;
+    padding-top: 100px;
+    background-color: #E5FFF9
+}
+
+.container {
+    display: block;
+    float: center;
+    width: 375px;
+    text-align: left;
+    font-size: medium;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-left: 36%;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+
+.un {
+    margin-bottom: 10px;
+}
+
+.pw {
+    margin-bottom: 20px;
+}
+
+
+.submit, .reset {
+    height: 40px;
+    width: 150px;
+    border-radius: 8px;
+    background-color: #818DFF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: white;
+}
+
