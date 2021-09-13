@@ -1,7 +1,8 @@
 from flask import Flask, render_template, flash, redirect, url_for, request
 
 from components.LoginHandler import LoginHandler
-from components.Errors import InvalidUsernameError, InvalidPasswordError
+from utilities.Errors import InvalidUsernameError, InvalidPasswordError, UserNotFoundError
+from components.RegistrationHandler import RegistrationHanlder
 
 app = Flask(__name__)
 
@@ -19,6 +20,13 @@ def hello():
     print(err)
   except InvalidPasswordError as err:
     print(err)
+  except UserNotFoundError as err:
+    print(err)
+
+  #MORE TESTING
+  # regHandler = RegistrationHanlder()
+  # validReg = regHandler.register("scuba", "steven")
+  # print(f'valid registration: {validReg}')
 
   #render the html template 
   return render_template('index.html')
