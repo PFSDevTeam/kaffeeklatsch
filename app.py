@@ -3,15 +3,20 @@ from flask import Flask, render_template, flash, redirect, url_for, request
 from components.LoginHandler import LoginHandler
 from utilities.Errors import InvalidUsernameError, InvalidPasswordError, UserAlreadyExistsError, UserNotFoundError
 from components.RegistrationHandler import RegistrationHanlder
+from forms.LoginForm import LoginForm
 
 app = Flask(__name__)
 
 ##FLASK APP HELLO WORLD
 
+#randomly generated secret key I may use for something later
+app.config['SECRET_KEY'] = '31271d66321b32a7f3e9ad4c27106e85'
+
 @app.route("/")
 def hello():
   #ADDED FOR TESTING
   loginHandler = LoginHandler()
+  form = LoginForm()
   try:
     #NOTE: At this point the validLogin function either raises an error or returns true, consider removing boolean return
     validLogin = loginHandler.login("steve", "scuba")
@@ -32,7 +37,7 @@ def hello():
     print(err)
 
   #render the html template 
-  return render_template('login.html')
+  return render_template('login.html', form=form)
 
 if __name__ == "__main__":
   app.run()
