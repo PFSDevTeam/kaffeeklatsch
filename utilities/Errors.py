@@ -23,6 +23,13 @@ class UserAlreadyExistsError(Error):
     def __init__(self):
         super().__init__(self.DEFAULT_MESSAGE)
 
+class UserNotFoundError(Error):
+    #user not found
+    DEFAULT_MESSAGE = "Error: user not found"
+
+    def __init__(self):
+        super().__init__(self.DEFAULT_MESSAGE)
+
 class PasswordsDoNotMatch(Error):
     #passwords do not math
     DEFAULT_MESSAGE = "Error: The passwords you entered do not match"
