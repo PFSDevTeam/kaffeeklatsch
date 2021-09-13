@@ -1,0 +1,52 @@
+/* File: loginstylesheet.css
+    @author: Ryan Dombek, Emily Godwin
+    Description: This file contains the login style sheet*/
+
+/*button to redirect to registration screen*/
+.button {
+    float: right;
+    margin-top: 25px;
+    margin-right: 40px;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #818DFF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: white;
+}
+
+
+/*container for form*/
+.container {
+    display: block;
+    float: center;
+    width: 375px;
+    text-align: left;
+    font-size: medium;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-left: 36%;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+
+/*username*/
+.un {
+    margin-bottom: 10px;
+}
+
+/*password*/
+.pw {
+    margin-bottom: 20px;
+}
+
+/*submit and reset form*/
+.submit, .reset {
+    height: 40px;
+    width: 150px;
+    border-radius: 8px;
+    background-color: #818DFF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: white;
+}
