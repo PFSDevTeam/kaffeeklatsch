@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaffeeklatsch</title>
-    <link rel="stylesheet" href="/css/globalstylesheet.css">
-    <link rel="stylesheet 2" href="/css/loginstylesheet.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/globalstylesheet.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loginstylesheet.css') }}">
 </head>
 <body>
     <!--Header Section--> 
     <div class="header">
         <h1 class="logo">
-            <img class="logo" src="/Assets/imagefiles/logo sample v2.png" alt="">
+            <img class="logo" src="{{ url_for('static', filename='assets/imagefiles/logo_sample_v2.png') }}" alt="">
         </h1> 
         <button class="button" style="float: right;">sign up</button>
     </div>
