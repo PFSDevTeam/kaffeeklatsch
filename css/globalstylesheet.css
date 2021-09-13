@@ -1,54 +1,66 @@
-/*Emily Godwin css styling v1.0*/
-/* to link this globalstylesheet to your html templates: 
-<link rel="stylesheet" type="text/css" href="css/globalstylesheet.css"> in the <head> tag*/
-
-/*page background*/
-pageBackground{
-    color: #E5FFF9
+.header {
+    background-color: #C3F1FF;
+    font-size: 50px;
+    text-align: right;
+	height:95px;
+    padding-left: 10px;
+    padding-top: 10px;
 }
 
-/*header class 
-NUMBERS ARE ARBITRARY AT THIS POINT UNTIL HTML TEMPLATE UPLOAD
-?? color should be background?*/
-headerBar{
-    color: #C3F1FF;
-    padding: 40px;
-    text-align: center;
-    margin:30px;
-    font-size:20px;
+.logo {
+    width: 120px;
+    margin-top: 0px;
+    float: left;
 }
 
-/*header image UNSURE ABOUT NUMBERS RIGHT NOW!*/
-headerImage{
-    height: 80px
+.button {
+    float: right;
+    margin-top: 25px;
+    margin-right: 40px;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #818DFF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    /*font-weight: bold;*/
+    font-size: medium;
+    color: white;
 }
 
-/*post button*/
-postButton{
-    color: #96E6FF
+.page {
+    margin: 0px;
+    height: 100vh;
+    padding-top: 100px;
+    background-color: #E5FFF9
 }
 
-/*sort buttons*/
-sortingCategories{
-    color: #96E6FF
+.container {
+    display: block;
+    float: center;
+    width: 375px;
+    text-align: left;
+    font-size: medium;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-left: 36%;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
 }
 
-/*back to top button*/
-backToTop{
-    color: #96E6FF
+.un {
+    margin-bottom: 10px;
 }
 
-/*bean*/
-bean{
-    color: #FFD075
+.pw {
+    margin-bottom: 20px;
 }
 
-/* join button */
-joinButton{
-    color: #818DFF
-}
 
-/*dropdown arrow*/
-menuArrow{
-    color: #818DFF
+.submit, .reset {
+    height: 40px;
+    width: 150px;
+    border-radius: 8px;
+    background-color: #818DFF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: white;
 }
