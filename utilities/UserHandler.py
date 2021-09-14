@@ -1,7 +1,6 @@
 # the user handler class handles the repetative functions for the Login and registration functions
 
 #libraries
-import csv
 import sqlite3
 from utilities.Errors import UserNotFoundError
 
