@@ -24,12 +24,12 @@ def hello():
     print(err)
 
   #MORE TESTING
-  regHandler = RegistrationHanlder()
-  try:
-    regHandler.register("steve", "scuba")
-    regHandler.register("scuba", "steven")
-  except UserAlreadyExistsError as err:
-    print(err)
+  # regHandler = RegistrationHanlder()
+  # try:
+  #   regHandler.register("steve", "scuba")
+  #   regHandler.register("scuba", "steven")
+  # except UserAlreadyExistsError as err:
+  #   print(err)
 
   #render the html template 
   return render_template('login.html')
