@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaffeeklatsch</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/globalstylesheet.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/loginstylesheet.css') }}">
-</head>
-<body>
-    <!--Header Section--> 
-    <div class="header">
-        <h1 class="logo">
-            <img class="logo" src="{{ url_for('static', filename='assets/imagefiles/logo_sample_v2.png') }}" alt="">
-        </h1> 
-        <button class="button" style="float: right;">sign up</button>
-    </div>
+<!--extend base-->
+{% extends 'base.html' %}
+
+{% block body %}
 
     <!--Page Section-->
     <div class="page">
@@ -73,5 +59,4 @@
             </div>
         </body>
     </div>
-</body>
-</html>
+{% endblock %}

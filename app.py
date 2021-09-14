@@ -12,7 +12,7 @@ app = Flask(__name__)
 #randomly generated secret key I may use for something later
 app.config['SECRET_KEY'] = '31271d66321b32a7f3e9ad4c27106e85'
 
-@app.route("/")
+@app.route("/", methods=['POST'])
 def hello():
   #ADDED FOR TESTING
   loginHandler = LoginHandler()
@@ -35,6 +35,14 @@ def hello():
     regHandler.register("scuba", "steven")
   except UserAlreadyExistsError as err:
     print(err)
+
+  #LOGIN IMPLEMENTATION BEGINS
+  if form.validate_on_submit():
+        print("form input is validated")
+        inputUsername = form.username
+  else:
+        print("form input is incorrect")
+
 
   #render the html template 
   return render_template('login.html', form=form)
