@@ -2,8 +2,9 @@ from flask import Flask, render_template, flash, redirect, url_for, request
 
 from components.LoginHandler import LoginHandler
 from utilities.Errors import InvalidUsernameError, InvalidPasswordError, UserAlreadyExistsError, UserNotFoundError
-from components.RegistrationHandler import RegistrationHanlder
+from components.RegistrationHandler import RegistrationHandler
 from forms.LoginForm import LoginForm
+
 
 app = Flask(__name__)
 
@@ -14,12 +15,14 @@ app.config['SECRET_KEY'] = '31271d66321b32a7f3e9ad4c27106e85'
 
 @app.route("/", methods=['POST'])
 def hello():
-  #ADDED FOR TESTING
+  #LOGIN TESTING
   loginHandler = LoginHandler()
   form = LoginForm()
   try:
     #NOTE: At this point the validLogin function either raises an error or returns true, consider removing boolean return
     validLogin = loginHandler.login("steve", "scuba")
+    # validLogin = loginHandler.login("scuba", "steven")
+    # validLogin = loginHandler.login("jeff", "guy")
     print(f'valid login: ' + str(validLogin))
   except InvalidUsernameError as err:
     print(err)
@@ -28,13 +31,15 @@ def hello():
   except UserNotFoundError as err:
     print(err)
 
-  #MORE TESTING
-  regHandler = RegistrationHanlder()
-  try:
-    regHandler.register("steve", "scuba")
-    regHandler.register("scuba", "steven")
-  except UserAlreadyExistsError as err:
-    print(err)
+  #REGISTRATION TESTING
+  # regHandler = RegistrationHandler()
+  # try:
+  #   # regHandler.register("steve", "scuba")
+  #   regHandler.register("scuba", "steven")
+  #   # regHandler.register("jeff", "guy")
+  #   print('registered')
+  # except UserAlreadyExistsError as err:
+  #   print(err)
 
   #LOGIN IMPLEMENTATION BEGINS
   if form.validate_on_submit():
