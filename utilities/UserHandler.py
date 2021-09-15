@@ -11,10 +11,11 @@ class UserHandler:
 
     FILE_NAME="credentials.csv"
 
-    #DB Creation
+    #DB Creation (uncomment when needed)
     # user_db = sqlite3.connect('db_files/users.db')
     # db_cursor = user_db.cursor()
     # db_cursor.execute("CREATE TABLE users (username TEXT NOT NULL PRIMARY KEY, password TEXT NOT NULL)")
+    # #sample data
     # db_cursor.execute("INSERT INTO users VALUES ('steve', '432c19c7ecdc9ef6884d01b21bd306ddd4b21d4ee139f10358cf5c1b7f113904')")
     # user_db.commit()
     # db_cursor.execute("SELECT * FROM users")
@@ -54,7 +55,6 @@ class UserHandler:
                 #user was not found
                 return None
     
-
     @classmethod
     def getUser(cls, username):
         #check if the username is present
@@ -73,7 +73,7 @@ class UserHandler:
             db_cursor = user_db.cursor()
             with user_db:
                 try:
-                    db_cursor.execute("INSERT INTO users VALUES ('%s', '%s')" % (username, password))
+                    db_cursor.execute("INSERT INTO users VALUES (:username, :pass)", {'username': username, 'pass': password})
                     return True
                 except:
                     return False

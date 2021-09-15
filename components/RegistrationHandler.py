@@ -22,16 +22,8 @@ class RegistrationHandler:
         stringHashedPassword = Hasher.hash(self.password)
         #if user is not found add username & hashed password
         if not (UserHandler.checkUserExists(self.username)):
-            #if user does not already exist, do studd
-            # self.writeCredentials(self.username, stringHashedPassword)
+            #if user does not already exist, insert into db
             UserHandler.insertUser(self.username, stringHashedPassword)
         else:
             #if user exists, raise error
             raise UserAlreadyExistsError
-
-#"""     def writeCredentials(self, username, password):
-#        #write the username and hashed pass to the file
-#        with open(self.FILE_NAME, mode='a', newline='') as userFiles:
-#            credential_writer = csv.writer(userFiles)
-#            credential_writer.writerow([username, password])
-#            userFiles.close() """
