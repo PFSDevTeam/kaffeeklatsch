@@ -28,9 +28,13 @@ class RegistrationHanlder:
             #if user exists, raise error
             raise UserAlreadyExistsError
 
-    def writeCredentials(self, username, password):
+"""     def writeCredentials(self, username, password):
         #write the username and hashed pass to the file
         with open(self.FILE_NAME, mode='a', newline='') as userFiles:
             credential_writer = csv.writer(userFiles)
             credential_writer.writerow([username, password])
-            userFiles.close()
+            userFiles.close() """
+    
+    # version of writeCedentials to use the DB
+    def writeCredentials(self, username, password):
+        
