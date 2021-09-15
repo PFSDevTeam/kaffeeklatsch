@@ -15,3 +15,4 @@ class LoginForm(FlaskForm):
                             Regexp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,64})', message="Password must contain 1 lower and upper case letter, number and a special character") )
     confirm = PasswordField('Repeat Password')
     submit = SubmitField('login')
+    
