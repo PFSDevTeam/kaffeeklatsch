@@ -2,7 +2,7 @@ from flask import Flask, render_template, flash, redirect, url_for, request
 
 from components.LoginHandler import LoginHandler
 from utilities.Errors import InvalidUsernameError, InvalidPasswordError, UserAlreadyExistsError, UserNotFoundError
-from components.RegistrationHandler import RegistrationHanlder
+from components.RegistrationHandler import RegistrationHandler
 
 app = Flask(__name__)
 

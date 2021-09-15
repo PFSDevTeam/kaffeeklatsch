@@ -53,6 +53,7 @@ class UserHandler:
             else:
                 #user was not found
                 return None
+    
 
     @classmethod
     def getUser(cls, username):
@@ -64,3 +65,15 @@ class UserHandler:
             return foundUser
         else:
             raise UserNotFoundError
+
+    #insert a new user into the database
+    @classmethod
+    def insertUser(cls, username, password):
+            user_db = sqlite3.connect("db_files/users.db")
+            db_cursor = user_db.cursor()
+            with user_db:
+                try:
+                    db_cursor.execute("INSERT INTO users VALUES ('%s', '%s')" % (username, password))
+                    return True
+                except:
+                    return False
