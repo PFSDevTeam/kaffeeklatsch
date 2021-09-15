@@ -13,7 +13,7 @@ app = Flask(__name__)
 #randomly generated secret key I may use for something later
 app.config['SECRET_KEY'] = '31271d66321b32a7f3e9ad4c27106e85'
 
-@app.route("/", methods=['POST'])
+@app.route("/", methods=['GET','POST'])
 def hello():
   #LOGIN TESTING
   loginHandler = LoginHandler()
