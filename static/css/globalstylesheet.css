@@ -2,6 +2,9 @@
     @author: Ryan Dombek, Emily Godwin
     Description: This file contains the global style sheet*/
 
+body {
+    background-color: #E5FFF9
+}
 /*header*/
 .header {
     background-color: #C3F1FF;
@@ -24,5 +27,4 @@
     margin: 0px;
     height: 100vh;
     padding-top: 100px;
-    background-color: #E5FFF9
 }
