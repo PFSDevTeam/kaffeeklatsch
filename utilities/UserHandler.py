@@ -70,15 +70,11 @@ class UserHandler:
     #insert a new user into the database
     @classmethod
     def insertUser(cls, username, password):
-        
-        #check if the username is present
-        foundUser = cls.__getSelectedUser(username)
-        if (foundUser !=  None):
-            raise UserAlreadyExistsError
-        
-        else:        
-            #db commection
             user_db = sqlite3.connect("db_files/users.db")
             db_cursor = user_db.cursor()
             with user_db:
-                db_cursor.execute("INSERT INTO users VALUES (username=:username, password=:password)", {'username': username, 'password': password})
+                try:
+                    db_cursor.execute("INSERT INTO users VALUES ('%s', '%s')" % (username, password))
+                    return True
+                except:
+                    return False
