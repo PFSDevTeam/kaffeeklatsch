@@ -10,11 +10,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-  #ADDED FOR TESTING
+  #LOGIN TESTING
   loginHandler = LoginHandler()
   try:
     #NOTE: At this point the validLogin function either raises an error or returns true, consider removing boolean return
     validLogin = loginHandler.login("steve", "scuba")
+    # validLogin = loginHandler.login("scuba", "steven")
+    # validLogin = loginHandler.login("jeff", "guy")
     print(f'valid login: ' + str(validLogin))
   except InvalidUsernameError as err:
     print(err)
@@ -23,11 +25,13 @@ def hello():
   except UserNotFoundError as err:
     print(err)
 
-  #MORE TESTING
-  # regHandler = RegistrationHanlder()
+  #REGISTRATION TESTING
+  # regHandler = RegistrationHandler()
   # try:
-  #   regHandler.register("steve", "scuba")
+  #   # regHandler.register("steve", "scuba")
   #   regHandler.register("scuba", "steven")
+  #   # regHandler.register("jeff", "guy")
+  #   print('registered')
   # except UserAlreadyExistsError as err:
   #   print(err)
 
