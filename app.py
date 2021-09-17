@@ -2,8 +2,11 @@ from flask import Flask, render_template, flash, redirect, url_for, request
 
 from components.LoginHandler import LoginHandler
 from utilities.Errors import InvalidUsernameError, InvalidPasswordError, UserAlreadyExistsError, UserNotFoundError
-from components.RegistrationHandler import RegistrationHandler
 from forms.LoginForm import LoginForm
+
+# Adding imports for the registration page
+from components.RegistrationHandler import RegistrationHandler
+from forms.RegistrationForm import RegistrationForm
 
 
 app = Flask(__name__)
@@ -51,6 +54,15 @@ def hello():
 
   #render the html template 
   return render_template('login.html', form=form)
+
+
+# Here we create the route for the registration page
+@app.route('/register.html', methods=['GET','POST'])
+def register():
+  registrationHandler = RegistrationHandler()
+  registrationForm = RegistrationForm()
+  return render_template('register.html', form=registrationForm)
+
 
 if __name__ == "__main__":
   app.run()
