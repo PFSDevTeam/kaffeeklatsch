@@ -1,13 +1,29 @@
 <!--extend base-->
 {% extends 'base.html' %}
-{% import 'make_post.html' as post %}
+{% import 'make_post.html' as postTemplate %}
+
+{% block search %}
+    <!--search bar goes here-->
+    <div style="text-align: left; display: inline; float: left;" >search block goes here</div>
+{% endblock %} 
 
 {% block body %}
     <div class="page">
         <body>
-            <form method="POST">
-                {{ post.post(postTest) }}
-            </form>
+            <!--left block-->
+            <div>
+                <!--float the post form at the top-->
+                <form method="POST">
+                    {{ postTemplate.make_post(postForm) }}
+                </form>
+                <!--display the available posts below-->
+                <!--post loop-->
+                    <!--post macros pulled in-->
+            </div>
+            <!--right block-->
+            <div>
+                <!--community component goes here-->
+            </div>
         </body>
     </div>
 {% endblock %}

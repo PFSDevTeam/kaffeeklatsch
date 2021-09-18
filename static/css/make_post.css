@@ -1,0 +1,10 @@
+.make-post-wrapper {
+    display: inline-block;
+    background-color: orange;
+    width: 100%;
+    text-align: center;
+}
+
+#postContent{
+    background-color: green;
+}

@@ -70,7 +70,7 @@ def register():
 @app.route('/feed')
 def feed():
   postForm = PostForm()
-  return render_template('feed.html', postTest=postForm)
+  return render_template('feed.html', postForm=postForm)
 
 
 if __name__ == "__main__":
