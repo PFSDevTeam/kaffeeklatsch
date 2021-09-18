@@ -1,3 +1,4 @@
+from forms.PostForm import PostForm
 from flask import Flask, render_template, flash, redirect, url_for, request
 
 from components.LoginHandler import LoginHandler
@@ -7,6 +8,9 @@ from forms.LoginForm import LoginForm
 # Adding imports for the registration page
 from components.RegistrationHandler import RegistrationHandler
 from forms.RegistrationForm import RegistrationForm
+
+#post imports
+from forms.PostForm import PostForm
 
 
 app = Flask(__name__)
@@ -62,6 +66,11 @@ def register():
   registrationHandler = RegistrationHandler()
   registrationForm = RegistrationForm()
   return render_template('register.html', form=registrationForm)
+
+@app.route('/feed')
+def feed():
+  postForm = PostForm()
+  return render_template('feed.html', postTest=postForm)
 
 
 if __name__ == "__main__":

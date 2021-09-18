@@ -1,0 +1,13 @@
+<!--extend base-->
+{% extends 'base.html' %}
+{% import 'make_post.html' as post %}
+
+{% block body %}
+    <div class="page">
+        <body>
+            <form method="POST">
+                {{ post.post(postTest) }}
+            </form>
+        </body>
+    </div>
+{% endblock %}

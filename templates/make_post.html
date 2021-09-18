@@ -1,0 +1,7 @@
+{% macro post(postTest) %}
+    <div>
+        {{ postTest.postContent.label() }}
+        {{ postTest.postContent() }}
+        {{ postTest.post() }}
+    </div>
+{% endmacro %}
