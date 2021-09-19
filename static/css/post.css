@@ -1,0 +1,59 @@
+.make-something-wrapper {
+    display: inline-block;
+    background-color: lightslategray;
+    width: 70%;
+    text-align: center;
+}
+
+#ownerContent {
+    width: 30%;
+    float: left;
+    margin-left: 10%;
+    /* margin-top: 5px; */
+    text-align: left;
+    background-color: purple;
+}
+
+#communityInfo {
+    width: 30%;
+    float: left;
+    margin-left: 2%;
+    /* margin-top: 5px; */
+    border-radius: 8px;
+    background-color: lime;
+}
+
+#userInfo {
+    width: 10%;
+    float: right;
+    /* margin-top: 5px; */
+    margin-right: 40px;
+    background-color: chocolate;
+}
+
+#postTitle {
+    width: 60%;
+    height: 100px;
+    float: left;
+    margin-left: 10%;
+    background-color: plum;
+}
+
+#replyContent {
+    width: 60%;
+    float: left;
+    margin-left: 10%;
+    background-color: orange;
+}
+
+#post {
+    float: right;
+    margin-right: 40px;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #818DFF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: white;
+}

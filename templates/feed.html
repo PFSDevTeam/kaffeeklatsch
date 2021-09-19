@@ -1,29 +1,34 @@
 <!--extend base-->
-{% extends 'base.html' %}
-{% import 'make_post.html' as postTemplate %}
+{% extends 'base.html' %} {% import 'make_post.html' as postTemplate %} {% import 'post.html' as replyTemplate %} {% block search %}
+<!--search bar goes here-->
+<div class="input-group">
+    <div class="form-outline" style="float: left;">
+        <input id="search-input" type="search" id="form1" class="form-control" />
+        <label class="form-label" for="form1" style=" font-size: medium;">Search</label>
+    </div>
+    <button id="search-button" type="button" class="btn btn-primary" style="float: left; width: 25px; height: 25px;">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+{% endblock %} {% block body %}
+<div class="page">
 
-{% block search %}
-    <!--search bar goes here-->
-    <div style="text-align: left; display: inline; float: left;" >search block goes here</div>
-{% endblock %} 
-
-{% block body %}
-    <div class="page">
-        <body>
-            <!--left block-->
-            <div>
-                <!--float the post form at the top-->
-                <form method="POST">
-                    {{ postTemplate.make_post(postForm) }}
-                </form>
-                <!--display the available posts below-->
-                <!--post loop-->
-                    <!--post macros pulled in-->
-            </div>
+    <body>
+        <!--left block-->
+        <div>
+            <!--float the post form at the top-->
+            <form method="POST">
+                {{ postTemplate.make_post(postForm) }}
+                <br></br>
+                {{ replyTemplate.post(replyForm) }}
+            </form>
+            <!--display the available posts below-->
+            <!--post loop-->
+            <!--post macros pulled in-->
             <!--right block-->
             <div>
                 <!--community component goes here-->
             </div>
-        </body>
+    </body>
     </div>
-{% endblock %}
+    {% endblock %}

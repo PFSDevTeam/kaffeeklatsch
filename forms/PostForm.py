@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 
 class PostForm(FlaskForm):
-    postContent = StringField('post content')
+    x = 'post content'
+    postContent = StringField(x)
     post = SubmitField('post')
     
