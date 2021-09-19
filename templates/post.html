@@ -1,8 +1,10 @@
 {% macro post(replyForm) %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}" />
 <div class="make-something-wrapper">
-    {{ replyForm.ownerContent.label }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{replyForm.communityInfo.label}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ replyForm.userInfo.label}} <br> {{ replyForm.ownerContent(class="onwer-content")
-    }} {{ replyForm.communityInfo(class="community-content") }} {{ replyForm.userInfo(class="user-content") }} <br><br><br> {{ replyForm.postTitle(class="post-content") }} <br><br><br>{{ replyForm.replyContent(class="reply-content") }}{{ replyForm.post()
-    }}
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{ replyForm.ownerContent.label }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{replyForm.communityInfo.label}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{
+    replyForm.userInfo.label}} <br> {{ replyForm.ownerContent(class="onwer-content") }} {{ replyForm.communityInfo(class="community-content") }} {{ replyForm.userInfo(class="user-content") }} <br><br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    {{ replyForm.postTitle.label }} <br> {{ replyForm.postTitle(class="post-content") }} <br><br><br><br><br>
+    </br>
+    </br> {{ replyForm.replyContent(class="reply-content") }} {{ replyForm.post() }}
 </div>
 {% endmacro %}
