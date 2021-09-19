@@ -1,12 +1,14 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField
 
-community = 'Community Name'
 class ReplyForm(FlaskForm):
-    ownerContent = TextAreaField('Owner Name')
-    post = SubmitField('post')
-    communityInfo = TextAreaField(community)
-    userInfo = TextAreaField('User Info')
-    postTitle = TextAreaField('Post Title')
-    replyContent = StringField('Reply Content')
     
+    post = SubmitField('Reply')
+    ownerName = StringField('John Doe')
+    communityInfo = StringField('Community Name')
+    userInfo = StringField('User Info')
+    postTitle = StringField('Post Title')
+    ownerContent = StringField('All of the news..')
+    replyContent = StringField('Reply Content')
+    upArrow = SubmitField('Amazing')
+    downArrow = SubmitField('Mediocre')

@@ -1,10 +1,18 @@
 {% macro post(replyForm) %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}" />
 <div class="make-something-wrapper">
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{ replyForm.ownerContent.label }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{replyForm.communityInfo.label}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{
-    replyForm.userInfo.label}} <br> {{ replyForm.ownerContent(class="onwer-content") }} {{ replyForm.communityInfo(class="community-content") }} {{ replyForm.userInfo(class="user-content") }} <br><br> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    {{ replyForm.postTitle.label }} <br> {{ replyForm.postTitle(class="post-content") }} <br><br><br><br><br>
-    </br>
-    </br> {{ replyForm.replyContent(class="reply-content") }} {{ replyForm.post() }}
+    
+    
+    {{ replyForm.ownerName(class="owner-name") }}
+    {{ replyForm.ownerContent(class="owner-content") }} 
+    {{ replyForm.communityInfo(class="community-content") }} 
+    {{ replyForm.userInfo(class="user-content") }} 
+    {{ replyForm.postTitle(class="post-content") }} 
+    {{ replyForm.replyContent(class="reply-content") }} 
+    {{ replyForm.post() }}
+
+    {{ replyForm.upArrow() }}
+    {{ replyForm.downArrow() }}
 </div>
+
 {% endmacro %}

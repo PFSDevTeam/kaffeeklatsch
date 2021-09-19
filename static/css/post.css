@@ -1,62 +1,102 @@
 .make-something-wrapper {
     display: inline-block;
     background-color: lightslategray;
-    width: 70%;
-    text-align: left;
-}
+    top: 280px;
+    width: 850px;
+    height: 320px;
+    }
 
-#ownerContent {
-    width: 30%;
-    float: left;
-    margin-left: 10%;
-    /* margin-top: 5px; */
+#ownerName {
+    width: 200px;
+    position: absolute;
+    top: 300px;
+    left: 150px;
     border-radius: 8px;
     text-align: left;
-    background-color: purple;
+    background-color: gainsboro;
 }
 
 #communityInfo {
-    width: 30%;
-    float: left;
-    margin-left: 2%;
-    /* margin-top: 5px; */
+    width: 200px;
+    position: absolute;
+    top: 300px;
+    left: 370px;
     border-radius: 8px;
-    background-color: lime;
+    background-color: gainsboro;
 }
 
 #userInfo {
-    width: 10%;
-    height: 40px;
-    float: right;
-    /* margin-top: 5px; */
-    margin-right: 40px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 300px;
+    left: 700px;
     border-radius: 8px;
-    background-color: chocolate;
+    background-color: gainsboro;
 }
 
 #postTitle {
-    width: 60%;
-    height: 100px;
-    float: left;
-    margin-left: 10%;
+    width: 500px;
+    height: 30px;
+    position: absolute;
+    top: 350px;
+    left: 150px;
     border-radius: 8px;
-    background-color: plum;
+    background-color: gainsboro;
+}
+
+#ownerContent {
+    width: 500px;
+    height: 100px;
+    position: absolute;
+    top: 400px;
+    left: 150px;
+    background-color: gainsboro;
 }
 
 #replyContent {
-    width: 60%;
-    float: left;
-    margin-left: 10%;
-    background-color: orange;
+    width: 500px;
+    height: 30px;
+    position: absolute;
+    top: 520px;
+    left: 150px;
+    background-color: gainsboro;
 }
 
 #post {
-    float: right;
-    margin-right: 40px;
-    width: 150px;
-    height: 40px;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: 520px;
+    left: 670px;
     border-radius: 8px;
     background-color: #818DFF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: white;
+}
+
+#upArrow {
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    top: 420px;
+    left: 60px;
+    border-radius: 8px;
+    background-color: #6259df;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: white;
+}
+
+#downArrow{
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    top: 460px;
+    left: 60px;
+    border-radius: 8px;
+    background-color: #6259df;
     font-family: "Helvetica Neue", "Arial", sans-serif;
     font-size: medium;
     color: white;
