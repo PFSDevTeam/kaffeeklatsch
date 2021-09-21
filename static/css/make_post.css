@@ -1,10 +1,49 @@
 .make-post-wrapper {
     display: inline-block;
-    background-color: orange;
-    width: 100%;
-    text-align: center;
+    background-color: lightslategray;
+    width: 950px;
+    height: 50px;
 }
 
 #postContent {
-    background-color: green;
+    left: 20px;
+}
+
+#popularity {
+    width: 100px;
+    height: 25px;
+    position: absolute;
+    top: 225px;
+    left: 250px;
+    border-radius: 8px;
+    background-color: #818DFF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: white;
+}
+
+#recent {
+    width: 100px;
+    height: 25px;
+    position: absolute;
+    top: 225px;
+    left: 400px;
+    border-radius: 8px;
+    background-color: #818DFF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: white;
+}
+
+#bean {
+    width: 100px;
+    height: 25px;
+    position: absolute;
+    top: 225px;
+    left: 550px;
+    border-radius: 8px;
+    background-color: #818DFF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: white;
 }

@@ -3,12 +3,8 @@
 <!--search bar goes here-->
 <div class="input-group">
     <div class="form-outline" style="float: left;">
-        <input id="search-input" type="search" id="form1" class="form-control" />
-        <label class="form-label" for="form1" style=" font-size: medium;">Search</label>
+        <input id="search-input" type="search" id="form1" class="form-control" style="position: absolute; top: 50px; left: 450px; width: 300px;" />
     </div>
-    <button id="search-button" type="button" class="btn btn-primary" style="float: left; width: 25px; height: 25px;">
-    <i class="fas fa-search"></i>
-  </button>
 </div>
 {% endblock %} {% block body %}
 <div class="page">
@@ -18,9 +14,7 @@
         <div>
             <!--float the post form at the top-->
             <form method="POST">
-                {{ postTemplate.make_post(postForm) }}
-                <br></br>
-                {{ replyTemplate.post(replyForm) }}
+                {{ postTemplate.make_post(postForm) }} <br></br> {{ replyTemplate.post(replyForm) }}
             </form>
             <!--display the available posts below-->
             <!--post loop-->
