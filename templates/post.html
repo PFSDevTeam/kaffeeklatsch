@@ -1,11 +1,33 @@
 {% macro post(replyForm) %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}" />
-<div class="make-something-wrapper">
+<div class="post-wrapper">
+
+    <!--left panel : up and down buttons-->
+    <div class="vote-panel">
+        {{ replyForm.upArrow() }} 
+        {{ replyForm.downArrow() }}
+    </div>
+    <!--right panel: post content-->
+    <div class="post-panel">
+        <div class="post-panel__top-line">
+            {{ replyForm.ownerName(class="owner-name") }} 
+            {{ replyForm.communityInfo(class="community-content") }} 
+            {{ replyForm.like() }}
+        </div>
+        <div class="post-panel__title-line">
+            {{ replyForm.postTitle(class="post-content") }} 
+        </div>
+        <div class="post-panel__post-content">
+            {{ replyForm.ownerContent(class="owner-content") }} 
+        </div>
+        <div class="post-panel__reply-line">
+            {{ replyForm.replyContent(class="reply-content") }} 
+            {{ replyForm.post() }} 
+        </div>
+    </div>
 
 
-    {{ replyForm.ownerName(class="owner-name") }} {{ replyForm.ownerContent(class="owner-content") }} {{ replyForm.communityInfo(class="community-content") }} {{ replyForm.like() }}
-    <!-- {{ replyForm.userInfo(class="user-content") }}  -->
-    {{ replyForm.postTitle(class="post-content") }} {{ replyForm.replyContent(class="reply-content") }} {{ replyForm.post() }} {{ replyForm.upArrow() }} {{ replyForm.downArrow() }}
+    
 </div>
 
 {% endmacro %}

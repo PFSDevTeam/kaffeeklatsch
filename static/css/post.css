@@ -1,15 +1,32 @@
-.make-something-wrapper {
+.post-wrapper {
     display: inline-block;
     background-color: lightslategray;
     top: 300px;
     width: 950px;
     height: 230px;
+    margin-bottom: 10px;
+}
+
+.post-wrapper .vote-panel{
+    display: inline-block;
+    width: 10%;
+    background-color: orange;
+}
+
+.post-wrapper .post-panel {
+    display: inline-block;
+    width: 80%;
+    background-color: green;
+}
+
+.post-panel__top-line {
+    background-color: pink;
 }
 
 #ownerName {
     width: 300px;
     height: 20px;
-    position: absolute;
+    /* position: absolute; */
     top: 285px;
     left: 150px;
     border-radius: 8px;
@@ -20,28 +37,17 @@
 #communityInfo {
     width: 300px;
     height: 20px;
-    position: absolute;
+    /* position: absolute; */
     top: 285px;
     left: 500px;
     border-radius: 8px;
     background-color: gainsboro;
 }
 
-
-/* #userInfo {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 300px;
-    left: 700px;
-    border-radius: 8px;
-    background-color: gainsboro;
-} */
-
 #postTitle {
     width: 650px;
     height: 20px;
-    position: absolute;
+    /* position: absolute; */
     top: 320px;
     left: 150px;
     border-radius: 8px;
@@ -51,16 +57,16 @@
 #ownerContent {
     width: 650px;
     height: 100px;
-    position: absolute;
+    /* position: absolute; */
     top: 355px;
     left: 150px;
     background-color: gainsboro;
 }
 
 #replyContent {
-    width: 650px;
+    width: 80%;
     height: 20px;
-    position: absolute;
+    /* position: absolute; */
     top: 470px;
     left: 150px;
     background-color: gainsboro;
@@ -69,7 +75,7 @@
 #post {
     width: 100px;
     height: 25px;
-    position: absolute;
+    /* position: absolute; */
     top: 470px;
     left: 830px;
     border-radius: 8px;
@@ -82,7 +88,7 @@
 #like {
     width: 100px;
     height: 25px;
-    position: absolute;
+    /* position: absolute; */
     top: 285px;
     left: 830px;
     border-radius: 8px;
@@ -95,7 +101,7 @@
 #upArrow {
     width: 50px;
     height: 50px;
-    position: absolute;
+    /* position: absolute; */
     top: 300px;
     left: 50px;
     border-radius: 8px;
@@ -109,7 +115,7 @@
 #downArrow {
     width: 50px;
     height: 50px;
-    position: absolute;
+    /* position: absolute; */
     top: 430px;
     left: 50px;
     border-radius: 8px;

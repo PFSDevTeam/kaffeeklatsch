@@ -11,6 +11,7 @@ from forms.RegistrationForm import RegistrationForm
 #post imports
 from forms.SortPostForm import SortPostForm
 from forms.ReplyForm import ReplyForm
+from forms.MakePostForm import MakePostForm
 
 app = Flask(__name__)
 
@@ -70,7 +71,8 @@ def register():
 def feed():
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
-  return render_template('feed.html', sortPostForm=sortPostForm, replyForm=replyForm)
+  makePostForm = MakePostForm()
+  return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm)
 
 if __name__ == "__main__":
   app.run()
