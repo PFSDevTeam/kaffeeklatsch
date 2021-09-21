@@ -1,16 +1,16 @@
 .post-wrapper {
-    display: inline-block;
     background-color: lightslategray;
-    top: 300px;
-    width: 950px;
-    height: 230px;
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 .post-wrapper .vote-panel{
     display: inline-block;
-    width: 10%;
-    background-color: orange;
+}
+
+.post-wrapper .vote-panel .vote-button {
+    display: block;
 }
 
 .post-wrapper .post-panel {
@@ -44,7 +44,7 @@
     background-color: gainsboro;
 }
 
-#postTitle {
+.post-wrapper #postTitle {
     width: 650px;
     height: 20px;
     /* position: absolute; */

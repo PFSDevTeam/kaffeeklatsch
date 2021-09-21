@@ -4,6 +4,8 @@
       href="{{ url_for('static', filename='css/sort_post.css') }}"
     />
     <div class="make-post-wrapper">
+        {{ makePostForm.postTitle.label() }}
+        {{ makePostForm.postTitle(class="post-title") }}
         {{ makePostForm.postContent.label() }}
         {{ makePostForm.postContent(class="post-content") }}
         {{ makePostForm.post() }}
