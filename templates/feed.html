@@ -1,5 +1,5 @@
 <!--extend base-->
-{% extends 'base.html' %} {% import 'make_post.html' as postTemplate %} {% import 'post.html' as replyTemplate %} {% block search %}
+{% extends 'base.html' %} {% import 'sort_post.html' as sortPostTemplate %} {% import 'post.html' as replyTemplate %} {% block search %}
 <!--search bar goes here-->
 <div class="input-group">
     <div class="form-outline" style="float: left;">
@@ -14,7 +14,7 @@
         <div>
             <!--float the post form at the top-->
             <form method="POST">
-                {{ postTemplate.make_post(postForm) }} <br></br> {{ replyTemplate.post(replyForm) }}
+                {{ sortPostTemplate.sort_post(sortPostForm) }} <br></br> {{ replyTemplate.post(replyForm) }}
             </form>
             <!--display the available posts below-->
             <!--post loop-->

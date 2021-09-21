@@ -9,7 +9,7 @@ from components.RegistrationHandler import RegistrationHandler
 from forms.RegistrationForm import RegistrationForm
 
 #post imports
-from forms.PostForm import PostForm
+from forms.SortPostForm import SortPostForm
 from forms.ReplyForm import ReplyForm
 
 app = Flask(__name__)
@@ -68,9 +68,9 @@ def register():
 
 @app.route('/feed')
 def feed():
-  postForm = PostForm()
+  sortPostForm = SortPostForm()
   replyForm = ReplyForm()
-  return render_template('feed.html', postForm=postForm, replyForm=replyForm)
+  return render_template('feed.html', sortPostForm=sortPostForm, replyForm=replyForm)
 
 if __name__ == "__main__":
   app.run()
