@@ -1,0 +1,11 @@
+{% macro post(replyForm) %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}" />
+<div class="make-something-wrapper">
+
+
+    {{ replyForm.ownerName(class="owner-name") }} {{ replyForm.ownerContent(class="owner-content") }} {{ replyForm.communityInfo(class="community-content") }} {{ replyForm.like() }}
+    <!-- {{ replyForm.userInfo(class="user-content") }}  -->
+    {{ replyForm.postTitle(class="post-content") }} {{ replyForm.replyContent(class="reply-content") }} {{ replyForm.post() }} {{ replyForm.upArrow() }} {{ replyForm.downArrow() }}
+</div>
+
+{% endmacro %}

@@ -35,7 +35,8 @@
           />
         </h1>
         {% block search %}{% endblock %} 
-        <button onclick="document.location='register.html'" class="button" style="float: right">sign up</button>
+        {% block register %}{% endblock %} 
+        <!-- <button onclick="document.location='register.html'" class="button" style="float: right">sign up</button> -->
         <!-- <button class="button" style="float: right">sign up</button> -->
       </div>
       {% block body %}{% endblock %}

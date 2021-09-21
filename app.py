@@ -1,4 +1,3 @@
-from forms.PostForm import PostForm
 from flask import Flask, render_template, flash, redirect, url_for, request
 
 from components.LoginHandler import LoginHandler
@@ -11,7 +10,7 @@ from forms.RegistrationForm import RegistrationForm
 
 #post imports
 from forms.PostForm import PostForm
-
+from forms.ReplyForm import ReplyForm
 
 app = Flask(__name__)
 
@@ -70,8 +69,8 @@ def register():
 @app.route('/feed')
 def feed():
   postForm = PostForm()
-  return render_template('feed.html', postForm=postForm)
-
+  replyForm = ReplyForm()
+  return render_template('feed.html', postForm=postForm, replyForm=replyForm)
 
 if __name__ == "__main__":
   app.run()

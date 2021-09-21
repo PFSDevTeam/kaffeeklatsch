@@ -1,11 +1,6 @@
 {% macro make_post(postForm) %}
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/make_post.css') }}"
-    />
-    <div class="make-post-wrapper">
-        {{ postForm.postContent.label() }}
-        {{ postForm.postContent(class="post-content") }}
-        {{ postForm.post() }}
-    </div>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/make_post.css') }}" />
+<div class="make-post-wrapper">
+    {{ postForm.postContent(class="post-content") }} {{ postForm.popularity() }}{{ postForm.recent() }}{{ postForm.bean() }}
+</div>
 {% endmacro %}
