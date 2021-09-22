@@ -3,6 +3,22 @@
     display: flex;
     justify-content: center;
     align-items: center; 
+    margin-bottom: 10px;
+}
+
+.post-wrapper .button {
+    width: 100px;
+    height: 25px;
+    background-color: green;
+    border-radius: 8px;
+    background-color: #6259df;
+    font-size: medium;
+    color: white;
+}
+
+.post-wrapper .vote-panel input {
+    width: 50px;
+    height: 50px;
 }
 
 .post-wrapper .vote-panel{
@@ -19,14 +35,28 @@
     background-color: green;
 }
 
+.post-panel .post-panel__reply-line {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.post-wrapper .post-panel #replyContent {
+    width: 350px;
+    margin: auto;
+}
+
+.post-wrapper .post-panel #post {
+    width: 90px;
+    margin: auto;
+}
+
 .post-panel__top-line {
     background-color: pink;
 }
 
 #ownerName {
-    /* width: 300px; */
     height: 20px;
-    /* position: absolute; */
     top: 285px;
     left: 150px;
     border-radius: 8px;
@@ -35,9 +65,7 @@
 }
 
 #communityInfo {
-    /* width: 300px; */
     height: 20px;
-    /* position: absolute; */
     top: 285px;
     left: 500px;
     border-radius: 8px;
@@ -45,9 +73,7 @@
 }
 
 .post-wrapper #postTitle {
-    /* width: 650px; */
     height: 20px;
-    /* position: absolute; */
     top: 320px;
     left: 150px;
     border-radius: 8px;
@@ -55,9 +81,7 @@
 }
 
 #ownerContent {
-    /* width: 650px; */
     height: 100px;
-    /* position: absolute; */
     top: 355px;
     left: 150px;
     background-color: gainsboro;
@@ -66,62 +90,7 @@
 #replyContent {
     width: 80%;
     height: 20px;
-    /* position: absolute; */
     top: 470px;
     left: 150px;
     background-color: gainsboro;
-}
-
-#post {
-    width: 100px;
-    height: 25px;
-    /* position: absolute; */
-    top: 470px;
-    left: 830px;
-    border-radius: 8px;
-    background-color: #818DFF;
-    font-family: "Helvetica Neue", "Arial", sans-serif;
-    font-size: medium;
-    color: white;
-}
-
-#like {
-    width: 100px;
-    height: 25px;
-    /* position: absolute; */
-    top: 285px;
-    left: 830px;
-    border-radius: 8px;
-    background-color: #818DFF;
-    font-family: "Helvetica Neue", "Arial", sans-serif;
-    font-size: medium;
-    color: white;
-}
-
-#upArrow {
-    width: 50px;
-    height: 50px;
-    /* position: absolute; */
-    top: 300px;
-    left: 50px;
-    border-radius: 8px;
-    background-color: #6259df;
-    font-family: "Helvetica Neue", "Arial", sans-serif;
-    font-size: large;
-    font-weight: bold;
-    color: white;
-}
-
-#downArrow {
-    width: 50px;
-    height: 50px;
-    /* position: absolute; */
-    top: 430px;
-    left: 50px;
-    border-radius: 8px;
-    background-color: #6259df;
-    font-family: "Helvetica Neue", "Arial", sans-serif;
-    font-size: large;
-    font-weight: bold;
-    color: white;
 }

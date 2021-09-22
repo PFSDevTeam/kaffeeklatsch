@@ -3,7 +3,7 @@
 <!-- imports -->
 {% import 'make_post.html' as makePostTemplate %} 
 {% import 'sort_post.html' as sortPostTemplate %} 
-{% import 'post.html' as replyTemplate %}
+{% import 'random_component.html' as rando_component %}
 {% block addedCSS %}
  <link
       rel="stylesheet"
@@ -34,9 +34,14 @@
                 <!--float the post form at the top-->
                 <form method="POST">
                     {{ makePostTemplate.make_post(makePostForm) }}
-                    {{ sortPostTemplate.sort_post(sortPostForm) }} 
-                    {{ replyTemplate.post(replyForm) }}
+                    {{ sortPostTemplate.sort_post(sortPostForm) }}
                 </form>
+                {{ rando_component.rando_component(replyForm) }}
+                {{ rando_component.rando_component(replyForm) }}
+                {{ rando_component.rando_component(replyForm) }}
+                {{ rando_component.rando_component(replyForm) }}
+                {{ rando_component.rando_component(replyForm) }}
+                {{ rando_component.rando_component(replyForm) }}
                 <!--display the available posts below-->
                 <!--post loop-->
                 <!--post macros pulled in-->
@@ -50,3 +55,12 @@
     </body>
     </div>
     {% endblock %}
+
+                    <!-- <form method="POST">
+                    {{ sortPostTemplate.sort_post(sortPostForm) }} 
+                    {{ replyTemplate.post(replyForm) }}
+                </form>
+                <form method="POST">
+                    {{ sortPostTemplate.sort_post(sortPostForm) }} 
+                    {{ replyTemplate.post(replyForm) }}
+                </form> -->
