@@ -1,0 +1,21 @@
+.make-post-wrapper {
+    display: inline-block;
+    display: block;
+    margin-bottom: 10px;
+    background-color: lightslategray;
+}
+
+.make-post-wrapper .post-title {
+    display: block;
+    width: 99%;
+    margin: 0;
+    padding: 0;
+}
+
+.make-post-wrapper .post-content{
+    display: block;
+    width: 99%;
+    margin: 0;
+    padding: 0;
+    height: 100px;
+}

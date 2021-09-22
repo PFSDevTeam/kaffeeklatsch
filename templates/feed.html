@@ -1,0 +1,44 @@
+<!--extend base-->
+{% extends 'base.html' %}
+<!-- imports -->
+{% import 'make_post.html' as makePostTemplate %} 
+{% import 'sort_post.html' as sortPostTemplate %} 
+{% import 'post.html' as replyTemplate %} 
+
+<!--search bar block-->
+{% block search %}
+    <div class="input-group">
+        <div class="form-outline" style="float: left;">
+            <input id="search-input" type="search" id="form1" class="form-control" style="top: 50px; left: 450px; width: 300px;" />
+        </div>
+    </div>
+    {% endblock %}
+
+<!-- avatar block -->
+{% block avatar %}
+    <img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee.png') }}"/>
+{% endblock %}
+
+<!--body block-->
+{% block body %}
+<div class="page">
+
+    <body>
+        <!--left block-->
+        <div>
+            <!--float the post form at the top-->
+            <form method="POST">
+                {{ makePostTemplate.make_post(makePostForm) }}
+                {{ sortPostTemplate.sort_post(sortPostForm) }} 
+                {{ replyTemplate.post(replyForm) }}
+            </form>
+            <!--display the available posts below-->
+            <!--post loop-->
+            <!--post macros pulled in-->
+            <!--right block-->
+            <div>
+                <!--community component goes here-->
+            </div>
+    </body>
+    </div>
+    {% endblock %}

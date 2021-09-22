@@ -22,6 +22,11 @@ body {
     float: left;
 }
 
+.avatar {
+    height: 100%;
+    float: right;
+}
+
 /*page*/
 .page {
     margin: 0px;

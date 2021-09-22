@@ -8,6 +8,10 @@ from forms.LoginForm import LoginForm
 from components.RegistrationHandler import RegistrationHandler
 from forms.RegistrationForm import RegistrationForm
 
+#post imports
+from forms.SortPostForm import SortPostForm
+from forms.ReplyForm import ReplyForm
+from forms.MakePostForm import MakePostForm
 
 app = Flask(__name__)
 
@@ -63,6 +67,12 @@ def register():
   registrationForm = RegistrationForm()
   return render_template('register.html', form=registrationForm)
 
+@app.route('/feed')
+def feed():
+  sortPostForm = SortPostForm()
+  replyForm = ReplyForm()
+  makePostForm = MakePostForm()
+  return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm)
 
 if __name__ == "__main__":
   app.run()
