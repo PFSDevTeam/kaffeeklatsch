@@ -72,6 +72,7 @@ def feed():
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
+  # load posts here
   return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm)
 
 if __name__ == "__main__":

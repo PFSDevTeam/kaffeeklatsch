@@ -1,4 +1,4 @@
-/* File: registrationstylesheet.css
+/* File: forms.css
     @author: Geoff Floding, Emily Godwin
     Description: This file contains the registration style sheet*/
 
@@ -27,6 +27,14 @@
     margin-top: 5%;
     margin-left: 36%;
     font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+
+/*input styling*/
+input{
+    margin-bottom: 10px;
+    border-radius: 8px;
+    height: 30px;
+    width: 200px;
 }
 
 /*submit and reset form*/

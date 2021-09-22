@@ -1,0 +1,24 @@
+.content-view {
+  display: flex;
+}
+
+.post-pane {
+  display: inline-block; 
+  width: 50%;
+}
+
+.community-pane {
+  display: inline-block;
+  background-color: red;
+  margin-left: 20px;
+}
+
+#search-container {
+    display: inline-block;
+    text-align: center;
+    background-color: orange;
+}
+
+#search-input {
+  background-color: green;
+}
