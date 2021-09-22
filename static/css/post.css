@@ -24,7 +24,7 @@
 }
 
 #ownerName {
-    width: 300px;
+    /* width: 300px; */
     height: 20px;
     /* position: absolute; */
     top: 285px;
@@ -35,7 +35,7 @@
 }
 
 #communityInfo {
-    width: 300px;
+    /* width: 300px; */
     height: 20px;
     /* position: absolute; */
     top: 285px;
@@ -45,7 +45,7 @@
 }
 
 .post-wrapper #postTitle {
-    width: 650px;
+    /* width: 650px; */
     height: 20px;
     /* position: absolute; */
     top: 320px;
@@ -55,7 +55,7 @@
 }
 
 #ownerContent {
-    width: 650px;
+    /* width: 650px; */
     height: 100px;
     /* position: absolute; */
     top: 355px;

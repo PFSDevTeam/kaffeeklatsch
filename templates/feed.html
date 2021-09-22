@@ -3,16 +3,20 @@
 <!-- imports -->
 {% import 'make_post.html' as makePostTemplate %} 
 {% import 'sort_post.html' as sortPostTemplate %} 
-{% import 'post.html' as replyTemplate %} 
+{% import 'post.html' as replyTemplate %}
+{% block addedCSS %}
+ <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/feed.css') }}"
+    />
+{% endblock %} 
 
 <!--search bar block-->
 {% block search %}
-    <div class="input-group">
-        <div class="form-outline" style="float: left;">
-            <input id="search-input" type="search" id="form1" class="form-control" style="top: 50px; left: 450px; width: 300px;" />
-        </div>
+    <div class="search-container" id="search-container">
+        <input id="search-input" type="search" id="form1" class="form-control"/>
     </div>
-    {% endblock %}
+{% endblock %}
 
 <!-- avatar block -->
 {% block avatar %}
@@ -24,21 +28,25 @@
 <div class="page">
 
     <body>
-        <!--left block-->
-        <div>
-            <!--float the post form at the top-->
-            <form method="POST">
-                {{ makePostTemplate.make_post(makePostForm) }}
-                {{ sortPostTemplate.sort_post(sortPostForm) }} 
-                {{ replyTemplate.post(replyForm) }}
-            </form>
-            <!--display the available posts below-->
-            <!--post loop-->
-            <!--post macros pulled in-->
-            <!--right block-->
-            <div>
-                <!--community component goes here-->
+        <div class="content-view">
+            <!--left block-->
+            <div class="post-pane">
+                <!--float the post form at the top-->
+                <form method="POST">
+                    {{ makePostTemplate.make_post(makePostForm) }}
+                    {{ sortPostTemplate.sort_post(sortPostForm) }} 
+                    {{ replyTemplate.post(replyForm) }}
+                </form>
+                <!--display the available posts below-->
+                <!--post loop-->
+                <!--post macros pulled in-->
             </div>
+                <!--right block-->
+            <div class="community-pane">
+                <!--community component goes here-->
+                stuff
+            </div>
+        </div>
     </body>
     </div>
     {% endblock %}
