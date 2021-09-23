@@ -1,29 +1,32 @@
-{% macro post(replyForm) %}
+{% macro post(replyForm, postObject) %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}" />
 <div class="post-wrapper">
 
     <!--left panel : up and down buttons-->
     <div class="vote-panel">
-        {{ replyForm.upArrow(class="vote-button") }} {{ replyForm.downArrow(class="vote-button") }}
+        {{ replyForm.upArrow(class="vote-button button") }} 
+        {{ replyForm.downArrow(class="vote-button button") }}
     </div>
     <!--right panel: post content-->
     <div class="post-panel">
         <div class="post-panel__top-line">
-            {{ replyForm.ownerName(class="owner-name") }} {{ replyForm.communityInfo(class="community-content") }} {{ replyForm.join() }}
+            <span class="owner-name">author</span> | <span class="community-content">community</span>
+            {{ replyForm.join(class="button") }}
         </div>
         <div class="post-panel__title-line">
-            {{ replyForm.postTitle(class="post-content") }}
+            <span class="post-title">Post Title</span>
         </div>
         <div class="post-panel__post-content">
-            {{ replyForm.ownerContent(class="owner-content") }}
+            <p class="post-content">All of the news . . .</p>
         </div>
         <div class="post-panel__reply-line">
-            {{ replyForm.replyContent(class="reply-content") }} {{ replyForm.post() }}
+            {{ replyForm.replyContent(class="reply-content") }} 
+            {{ replyForm.post(class="button") }} 
         </div>
     </div>
 
 
-
+    
 </div>
 
 {% endmacro %}

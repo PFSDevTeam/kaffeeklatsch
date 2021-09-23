@@ -1,3 +1,4 @@
+from forms.CommunityPainForm import CommunityPainForm
 from flask import Flask, render_template, flash, redirect, url_for, request
 
 from components.LoginHandler import LoginHandler
@@ -72,8 +73,9 @@ def feed():
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
+  communityPainForm = CommunityPainForm()
   # load posts here
-  return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm)
+  return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm)
 
 if __name__ == "__main__":
   app.run()
