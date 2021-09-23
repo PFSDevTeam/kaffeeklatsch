@@ -2,7 +2,7 @@
     background-color: lightslategray;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     margin-bottom: 10px;
 }
 
@@ -21,7 +21,7 @@
     height: 50px;
 }
 
-.post-wrapper .vote-panel{
+.post-wrapper .vote-panel {
     display: inline-block;
 }
 
@@ -38,7 +38,7 @@
 .post-panel .post-panel__reply-line {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
 .post-wrapper .post-panel #replyContent {
@@ -55,14 +55,15 @@
     background-color: pink;
 }
 
-#ownerName {
+
+/* #ownerName {
     height: 20px;
     top: 285px;
     left: 150px;
     border-radius: 8px;
     text-align: left;
     background-color: gainsboro;
-}
+} */
 
 #communityInfo {
     height: 20px;

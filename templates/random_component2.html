@@ -1,0 +1,5 @@
+{% macro rando_component2(communityPainForm) %} {% import 'community_pain.html' as communityPainTemplate %}
+<form method="POST">
+    {{ communityPainTemplate.join(communityPainForm) }}
+</form>
+{% endmacro %}

@@ -1,0 +1,6 @@
+{% macro community_pain(communityPainForm) %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/community_pain.css') }}" />
+<div class="community-pain-wrapper">
+    {{ communityPainForm.join() }}
+</div>
+{% endmacro %}
