@@ -22,7 +22,9 @@
 }
 
 .post-wrapper .vote-panel {
+    align-items: center;
     display: inline-block;
+    width: 10%;
 }
 
 .post-wrapper .vote-panel .vote-button {
@@ -42,7 +44,7 @@
 }
 
 .post-wrapper .post-panel #replyContent {
-    width: 350px;
+    width: 500px;
     margin: auto;
 }
 

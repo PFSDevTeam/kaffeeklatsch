@@ -22,10 +22,10 @@
 /*container for form*/
 
 .container {
-    display: block;
+    display: flex;
     float: center;
     width: 375px;
-    text-align: left;
+    text-align: right;
     font-size: medium;
     font-weight: bold;
     margin-top: 5%;
@@ -39,8 +39,8 @@
 input {
     margin-bottom: 10px;
     border-radius: 8px;
-    height: 30px;
-    width: 200px;
+    height: 25px;
+    width: 70px;
 }
 
 
