@@ -1,4 +1,5 @@
-{% macro rando_component(replyForm) %} {% import 'post.html' as replyTemplate %}
+{% macro post_reply(replyForm) %} 
+{% import 'post.html' as replyTemplate %}
 <form method="POST">
     {{ replyTemplate.post(replyForm) }}
 </form>
