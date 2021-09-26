@@ -4,9 +4,9 @@
 import csv
 
 #custom classes
-from utilities.Hasher import Hasher
-from utilities.Errors import UserAlreadyExistsError
-from utilities.UserHandler import UserHandler
+from kaffeeklatsch.utilities.Hasher import Hasher
+from kaffeeklatsch.utilities.Errors import UserAlreadyExistsError
+from kaffeeklatsch.utilities.UserHandler import UserHandler
 
 class RegistrationHandler:
 

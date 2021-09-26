@@ -2,10 +2,10 @@
 
 #libraries
 import sqlite3
-from utilities.Errors import UserNotFoundError
+from kaffeeklatsch.utilities.Errors import UserNotFoundError
 
 #custom classes
-from utilities.TempUser import User
+from kaffeeklatsch.utilities.TempUser import User
 
 class UserHandler:
 
