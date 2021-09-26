@@ -19,20 +19,16 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-##FLASK APP HELLO WORLD
-
 #randomly generated secret key I may use for something later
 app.config['SECRET_KEY'] = '31271d66321b32a7f3e9ad4c27106e85'
 
 @app.route("/", methods=['GET','POST'])
-def hello():
+def login():
   #LOGIN TESTING
   loginHandler = LoginHandler()
   form = LoginForm()
-  
+
   #SESSION TESTING
-  session["name"] = "test"
-  print(f'sesison name results: {session.get("name")}')
 
   try:
     #NOTE: At this point the validLogin function either raises an error or returns true, consider removing boolean return
@@ -59,13 +55,8 @@ def hello():
 
   #LOGIN IMPLEMENTATION BEGINS
   if form.validate_on_submit():
-        print("form input is validated")
-        # attempt to validate the login
-          #if login is valid 
-            #set session cookie
-            #redirect to feed page
-          #if login is not valid 
-            #report errors
+        session["username"] = request.form['username']
+        return redirect(url_for('feed'))
   else:
         print("form input is incorrect")
 
@@ -92,7 +83,7 @@ def register():
     print(f'was our login successful?: {validLogin}')
 
     #REDIRECT TO LOGIN
-    return redirect(url_for('hello'))
+    return redirect(url_for('login'))
   else:
     print("form input is incorrect")
   
@@ -100,11 +91,12 @@ def register():
 
 @app.route('/feed')
 def feed():
-  #implement wrapping if statement to check session cookie
-    #if session cookie is valid
-      #continue to render user content
-    #if session cookie is not valid
-      #redirect to login page
+      
+  #check session cookies, if it's not set redirect to login
+  if (session.get("username") == None):
+    return redirect(url_for('login'))
+
+  #main logic path
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
