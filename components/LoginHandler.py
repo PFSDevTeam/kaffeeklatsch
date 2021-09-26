@@ -12,24 +12,24 @@ class LoginHandler:
     FILE_NAME="credentials.csv"
 
     def login(self, inputUser, inputPass):
-        userName = inputUser.lower()
+        username = inputUser.lower()
         password = inputPass
 
         #print the username
-        print("username: " + userName)
+        print("username: " + username)
         #hash the password
         stringHashedPassword = Hasher.hash(password)
         #print the password
         print(f'hashed password: {stringHashedPassword}')
 
         #if the user is not present, raise invalid username error
-        if not (UserHandler.checkUserExists(inputUser)):
+        if not (UserHandler.checkUserExists(username)):
             print('Login Handler: no found user')
             raise InvalidUsernameError()
         else:
             #if user does exist, retrieve them and check the password
             try:
-                foundUser = UserHandler.getUser(inputUser)
+                foundUser = UserHandler.getUser(username)
                 print(f'found user: {foundUser}')
                 #check to see if the passwords match
                 if (self.comparePasswords(foundUser.loadedPassword, stringHashedPassword)):

@@ -15,16 +15,18 @@ class RegistrationHandler:
 
     def register(self, inputUser, inputPass):
         #local variable assignments
-        self.username = inputUser.lower()
-        self.password = inputPass
+        username = inputUser.lower()
+        password = inputPass
 
         #hash the input
-        stringHashedPassword = Hasher.hash(self.password)
+        stringHashedPassword = Hasher.hash(password)
         #if user is not found add username & hashed password
-        if not (UserHandler.checkUserExists(self.username)):
+        if not (UserHandler.checkUserExists(username)):
             #if user does not already exist, insert into db
             print(f'Calling UserHandler.insertHandler() to insert new user into DB.')
-            UserHandler.insertUser(self.username, stringHashedPassword)
+            print(f'received user variable: {username}')
+            print(f'hashed password variable {stringHashedPassword}')
+            UserHandler.insertUser(username, stringHashedPassword)
         else:
             #if user exists, raise error
             raise UserAlreadyExistsError

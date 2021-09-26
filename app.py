@@ -65,13 +65,17 @@ def hello():
 def register():
   registrationHandler = RegistrationHandler()
   registrationForm = RegistrationForm()
+  #testing 
+  loginHandler = LoginHandler()
   
   #LOGIN IMPLEMENTATION BEGINS
-  if form.validate_on_submit():
+  if registrationForm.validate_on_submit():
     print("form input is validated")
-    inputUsername = form.username
-    inputPassword = form.password
+    inputUsername = request.form['username']
+    inputPassword = request.form['password']
     registrationHandler.register(inputUsername, inputPassword)
+    validLogin = loginHandler.login(inputUsername, inputPassword)
+    print(f'was our login successful?: {validLogin}')
   else:
     print("form input is incorrect")
   
