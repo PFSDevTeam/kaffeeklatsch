@@ -52,6 +52,7 @@ def hello():
   if form.validate_on_submit():
         print("form input is validated")
         inputUsername = form.username
+        # SHOULD REDIRECT TO FEED
   else:
         print("form input is incorrect")
 
@@ -76,6 +77,9 @@ def register():
     registrationHandler.register(inputUsername, inputPassword)
     validLogin = loginHandler.login(inputUsername, inputPassword)
     print(f'was our login successful?: {validLogin}')
+
+    #REDIRECT TO LOGIN
+    return redirect(url_for('hello'))
   else:
     print("form input is incorrect")
   
