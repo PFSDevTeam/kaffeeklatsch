@@ -12,13 +12,13 @@ class UserHandler:
     FILE_NAME="credentials.csv"
 
     #DB Creation (uncomment when needed)
-    # user_db = sqlite3.connect('db_files/users.db')
+    # user_db = sqlite3.connect('db_files/application_data.db')
     # db_cursor = user_db.cursor()
-    # db_cursor.execute("CREATE TABLE users (username TEXT NOT NULL PRIMARY KEY, password TEXT NOT NULL)")
+    # db_cursor.execute("CREATE TABLE user_access (username TEXT NOT NULL PRIMARY KEY, password TEXT NOT NULL)")
     # #sample data
-    # db_cursor.execute("INSERT INTO users VALUES ('steve', '432c19c7ecdc9ef6884d01b21bd306ddd4b21d4ee139f10358cf5c1b7f113904')")
+    # db_cursor.execute("INSERT INTO user_access VALUES ('steve', '432c19c7ecdc9ef6884d01b21bd306ddd4b21d4ee139f10358cf5c1b7f113904')")
     # user_db.commit()
-    # db_cursor.execute("SELECT * FROM users")
+    # db_cursor.execute("SELECT * FROM user_access")
     # print(f'resutls: {db_cursor.fetchone()}')
     # user_db.close()
 
@@ -41,11 +41,11 @@ class UserHandler:
     def __getSelectedUser(cls, inputUsername):
             #try to find the username from the loaded users
         #db commection
-        user_db = sqlite3.connect("db_files/users.db")
+        user_db = sqlite3.connect("db_files/application_data.db")
         db_cursor = user_db.cursor()
         with user_db:
             #run query
-            db_cursor.execute("SELECT * FROM users WHERE username=:username", {'username': inputUsername})
+            db_cursor.execute("SELECT * FROM user_access WHERE username=:username", {'username': inputUsername})
             results = db_cursor.fetchone()
             if not (results == None):
                 #user found
@@ -69,11 +69,11 @@ class UserHandler:
     #insert a new user into the database
     @classmethod
     def insertUser(cls, username, password):
-            user_db = sqlite3.connect("db_files/users.db")
+            user_db = sqlite3.connect("db_files/application_data.db")
             db_cursor = user_db.cursor()
             with user_db:
                 try:
-                    db_cursor.execute("INSERT INTO users VALUES (:username, :pass)", {'username': username, 'pass': password})
+                    db_cursor.execute("INSERT INTO user_access VALUES (:username, :pass)", {'username': username, 'pass': password})
                     return True
                 except:
                     return False
