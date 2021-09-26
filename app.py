@@ -1,4 +1,5 @@
-from flask import Flask, render_template, flash, redirect, url_for, request
+from flask import Flask, render_template, flash, redirect, url_for, request, session
+from flask_session import Session
 
 from components.LoginHandler import LoginHandler
 from utilities.Errors import InvalidUsernameError, InvalidPasswordError, UserAlreadyExistsError, UserNotFoundError
@@ -14,6 +15,9 @@ from forms.ReplyForm import ReplyForm
 from forms.MakePostForm import MakePostForm
 
 app = Flask(__name__)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 ##FLASK APP HELLO WORLD
 
@@ -25,6 +29,11 @@ def hello():
   #LOGIN TESTING
   loginHandler = LoginHandler()
   form = LoginForm()
+  
+  #SESSION TESTING
+  session["name"] = "test"
+  print(f'sesison name results: {session.get("name")}')
+
   try:
     #NOTE: At this point the validLogin function either raises an error or returns true, consider removing boolean return
     validLogin = loginHandler.login("steve", "scuba")
