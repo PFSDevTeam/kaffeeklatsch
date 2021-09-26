@@ -1,27 +1,25 @@
 <!--extend base-->
 {% extends 'base.html' %}
 <!-- imports -->
-{% import 'make_post.html' as makePostTemplate %} 
-{% import 'sort_post.html' as sortPostTemplate %} 
+{% import 'make_post.html' as makePostTemplate %}
+{% import 'sort_post.html' as sortPostTemplate %}
 {% import 'random_component.html' as rando_component %}
+{% import 'random_component2.html'as rando_component2 %}
+
+
 {% block addedCSS %}
- <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/feed.css') }}"
-    />
-{% endblock %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/feed.css') }}" /> {% endblock %}
 
 <!--search bar block-->
 {% block search %}
-    <div class="search-container" id="search-container">
-        <input id="search-input" type="search" id="form1" class="form-control"/>
-    </div>
+<div class="search-container" id="search-container">
+    <input id="search-input" type="search" id="form1" class="form-control" />
+</div>
 {% endblock %}
 
 <!-- avatar block -->
 {% block avatar %}
-    <img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee.png') }}"/>
-{% endblock %}
+<img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee.png') }}" /> {% endblock %}
 
 <!--body block-->
 {% block body %}
@@ -33,30 +31,35 @@
             <div class="post-pane">
                 <!--float the post form at the top-->
                 <form method="POST">
-                    {{ makePostTemplate.make_post(makePostForm) }}
+                    {{ makePostTemplate.make_post(makePostForm) }} 
                     {{ sortPostTemplate.sort_post(sortPostForm) }}
                 </form>
-                {{ rando_component.rando_component(replyForm) }}
-                {{ rando_component.rando_component(replyForm) }}
-                {{ rando_component.rando_component(replyForm) }}
-                {{ rando_component.rando_component(replyForm) }}
-                {{ rando_component.rando_component(replyForm) }}
+                {{ rando_component.rando_component(replyForm) }} 
+                {{ rando_component.rando_component(replyForm) }} 
+                {{ rando_component.rando_component(replyForm) }} 
+                {{ rando_component.rando_component(replyForm) }} 
+                {{ rando_component.rando_component(replyForm) }} 
                 {{ rando_component.rando_component(replyForm) }}
                 <!--display the available posts below-->
                 <!--post loop-->
                 <!--post macros pulled in-->
             </div>
-                <!--right block-->
-            <div class="community-pane">
-                <!--community component goes here-->
-                stuff
+            <!--right block-->
+            <div class="community-pain">
+                {{ rando_component2.second_thing(communityPainForm) }}
+                {{ rando_component2.second_thing(communityPainForm) }}
+                {{ rando_component2.second_thing(communityPainForm) }}
+                {{ rando_component2.second_thing(communityPainForm) }}
+                {{ rando_component2.second_thing(communityPainForm) }}
+                {{ rando_component2.second_thing(communityPainForm) }}
+                {{ rando_component2.second_thing(communityPainForm) }}
             </div>
         </div>
     </body>
-    </div>
-    {% endblock %}
+</div>
+{% endblock %}
 
-                    <!-- <form method="POST">
+<!-- <form method="POST">
                     {{ sortPostTemplate.sort_post(sortPostForm) }} 
                     {{ replyTemplate.post(replyForm) }}
                 </form>

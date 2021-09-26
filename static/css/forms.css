@@ -2,7 +2,9 @@
     @author: Geoff Floding, Emily Godwin
     Description: This file contains the registration style sheet*/
 
+
 /*button to direct to login screen*/
+
 .button {
     float: right;
     margin-top: 25px;
@@ -16,12 +18,14 @@
     color: white;
 }
 
+
 /*container for form*/
+
 .container {
-    display: block;
+    display: flex;
     float: center;
     width: 375px;
-    text-align: left;
+    text-align: right;
     font-size: medium;
     font-weight: bold;
     margin-top: 5%;
@@ -29,16 +33,21 @@
     font-family: "Helvetica Neue", "Arial", sans-serif;
 }
 
+
 /*input styling*/
-input{
+
+input {
     margin-bottom: 10px;
     border-radius: 8px;
-    height: 30px;
-    width: 200px;
+    height: 25px;
+    width: 70px;
 }
 
+
 /*submit and reset form*/
-.submit, .reset {
+
+.submit,
+.reset {
     height: 40px;
     width: 150px;
     border-radius: 8px;

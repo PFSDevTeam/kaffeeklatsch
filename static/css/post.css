@@ -2,7 +2,7 @@
     background-color: lightslategray;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     margin-bottom: 10px;
 }
 
@@ -21,8 +21,10 @@
     height: 50px;
 }
 
-.post-wrapper .vote-panel{
+.post-wrapper .vote-panel {
+    align-items: center;
     display: inline-block;
+    width: 10%;
 }
 
 .post-wrapper .vote-panel .vote-button {
@@ -38,11 +40,11 @@
 .post-panel .post-panel__reply-line {
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
 .post-wrapper .post-panel #replyContent {
-    width: 350px;
+    width: 500px;
     margin: auto;
 }
 
@@ -53,15 +55,6 @@
 
 .post-panel__top-line {
     background-color: pink;
-}
-
-#ownerName {
-    height: 20px;
-    top: 285px;
-    left: 150px;
-    border-radius: 8px;
-    text-align: left;
-    background-color: gainsboro;
 }
 
 #communityInfo {

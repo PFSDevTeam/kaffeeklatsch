@@ -1,0 +1,18 @@
+.community-pain-wrapper {
+    background-color: lightslategray;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.community-pain-wrapper .button {
+    width: 100px;
+    height: 25px;
+    background-color: green;
+    border-radius: 8px;
+    background-color: #6259df;
+    font-size: medium;
+    color: white;
+}

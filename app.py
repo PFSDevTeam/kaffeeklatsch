@@ -13,6 +13,7 @@ from forms.RegistrationForm import RegistrationForm
 from forms.SortPostForm import SortPostForm
 from forms.ReplyForm import ReplyForm
 from forms.MakePostForm import MakePostForm
+from forms.CommunityPainForm import CommunityPainForm
 
 app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
@@ -100,8 +101,9 @@ def feed():
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
+  communityPainForm = CommunityPainForm()
   # load posts here
-  return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm)
+  return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm)
 
 if __name__ == "__main__":
   app.run()

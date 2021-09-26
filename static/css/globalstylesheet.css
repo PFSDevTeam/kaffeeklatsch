@@ -5,17 +5,22 @@
 body {
     background-color: #E5FFF9
 }
+
+
 /*header*/
+
 .header {
     background-color: #C3F1FF;
     font-size: 50px;
     text-align: center;
-	height:95px;
+    height: 95px;
     padding-left: 10px;
     padding-top: 10px;
 }
 
+
 /*logo*/
+
 .logo {
     width: 120px;
     margin-top: 0px;
@@ -25,11 +30,14 @@ body {
 .avatar {
     height: 100%;
     float: right;
+    margin-right: 50px;
 }
 
+
 /*page*/
+
 .page {
     margin: 0px;
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 50px;
 }
