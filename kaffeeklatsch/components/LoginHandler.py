@@ -2,9 +2,9 @@
 # Login Handler should be created in the form On submit section so as to scope it to pressing the login button
 
 #custom clases
-from utilities.Errors import InvalidPasswordError, InvalidUsernameError, UserNotFoundError
-from utilities.Hasher import Hasher
-from utilities.UserHandler import UserHandler
+from kaffeeklatsch.utilities.Errors import InvalidPasswordError, InvalidUsernameError, UserNotFoundError
+from kaffeeklatsch.utilities.Hasher import Hasher
+from kaffeeklatsch.utilities.UserHandler import UserHandler
 
 class LoginHandler:
 
