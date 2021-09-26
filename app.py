@@ -51,8 +51,12 @@ def hello():
   #LOGIN IMPLEMENTATION BEGINS
   if form.validate_on_submit():
         print("form input is validated")
-        inputUsername = form.username
-        # SHOULD REDIRECT TO FEED
+        # attempt to validate the login
+          #if login is valid 
+            #set session cookie
+            #redirect to feed page
+          #if login is not valid 
+            #report errors
   else:
         print("form input is incorrect")
 
@@ -87,6 +91,11 @@ def register():
 
 @app.route('/feed')
 def feed():
+  #implement wrapping if statement to check session cookie
+    #if session cookie is valid
+      #continue to render user content
+    #if session cookie is not valid
+      #redirect to login page
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
