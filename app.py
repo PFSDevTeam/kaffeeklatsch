@@ -61,10 +61,20 @@ def hello():
 
 
 # Here we create the route for the registration page
-@app.route('/register.html', methods=['GET','POST'])
+@app.route('/register', methods=['GET','POST'])
 def register():
   registrationHandler = RegistrationHandler()
   registrationForm = RegistrationForm()
+  
+  #LOGIN IMPLEMENTATION BEGINS
+  if form.validate_on_submit():
+    print("form input is validated")
+    inputUsername = form.username
+    inputPassword = form.password
+    registrationHandler.register(inputUsername, inputPassword)
+  else:
+    print("form input is incorrect")
+  
   return render_template('register.html', form=registrationForm)
 
 @app.route('/feed')

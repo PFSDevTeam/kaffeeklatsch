@@ -23,6 +23,7 @@ class RegistrationHandler:
         #if user is not found add username & hashed password
         if not (UserHandler.checkUserExists(self.username)):
             #if user does not already exist, insert into db
+            print(f'Calling UserHandler.insertHandler() to insert new user into DB.')
             UserHandler.insertUser(self.username, stringHashedPassword)
         else:
             #if user exists, raise error
