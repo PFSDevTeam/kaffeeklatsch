@@ -73,7 +73,10 @@ class UserHandler:
             db_cursor = user_db.cursor()
             with user_db:
                 try:
-                    db_cursor.execute("INSERT INTO user_access VALUES (:username, :pass)", {'username': username, 'pass': password})
+                    db_cursor.execute("INSERT INTO users VALUES (:username, :pass)", {'username': username, 'pass': password})
+                    user_db.commit()
+                    # db_cursor.execute("SELECT * FROM users")
+                    # print(f'resutls: {db_cursor.fetchall()}')
                     return True
                 except:
                     return False
