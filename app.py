@@ -1,5 +1,6 @@
 from flask import Flask, render_template, flash, redirect, url_for, request, session
 from flask_session import Session
+from flask_sqlalchemy import SQLAlchemy
 
 from components.LoginHandler import LoginHandler
 from utilities.Errors import InvalidUsernameError, InvalidPasswordError, UserAlreadyExistsError, UserNotFoundError
@@ -18,6 +19,9 @@ from forms.CommunityPainForm import CommunityPainForm
 app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db_files/application_data.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 Session(app)
 
 #randomly generated secret key I may use for something later
