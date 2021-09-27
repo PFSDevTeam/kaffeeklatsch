@@ -32,7 +32,7 @@ class LoginHandler:
                 foundUser = UserHandler.getUser(username)
                 print(f'found user: {foundUser}')
                 #check to see if the passwords match
-                if (self.comparePasswords(foundUser.loadedPassword, stringHashedPassword)):
+                if (self.comparePasswords(foundUser.password, stringHashedPassword)):
                     print(f'passwords match')
                     return True
                 else:
