@@ -82,8 +82,10 @@ def feed():
     replyForm = ReplyForm()
     makePostForm = MakePostForm()
     communityPainForm = CommunityPainForm()
+    posts = Post.query.all();
+    print(posts);
     # load posts here
-    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm)
+    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, posts=posts)
 
 @app.route('/logout')
 def logout():

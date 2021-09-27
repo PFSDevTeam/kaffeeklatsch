@@ -1,7 +1,7 @@
-{% macro post_reply(replyForm) %} 
+{% macro post_reply(replyForm, postObject) %} 
 {% import 'post.html' as replyTemplate %}
 <form method="POST">
-    {{ replyTemplate.post(replyForm) }}
+    {{ replyTemplate.post(replyForm, postObject) }}
 </form>
 
 {% endmacro %}
