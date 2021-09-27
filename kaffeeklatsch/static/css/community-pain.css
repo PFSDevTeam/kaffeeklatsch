@@ -7,12 +7,9 @@
     margin-bottom: 10px;
 }
 
-.community-pain-wrapper .button {
-    width: 100px;
-    height: 25px;
-    background-color: green;
-    border-radius: 8px;
-    background-color: #6259df;
-    font-size: medium;
-    color: white;
+/*style for community join buttons in community pane */
+.community-pain-wrapper .community-button {
+    margin-top: 5%;
+    margin-left: 70%;
+    margin-right: 5%;
 }

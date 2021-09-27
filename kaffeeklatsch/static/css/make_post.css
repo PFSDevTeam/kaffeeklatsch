@@ -2,7 +2,6 @@
     display: inline-block;
     display: block;
     margin-bottom: 10px;
-    background-color: lightslategray;
 }
 
 .make-post-wrapper .post-title {
@@ -18,4 +17,8 @@
     margin: 0;
     padding: 0;
     height: 100px;
+}
+
+.make-post-wrapper .make-button{
+    float: right;
 }

@@ -6,16 +6,6 @@
     margin-bottom: 10px;
 }
 
-.post-wrapper .button {
-    width: 100px;
-    height: 25px;
-    background-color: green;
-    border-radius: 8px;
-    background-color: #6259df;
-    font-size: medium;
-    color: white;
-}
-
 .post-wrapper .vote-panel input {
     width: 50px;
     height: 50px;

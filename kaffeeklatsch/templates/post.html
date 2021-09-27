@@ -11,7 +11,7 @@
     <div class="post-panel">
         <div class="post-panel__top-line">
             <span class="owner-name">{{ postObject.posting_user }}</span> | <span class="community-content">{{ postObject.community }}</span>
-            {{ replyForm.join(class="button") }}
+            {{ replyForm.join(class="button-style-a") }}
         </div>
         <div class="post-panel__title-line">
             <span class="post-title">{{ postObject.title }}</span>
@@ -21,7 +21,7 @@
         </div>
         <div class="post-panel__reply-line">
             {{ replyForm.replyContent(class="reply-content") }} 
-            {{ replyForm.post(class="button") }} 
+            {{ replyForm.post(class="button-style-b") }} 
         </div>
     </div>
 

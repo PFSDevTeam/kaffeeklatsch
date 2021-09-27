@@ -1,6 +1,6 @@
 {% macro sort_post(sortPostForm) %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/make_post.css') }}" />
 <div class="sort-post-wrapper">
-    <label>Sort posts by:</label> {{ sortPostForm.popularity() }}{{ sortPostForm.recent() }}{{ sortPostForm.bean() }}
+    <label>Sort posts by:</label> {{ sortPostForm.popularity(class="button-style-b") }}{{ sortPostForm.recent(class="button-style-b") }}{{ sortPostForm.bean(class="button-style-bean") }}
 </div>
 {% endmacro %}
