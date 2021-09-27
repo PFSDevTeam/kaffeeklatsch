@@ -1,6 +1,8 @@
 from flask import render_template, flash, redirect, url_for, request, session
+from flask_login import login_user
 from kaffeeklatsch import app,db
 
+#login imports
 from kaffeeklatsch.components.LoginHandler import LoginHandler
 from kaffeeklatsch.utilities.Errors import InvalidUsernameError, InvalidPasswordError, UserAlreadyExistsError, UserNotFoundError
 from kaffeeklatsch.forms.LoginForm import LoginForm
@@ -25,35 +27,32 @@ def login():
   loginHandler = LoginHandler()
   form = LoginForm()
 
-  try:
-    #NOTE: At this point the validLogin function either raises an error or returns true, consider removing boolean return
-    validLogin = loginHandler.login("steve", "scuba")
-    # validLogin = loginHandler.login("scuba", "steven")
-    # validLogin = loginHandler.login("jeff", "guy")
-    print(f'valid login: ' + str(validLogin))
-  except InvalidUsernameError as err:
-    print(err)
-  except InvalidPasswordError as err:
-    print(err)
-  except UserNotFoundError as err:
-    print(err)
-
-  #REGISTRATION TESTING
-  # regHandler = RegistrationHandler()
-  # try:
-  #   # regHandler.register("steve", "scuba")
-  #   regHandler.register("scuba", "steven")
-  #   # regHandler.register("jeff", "guy")
-  #   print('registered')
-  # except UserAlreadyExistsError as err:
-  #   print(err)
+#   try:
+#     #NOTE: At this point the validLogin function either raises an error or returns true, consider removing boolean return
+#     validLogin = loginHandler.login("steve", "scuba")
+#     # validLogin = loginHandler.login("scuba", "steven")
+#     # validLogin = loginHandler.login("jeff", "guy")
+#     print(f'valid login: ' + str(validLogin))
+#   except InvalidUsernameError as err:
+#     print(err)
+#   except InvalidPasswordError as err:
+#     print(err)
+#   except UserNotFoundError as err:
+#     print(err)
 
   #LOGIN IMPLEMENTATION BEGINS
   if form.validate_on_submit():
-        session["username"] = request.form['username']
-        return redirect(url_for('feed'))
+    #flash messaging doesn't currently work 
+    # flash(f'login successfull!', 'success')
+    # session["username"] = request.form['username']
+    if (loginHandler.login(form.username.data, form.password.data)):
+      user = User.query.filter_by(username=form.username.data).first()
+      login_user(user)
+    print(f'retrived user: {user}')
+    return redirect(url_for('feed'))
   else:
-        print("form input is incorrect")
+    print(form.errors)
+    print("form input is incorrect")
 
 
   #render the html template 
@@ -81,6 +80,16 @@ def register():
     return redirect(url_for('login'))
   else:
     print("form input is incorrect")
+
+      #REGISTRATION TESTING
+  # regHandler = RegistrationHandler()
+  # try:
+  #   # regHandler.register("steve", "scuba")
+  #   regHandler.register("scuba", "steven")
+  #   # regHandler.register("jeff", "guy")
+  #   print('registered')
+  # except UserAlreadyExistsError as err:
+  #   print(err)
   
   return render_template('register.html', form=registrationForm)
 
@@ -88,14 +97,14 @@ def register():
 def feed():
 
     #DB TEST
-    print(f'users modesl list: {UserAccess.query.all()}')
-    print(f'users modesl list: {User.query.all()}')
-    print(f'community model list: {Community.query.all()}')
-    print(f'post model list: \n {Post.query.all()}')
+    # print(f'users modesl list: {UserAccess.query.all()}')
+    # print(f'users modesl list: {User.query.all()}')
+    # print(f'community model list: {Community.query.all()}')
+    # print(f'post model list: \n {Post.query.all()}')
       
     #check session cookies, if it's not set redirect to login
-    if (session.get("username") == None):
-        return redirect(url_for('login'))
+    # if (session.get("username") == None):
+    #     return redirect(url_for('login'))
 
     #main logic path
     sortPostForm = SortPostForm()

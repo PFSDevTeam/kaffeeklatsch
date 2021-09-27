@@ -1,5 +1,10 @@
 from datetime import datetime
-from kaffeeklatsch import db
+from kaffeeklatsch import db, login_manager
+from flask_login import UserMixin
+
+@login_manager.user_loader
+def load_user(username):
+    return User.query.get(username)
 
 class UserAccess(db.Model):
     username = db.Column(db.Text, nullable=False, unique=True, primary_key=True)
@@ -8,8 +13,9 @@ class UserAccess(db.Model):
     def __repr__(self):
         return f"User Access Profile:('{self.username}', '{self.password}')"
 
-class User(db.Model):
-    username = db.Column(db.Text, db.ForeignKey('user_access.username'), nullable=False, primary_key=True)
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, nullable=False, primary_key=True, unique=True)
+    username = db.Column(db.Text, db.ForeignKey('user_access.username'), nullable=False)
     avatar = db.Column(db.Text, nullable=True)
     first_name = db.Column(db.Text, nullable=True)
     last_name = db.Column(db.Text, nullable=True)

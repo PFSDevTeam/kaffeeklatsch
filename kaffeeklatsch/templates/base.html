@@ -22,14 +22,20 @@
 
 <body>
     <div class="continer">
+        <!-- fixed header -->
         <div class="header">
             <h1 class="logo">
                 <img class="logo" src="{{ url_for('static', filename='assets/imagefiles/logo_sample_v2.png') }}" alt="" />
             </h1>
-            {% block search %}{% endblock %} {% block avatar %}{% endblock %} {% block register %}{% endblock %}
+            {% block search %}{% endblock %}
+            {% block avatar %}{% endblock %}
+            {% block register %}{% endblock %}
             <!-- <button onclick="document.location='register.html'" class="button" style="float: right">sign up</button> -->
             <!-- <button class="button" style="float: right">sign up</button> -->
         </div>
+        <!--messages block-->
+
+        <!--body block-->
         {% block body %}{% endblock %}
     </div>
 
@@ -42,3 +48,15 @@
 </body>
 
 </html>
+
+    <!--potential code for flash messages (currently weirdly offsets everything left)-->
+
+        <!-- {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}'
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %} -->
