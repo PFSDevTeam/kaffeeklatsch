@@ -16,7 +16,7 @@ from kaffeeklatsch.forms.MakePostForm import MakePostForm
 from kaffeeklatsch.forms.CommunityPainForm import CommunityPainForm
 
 #TEST
-from kaffeeklatsch.models.models import UserAccess
+from kaffeeklatsch.models.models import UserAccess, User
 
 
 @app.route("/", methods=['GET','POST'])
@@ -24,8 +24,6 @@ def login():
   #LOGIN TESTING
   loginHandler = LoginHandler()
   form = LoginForm()
-  #DB TEST
-  print(f'users modesl list: {UserAccess.query.all()}')
 
   try:
     #NOTE: At this point the validLogin function either raises an error or returns true, consider removing boolean return
@@ -88,15 +86,19 @@ def register():
 
 @app.route('/feed')
 def feed():
-      
-  #check session cookies, if it's not set redirect to login
-  if (session.get("username") == None):
-    return redirect(url_for('login'))
 
-  #main logic path
-  sortPostForm = SortPostForm()
-  replyForm = ReplyForm()
-  makePostForm = MakePostForm()
-  communityPainForm = CommunityPainForm()
-  # load posts here
-  return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm)
+    #DB TEST
+    print(f'users modesl list: {UserAccess.query.all()}')
+    print(f'users modesl list: {User.query.all()}')
+      
+    #check session cookies, if it's not set redirect to login
+    if (session.get("username") == None):
+        return redirect(url_for('login'))
+
+    #main logic path
+    sortPostForm = SortPostForm()
+    replyForm = ReplyForm()
+    makePostForm = MakePostForm()
+    communityPainForm = CommunityPainForm()
+    # load posts here
+    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm)
