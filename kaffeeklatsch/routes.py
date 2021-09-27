@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, url_for, request
-from flask_login import login_user, current_user
+from flask_login import login_user, current_user, logout_user
 from kaffeeklatsch import app,db
 
 #login imports
@@ -115,3 +115,8 @@ def feed():
     communityPainForm = CommunityPainForm()
     # load posts here
     return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm)
+
+@app.route('/logout')
+def logout():
+  logout_user()
+  return redirect(url_for('login'))
