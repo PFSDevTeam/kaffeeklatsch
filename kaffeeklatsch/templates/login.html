@@ -1,7 +1,7 @@
 <!--extend base-->
 {% extends 'base.html' %} 
 {% block register %}
-    <button onclick="document.location='register.html'" class="button">sign up</button> 
+    <button onclick="document.location='register.html'" class="button-style-credential sign-up-button">sign up</button> 
 {% endblock %} 
 
 {% block body %}
@@ -50,9 +50,9 @@
                 </div>
                 <div class="b2">
                     <!-- submit button-->
-                    {{ form.submit(class="submit") }}
+                    {{ form.submit(class="button-style-credential submit") }}
                     <!-- <input type="submit" class="submit" value="log in" > -->
-                    <input type="reset" class="reset" value="clear form">
+                    <input type="reset" class="button-style-credential reset" value="clear form">
                 </div>
             </form><br>
         </div>
