@@ -15,14 +15,15 @@
     height: 500px;
 }
 
+/* container holding the search bar */
 #search-container {
     display: inline-block;
     text-align: center;
-    background-color: orange;
     width: 60%;
 }
 
+/* input field styling */
 #search-input {
-    background-color: green;
+    background-color: white;
     width: 80%;
 }

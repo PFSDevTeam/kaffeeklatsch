@@ -13,13 +13,14 @@
 <!--search bar block-->
 {% block search %}
 <div class="search-container" id="search-container">
-    <input id="search-input" type="search" id="form1" class="form-control" />
+    <input id="search-input" type="search" id="form1" class="form-control" placeholder="Search Here"/>
 </div>
 {% endblock %}
 
 <!-- avatar block -->
 {% block avatar %}
-<img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee.png') }}" /> {% endblock %}
+<img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee.png') }}" /> 
+{% endblock %}
 
 <!--body block-->
 {% block body %}

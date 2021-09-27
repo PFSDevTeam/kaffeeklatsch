@@ -1,6 +1,6 @@
 .sort-post-wrapper {
     display: flex;
-    background-color: lightslategray;
+    background-color: white;
     width: 100%;
     height: 40px;
     padding-top: 10px;
@@ -10,41 +10,5 @@
 }
 
 #postContent {
-    left: 20px;
-}
-
-#popularity {
-    width: 100px;
-    height: 25px;
-    top: 225px;
-    border-radius: 8px;
-    background-color: #6259df;
-    font-family: "Helvetica Neue", "Arial", sans-serif;
-    font-size: medium;
-    color: white;
-    margin-left: 30px;
-}
-
-#recent {
-    width: 100px;
-    height: 25px;
-    top: 225px;
-    border-radius: 8px;
-    background-color: #6259df;
-    font-family: "Helvetica Neue", "Arial", sans-serif;
-    font-size: medium;
-    color: white;
-    margin-left: 30px;
-}
-
-#bean {
-    width: 100px;
-    height: 25px;
-    top: 225px;
-    border-radius: 8px;
-    background-color: #6259df;
-    font-family: "Helvetica Neue", "Arial", sans-serif;
-    font-size: medium;
-    color: white;
-    margin-left: 30px;
+    left: 10px;
 }
