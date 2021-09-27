@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, url_for, request, session
-from kaffeeklatsch import app
+from kaffeeklatsch import app,db
 
 from kaffeeklatsch.components.LoginHandler import LoginHandler
 from kaffeeklatsch.utilities.Errors import InvalidUsernameError, InvalidPasswordError, UserAlreadyExistsError, UserNotFoundError
@@ -15,6 +15,8 @@ from kaffeeklatsch.forms.ReplyForm import ReplyForm
 from kaffeeklatsch.forms.MakePostForm import MakePostForm
 from kaffeeklatsch.forms.CommunityPainForm import CommunityPainForm
 
+#TEST
+from kaffeeklatsch.models.models import UserAccess
 
 
 @app.route("/", methods=['GET','POST'])
@@ -22,8 +24,8 @@ def login():
   #LOGIN TESTING
   loginHandler = LoginHandler()
   form = LoginForm()
-
-  #SESSION TESTING
+  #DB TEST
+  print(f'users modesl list: {UserAccess.query.all()}')
 
   try:
     #NOTE: At this point the validLogin function either raises an error or returns true, consider removing boolean return
