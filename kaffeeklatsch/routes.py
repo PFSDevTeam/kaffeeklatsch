@@ -16,7 +16,7 @@ from kaffeeklatsch.forms.MakePostForm import MakePostForm
 from kaffeeklatsch.forms.CommunityPainForm import CommunityPainForm
 
 #TEST
-from kaffeeklatsch.models.models import UserAccess, User
+from kaffeeklatsch.models.models import UserAccess, User, Post, Community
 
 
 @app.route("/", methods=['GET','POST'])
@@ -90,6 +90,8 @@ def feed():
     #DB TEST
     print(f'users modesl list: {UserAccess.query.all()}')
     print(f'users modesl list: {User.query.all()}')
+    print(f'community model list: {Community.query.all()}')
+    print(f'post model list: \n {Post.query.all()}')
       
     #check session cookies, if it's not set redirect to login
     if (session.get("username") == None):
