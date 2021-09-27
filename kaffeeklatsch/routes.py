@@ -1,5 +1,5 @@
-from flask import render_template, flash, redirect, url_for, request, session
-from flask_login import login_user
+from flask import render_template, flash, redirect, url_for, request
+from flask_login import login_user, current_user
 from kaffeeklatsch import app,db
 
 #login imports
@@ -105,6 +105,8 @@ def feed():
     #check session cookies, if it's not set redirect to login
     # if (session.get("username") == None):
     #     return redirect(url_for('login'))
+    if (current_user.is_authenticated == False):
+      return redirect(url_for('login')) 
 
     #main logic path
     sortPostForm = SortPostForm()
