@@ -1,13 +1,17 @@
 <!--extend base-->
-{% extends 'base.html' %} {% block register %}
-<button onclick="document.location='register.html'" class="button">sign up</button> {% endblock %} {% block body %}
+{% extends 'base.html' %} 
+{% block register %}
+    <button onclick="document.location='register.html'" class="button">sign up</button> 
+{% endblock %} 
+
+{% block body %}
 
 <!--Page Section-->
 <div class="page">
 
     <body>
         <div class="container">
-            <form method="POST">
+            <form action="" method="POST">
                 {{ form.hidden_tag() }}
                 <div class="un">
                     <!--set form labels-->
@@ -20,7 +24,8 @@
                     <div class="invalid-feedback">
                         <!-- loop through errors-->
                         {% for error in form.username.errors %}
-                        <span>{{ error }}</span> {% endfor %}
+                        <span>{{ error }}</span> 
+                        {% endfor %}
                     </div>
                     {% else %} {{ form.username(class="form-control form-control-lg") }} {% endif %}
                     <!-- <label for="username">username</label>

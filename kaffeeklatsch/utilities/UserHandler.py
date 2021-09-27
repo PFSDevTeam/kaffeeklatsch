@@ -9,8 +9,6 @@ from kaffeeklatsch.utilities.TempUser import User
 
 class UserHandler:
 
-    FILE_NAME="credentials.csv"
-
     #DB Creation (uncomment when needed)
     # user_db = sqlite3.connect('db_files/application_data.db')
     # db_cursor = user_db.cursor()
@@ -41,7 +39,7 @@ class UserHandler:
     def __getSelectedUser(cls, inputUsername):
             #try to find the username from the loaded users
         #db commection
-        user_db = sqlite3.connect("db_files/application_data.db")
+        user_db = sqlite3.connect("kaffeeklatsch/db_files/application_data.db")
         db_cursor = user_db.cursor()
         with user_db:
             #run query
@@ -69,7 +67,7 @@ class UserHandler:
     #insert a new user into the database
     @classmethod
     def insertUser(cls, username, password):
-            user_db = sqlite3.connect("db_files/application_data.db")
+            user_db = sqlite3.connect("kaffeeklatsch/db_files/application_data.db")
             db_cursor = user_db.cursor()
             with user_db:
                 try:
