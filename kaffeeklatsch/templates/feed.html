@@ -35,6 +35,9 @@
                     {{ makePostTemplate.make_post(makePostForm) }} 
                     {{ sortPostTemplate.sort_post(sortPostForm) }}
                 </form>
+                {% for post in posts %}
+                    {{ post_reply.post_reply(replyForm, post) }}
+                {% endfor %}
                 <!--display the available posts below-->
                 <!--post loop-->
                 <!--post macros pulled in-->

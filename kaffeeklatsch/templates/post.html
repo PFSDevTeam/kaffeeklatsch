@@ -10,14 +10,14 @@
     <!--right panel: post content-->
     <div class="post-panel">
         <div class="post-panel__top-line">
-            <span class="owner-name">author</span> | <span class="community-content">community</span>
+            <span class="owner-name">{{ postObject.posting_user }}</span> | <span class="community-content">{{ postObject.community }}</span>
             {{ replyForm.join(class="button-style-a") }}
         </div>
         <div class="post-panel__title-line">
-            <span class="post-title">Post Title</span>
+            <span class="post-title">{{ postObject.title }}</span>
         </div>
         <div class="post-panel__post-content">
-            <p class="post-content">All of the news . . .</p>
+            <p class="post-content">{{ postObject.content }}</p>
         </div>
         <div class="post-panel__reply-line">
             {{ replyForm.replyContent(class="reply-content") }} 
