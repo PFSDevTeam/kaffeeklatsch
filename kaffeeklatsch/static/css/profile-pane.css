@@ -1,0 +1,43 @@
+/*File: profile-page.css
+ @author: Emily Godwin
+ Description: This file contains the css classes for
+     the profile pane components for the user profile page */
+
+/*wrapper to contain profile information*/
+.profile-wrapper {
+    background-color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: self-end;
+    height: 400px;
+    width: 350px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+
+/*left side, avatar image */
+.profile-wrapper .avatar_panel {
+    justify-content: center;
+    margin-top: 30px;
+    height: 80px;
+    width: 80px;
+}
+
+.profile-wrapper .avatar_image {
+    margin-right: 15px;    
+}
+
+/* right side, user info */
+.profile-wrapper .info-panel {
+    display: right;
+    margin-top: 20px;
+    width: 60%;
+    background-color: green;
+}
+
+.profile-wrapper .info-panel #info {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}
