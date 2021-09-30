@@ -1,3 +1,4 @@
+
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, current_user, logout_user
 from kaffeeklatsch import app,db
@@ -16,6 +17,9 @@ from kaffeeklatsch.forms.SortPostForm import SortPostForm
 from kaffeeklatsch.forms.ReplyForm import ReplyForm
 from kaffeeklatsch.forms.MakePostForm import MakePostForm
 from kaffeeklatsch.forms.CommunityPainForm import CommunityPainForm
+
+#profile page imports
+from kaffeeklatsch.forms.ProfilePageInfo import ProfilePageInfo
 
 #TEST
 from kaffeeklatsch.models.models import UserAccess, User, Post, Community
@@ -82,10 +86,22 @@ def feed():
     replyForm = ReplyForm()
     makePostForm = MakePostForm()
     communityPainForm = CommunityPainForm()
-    posts = Post.query.all();
-    print(posts);
+    posts = Post.query.all()
+    print(posts)
     # load posts here
     return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, posts=posts)
+
+#profile page routing
+@app.route('/profilepage')
+def profilePage():
+  #main logic path
+  sortPostForm = SortPostForm()
+  replyForm = ReplyForm()
+  makePostForm = MakePostForm()
+  posts = Post.query.all()
+  print(posts)
+  #TODO: logic to implement Profile Page info to be grabbed from the current user in the database
+  return render_template('profile_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, ProfilePageInfo=ProfilePageInfo)
 
 @app.route('/logout')
 def logout():
