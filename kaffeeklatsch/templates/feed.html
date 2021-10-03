@@ -31,10 +31,10 @@
             <!--left block-->
             <div class="post-pane">
                 <!--float the post form at the top-->
-                <form method="POST">
+                <div>
                     {{ makePostTemplate.make_post(makePostForm) }} 
                     {{ sortPostTemplate.sort_post(sortPostForm) }}
-                </form>
+                </div>
                 {% for post in posts %}
                     {{ post_reply.post_reply(replyForm, post) }}
                 {% endfor %}
@@ -56,6 +56,11 @@
     </body>
 </div>
 {% endblock %}
+
+                <!-- <form action="" method="POST">
+                    {{ makePostTemplate.make_post(makePostForm) }} 
+                    {{ sortPostTemplate.sort_post(sortPostForm) }}
+                </form> -->
 
 
                 <!-- {{ post_reply.post_reply(replyForm) }} 

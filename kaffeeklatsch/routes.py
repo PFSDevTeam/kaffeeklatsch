@@ -88,17 +88,20 @@ def feed():
     makePostForm = MakePostForm()
     communityPainForm = CommunityPainForm()
     posts = Post.query.all()
-    print(posts)
+    postHandler = PostHandler()
+    # print(posts)
     # load posts here
 
     if makePostForm.validate_on_submit():
       print("form input is validated")
-      inputTitle = request.form('postTitle')
-      inputContent = request.form('postContent')
+      inputTitle = request.form['postTitle']
+      inputContent = request.form['postContent']
       inputUsername = current_user
       # not passing time, using default value in model
       inputCommunity = "Test Community" # Will need to be updated with ability to pull relevant community
-      PostHandler.post(inputTitle, inputContent, inputUsername, inputCommunity)
+      postHandler.post(inputTitle, inputContent, inputUsername, inputCommunity)
+    else:
+      print("you're stuff still isnt workin")
 
     return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, posts=posts)
 
