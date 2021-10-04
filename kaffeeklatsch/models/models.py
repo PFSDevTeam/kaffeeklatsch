@@ -34,7 +34,7 @@ class Post(db.Model):
     title = db.Column(db.Text, nullable=False)
     content = db.Column(db.Text, nullable=False)
     posting_user = db.Column(db.Text, db.ForeignKey('user_access.username'), nullable=False)
-    posted_date = db.Column(db.Text, nullable=False)
+    posted_date = db.Column(db.DateTime, nullable=False)
     community = db.Column(db.Text, nullable=False)
     UUID = db.Column(db.Integer, nullable=False, primary_key=True, unique=True)
 
