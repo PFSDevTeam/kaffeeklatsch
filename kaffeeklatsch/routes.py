@@ -96,7 +96,7 @@ def feed():
       print("form input is validated")
       inputTitle = request.form['postTitle']
       inputContent = request.form['postContent']
-      inputUsername = current_user
+      inputUsername = current_user.username
       # not passing time, using default value in model
       inputCommunity = "Test Community" # Will need to be updated with ability to pull relevant community
       postHandler.post(inputTitle, inputContent, inputUsername, inputCommunity)
