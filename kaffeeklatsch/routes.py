@@ -100,6 +100,8 @@ def feed():
       # not passing time, using default value in model
       inputCommunity = "Test Community" # Will need to be updated with ability to pull relevant community
       postHandler.post(inputTitle, inputContent, inputUsername, inputCommunity)
+      #reload the page & clear fields
+      return redirect(url_for('feed'))
     else:
       print("you're stuff still isnt workin")
 
