@@ -46,3 +46,18 @@ class Post(db.Model):
         \t-community: {self.community}
         """
 
+class Reply(db.Model):
+    original_post_id = db.Column(db.Integer, db.ForeignKey('post.UUID'), nullable=False)
+    reply_content = db.Column(db.Text, nullable=False)
+    reply_user = db.Column(db.Text, db.ForeignKey('user_access.username'), nullable=False)
+    reply_date = db.Column(db.DateTime, nullable=False)
+    community = db.Column(db.Text, nullable=False)
+    reply_UUID = db.Column(db.Integer, nullable=False, primary_key=True, unique=True)
+
+    def __repr__(self):
+        return f"""\nReply {self.reply_UUID}:
+        \t-author: {self.reply_user}
+        \t-reply_date: {self.reply_date}
+        \t-content: {self.reply_content}
+        \t-community: {self.community}
+        """
