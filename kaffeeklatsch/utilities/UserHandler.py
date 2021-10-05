@@ -4,6 +4,7 @@
 from kaffeeklatsch.utilities.Errors import UserNotFoundError
 from kaffeeklatsch.models.models import UserAccess, User
 from kaffeeklatsch import db
+from datetime import datetime
 
 class UserHandler:
 
@@ -40,7 +41,7 @@ class UserHandler:
     @classmethod
     def insertUser(cls, username, password):
         newUserAccess = UserAccess(username=username, password=password)
-        newUserProfile = User(username=username)
+        newUserProfile = User(username=username, date_joined=datetime.utcnow())
         try:
             db.session.add(newUserAccess)
             db.session.add(newUserProfile)
