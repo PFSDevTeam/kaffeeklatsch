@@ -20,6 +20,9 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.Text, nullable=True)
     communities = db.Column(db.Text, nullable=True)
     users_following = db.Column(db.Text, nullable=True)
+    tagline = db.Column(db.Text, nullable=True)
+    date_joined = db.Column(db.Text, nullable=False)
+    summary = db.Column(db.Text, nullable=True)
 
     def __repr__(self):
         return f"User Profile: ('{self.username}')"
