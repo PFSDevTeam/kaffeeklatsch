@@ -1,17 +1,11 @@
 #handles writing new users
 
-#libraries
-import csv
-
 #custom classes
 from kaffeeklatsch.utilities.Hasher import Hasher
 from kaffeeklatsch.utilities.Errors import UserAlreadyExistsError
 from kaffeeklatsch.utilities.UserHandler import UserHandler
 
 class RegistrationHandler:
-
-    #global instance variables
-    FILE_NAME="credentials.csv"
 
     def register(self, inputUser, inputPass):
         #local variable assignments

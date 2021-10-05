@@ -1,4 +1,3 @@
-from datetime import datetime
 from kaffeeklatsch import db, login_manager
 from flask_login import UserMixin
 
@@ -38,15 +37,30 @@ class Post(db.Model):
     title = db.Column(db.Text, nullable=False)
     content = db.Column(db.Text, nullable=False)
     posting_user = db.Column(db.Text, db.ForeignKey('user_access.username'), nullable=False)
-    posted_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    posted_date = db.Column(db.DateTime, nullable=False)
     community = db.Column(db.Text, nullable=False)
     UUID = db.Column(db.Integer, nullable=False, primary_key=True, unique=True)
 
     def __repr__(self):
         return f"""\nPost {self.UUID}:
-        \n\t-author: {self.posting_user}
-        \n\t-posted_date: {self.posted_date}
-        \n\t-community: {self.community}
-        \n\t-content: {self.content}
-        \n"""
+        \t-author: {self.posting_user}
+        \t-posted_date: {self.posted_date}
+        \t-content: {self.content}
+        \t-community: {self.community}
+        """
 
+class Reply(db.Model):
+    original_post_id = db.Column(db.Integer, db.ForeignKey('post.UUID'), nullable=False)
+    reply_content = db.Column(db.Text, nullable=False)
+    reply_user = db.Column(db.Text, db.ForeignKey('user_access.username'), nullable=False)
+    reply_date = db.Column(db.DateTime, nullable=False)
+    community = db.Column(db.Text, nullable=False)
+    reply_UUID = db.Column(db.Integer, nullable=False, primary_key=True, unique=True)
+
+    def __repr__(self):
+        return f"""\nReply {self.reply_UUID}:
+        \t-author: {self.reply_user}
+        \t-reply_date: {self.reply_date}
+        \t-content: {self.reply_content}
+        \t-community: {self.community}
+        """

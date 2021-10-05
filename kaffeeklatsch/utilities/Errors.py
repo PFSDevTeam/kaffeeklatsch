@@ -36,3 +36,10 @@ class PasswordsDoNotMatch(Error):
 
     def __init__(self):
         super().__init__(self.DEFAULT_MESSAGE)
+
+class NotAbletoPostComment(Error):
+    # Not able to post a comment
+    DEFAULT_MESSAGE = "Error: Not able to post comment"
+
+    def __init__(self):
+        super().__init__(self.DEFAULT_MESSAGE)

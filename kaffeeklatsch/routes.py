@@ -17,6 +17,7 @@ from kaffeeklatsch.forms.SortPostForm import SortPostForm
 from kaffeeklatsch.forms.ReplyForm import ReplyForm
 from kaffeeklatsch.forms.MakePostForm import MakePostForm
 from kaffeeklatsch.forms.CommunityPainForm import CommunityPainForm
+from kaffeeklatsch.components.PostHandler import PostHandler # For the posting of comments
 
 #profile page imports
 from kaffeeklatsch.forms.ProfilePageInfo import ProfilePageInfo
@@ -75,7 +76,7 @@ def register():
   
   return render_template('register.html', form=registrationForm)
 
-@app.route('/feed')
+@app.route('/feed', methods=['GET', 'POST'])
 def feed():
 
     if (current_user.is_authenticated == False):
@@ -87,8 +88,23 @@ def feed():
     makePostForm = MakePostForm()
     communityPainForm = CommunityPainForm()
     posts = Post.query.all()
-    print(posts)
+    postHandler = PostHandler()
+    # print(posts)
     # load posts here
+
+    if makePostForm.validate_on_submit():
+      print("form input is validated")
+      inputTitle = request.form['postTitle']
+      inputContent = request.form['postContent']
+      inputUsername = current_user.username
+      # not passing time, using default value in model
+      inputCommunity = "Test Community" # Will need to be updated with ability to pull relevant community
+      postHandler.post(inputTitle, inputContent, inputUsername, inputCommunity)
+      #reload the page & clear fields
+      return redirect(url_for('feed'))
+    else:
+      print("you're stuff still isnt workin")
+
     return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, posts=posts)
 
 #profile page routing
