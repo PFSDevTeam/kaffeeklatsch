@@ -16,6 +16,25 @@ To install docker visit: https://www.docker.com/get-started
 
 **Docker is a containerization tool that is NOT required for local development. Standard Python run commands will work. Instructions for both methods of running the application will be included in the 'Running Instructions' setting
 
+#### Docker Compose (live reload) (recommended)
+
+to build and run the project using docker-compose (recommended)
+
+use the following command in the project root directory after docker is installed:
+```
+docker-compose up
+```
+
+to stop the application run the following command:
+```
+docker-compose  down
+```
+
+to force the application to rebuild the images with a new run you can use:
+```
+docker-compose up --build
+```
+
 #### Build
 
 to build the project container run the following from the root directory 
