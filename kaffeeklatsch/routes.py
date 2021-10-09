@@ -113,9 +113,8 @@ def feed():
       inputContent = request.form['replyContent']
       inputUsername = current_user.username
       # not passing time, using default value in model
-      inputCommunity = "Test Community" # Will need to be updated with ability to pull relevant community
       inputOriginalPostID = 1
-      replyHandler.reply(inputOriginalPostID, inputContent, inputUsername, inputCommunity)
+      replyHandler.reply(inputOriginalPostID, inputContent, inputUsername)
       #reload the page & clear fields
       return redirect(url_for('feed'))
     else:

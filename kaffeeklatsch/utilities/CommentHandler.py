@@ -26,8 +26,8 @@ class CommentHandler:
             return False
     
     @classmethod
-    def insertReply(cls, original_post_id, reply_content, reply_user, community):
-        wholePost = Reply(original_post_id=original_post_id, reply_content=reply_content,reply_user=reply_user, reply_date=datetime.utcnow(), community=community)
+    def insertReply(cls, original_post_id, reply_content, reply_user):
+        wholePost = Reply(original_post_id=original_post_id, reply_content=reply_content,reply_user=reply_user, reply_date=datetime.utcnow())
 
         try:
             print("Trying to write to the DB with CommentHandler")
