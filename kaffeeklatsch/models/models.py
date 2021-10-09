@@ -15,6 +15,8 @@ class UserAccess(db.Model):
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, nullable=False, primary_key=True, unique=True)
     username = db.Column(db.Text, db.ForeignKey('user_access.username'), nullable=False)
+    # tagline = db.Column(db.Text, db.ForeignKey('user_access.tagline'), nullable=True)
+    # date_joined = db.Column(db.Text, nullable=False)
     avatar = db.Column(db.Text, nullable=True)
     first_name = db.Column(db.Text, nullable=True)
     last_name = db.Column(db.Text, nullable=True)

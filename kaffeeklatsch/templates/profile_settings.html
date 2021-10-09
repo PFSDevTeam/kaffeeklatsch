@@ -1,0 +1,37 @@
+<!--File: profile_settings.html
+    @author: Emily Godwin
+    Description: This file contains the html template for
+        the profile settings page-->
+<!--extend base-->
+{% extends 'base.html' %}
+
+{% import 'profile_settings_content.html' as profileSettings %}
+
+<!--CSS Stylesheet-->
+{% block addedCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/feed.css') }}" /> {% endblock %}
+
+<!--search bar block-->
+{% block search %}
+<div class="search-container" id="search-container">
+    <input id="search-input" type="search" id="form1" class="form-control" placeholder="Search Here"/>
+</div>
+{% endblock %}
+
+<!-- avatar block -->
+{% block avatar %}
+<img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee.png') }}" /> 
+{% endblock %}
+
+<!--body block-->
+{% block body %}
+<div class="page">
+    <body>
+        <div class="content-view">
+            <!--Profile Settings Pane-->
+            <div>
+                <!-- {{ profileSettings.profile_settings_content(ProfilePageInfo) }}  -->
+            </div>
+    </body>
+</div>
+{% endblock %}

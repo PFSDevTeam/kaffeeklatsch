@@ -22,9 +22,11 @@ from kaffeeklatsch.components.PostHandler import PostHandler # For the posting o
 #profile page imports
 from kaffeeklatsch.forms.ProfilePageInfo import ProfilePageInfo
 
+#community profile page import
+from kaffeeklatsch.forms.CommunityPageInfo import CommunityPageInfo
+
 #TEST
 from kaffeeklatsch.models.models import UserAccess, User, Post, Community
-
 
 @app.route("/", methods=['GET','POST'])
 def login():
@@ -78,7 +80,6 @@ def register():
 
 @app.route('/feed', methods=['GET', 'POST'])
 def feed():
-
     if (current_user.is_authenticated == False):
       return redirect(url_for('login')) 
 
@@ -108,9 +109,10 @@ def feed():
     return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, posts=posts)
 
 #profile page routing
-@app.route('/profilepage')
+@app.route('/profilepage', methods=['GET', 'POST'])
 def profilePage():
-  #main logic path
+  if request.method == 'POST':
+        return redirect(url_for('feed'))
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
@@ -118,6 +120,24 @@ def profilePage():
   print(posts)
   #TODO: logic to implement Profile Page info to be grabbed from the current user in the database
   return render_template('profile_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, ProfilePageInfo=ProfilePageInfo)
+
+#profile settings page routing
+@app.route('/profileSettingsPage')
+def profileSettingsPage():
+  return render_template('profile_settings.html', ProfilePageInfo=ProfilePageInfo)
+
+#community page routing
+@app.route('/communityPage', methods=['GET', 'POST'])
+def communityPage():
+  if request.method == 'POST':
+    return redirect(url_for('feed'))
+  sortPostForm = SortPostForm()
+  replyForm = ReplyForm()
+  makePostForm = MakePostForm()
+  posts = Post.query.all()
+  print(posts)
+  return render_template('community_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, CommunityPageInfo=CommunityPageInfo)
+
 
 @app.route('/logout')
 def logout():
