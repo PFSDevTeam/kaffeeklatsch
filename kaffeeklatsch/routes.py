@@ -105,7 +105,7 @@ def feed():
       #reload the page & clear fields
       return redirect(url_for('feed'))
     else:
-      print("you're stuff still isnt workin")
+      print("you're stuff still isnt workin (post)")
 
     if replyForm.validate_on_submit():
       print("Reply form input is validated")
@@ -118,7 +118,7 @@ def feed():
       #reload the page & clear fields
       return redirect(url_for('feed'))
     else:
-      print("reply you're stuff still isnt workin")
+      print("reply you're stuff still isnt workin (reply)")
 
     return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, posts=posts)
 
