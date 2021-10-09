@@ -1,20 +1,26 @@
 .make-post-wrapper {
-    display: inline-block;
     display: block;
+    border-radius: 8px;
+    border-style: groove;
+    background-color: white;
     margin-bottom: 10px;
 }
 
 .make-post-wrapper .post-title {
     display: block;
-    width: 99%;
+    width: 99.6%;
+    border-style: groove;
+    border-color: lightgrey;
     margin: 0;
     padding: 0;
 }
 
 .make-post-wrapper .post-content {
     display: block;
-    width: 99%;
-    margin: 0;
+    width: 99.6%;
+    border-style: groove;
+    border-color: lightgrey;
+     margin: 0;
     padding: 0;
     height: 100px;
 }
