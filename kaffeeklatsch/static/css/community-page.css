@@ -7,6 +7,7 @@
 .community-info-wrapper {
     background-color: white;
     display: inline-flex;
+    border-style: groove;
     justify-content: center;
     align-items: self-end;
     height: 400px;
