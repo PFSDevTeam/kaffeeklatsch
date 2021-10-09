@@ -151,9 +151,10 @@ def communityPage():
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
+  communityPageForm=CommunityPageInfo()
   posts = Post.query.all()
   print(posts)
-  return render_template('community_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, CommunityPageInfo=CommunityPageInfo)
+  return render_template('community_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, communityPageForm=communityPageForm)
 
 
 @app.route('/logout')
