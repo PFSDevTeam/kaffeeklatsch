@@ -20,7 +20,7 @@
 
 <!-- avatar block -->
 {% block avatar %}
-<img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /> 
+<a href="/profilepage"><img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /></a>
 {% endblock %}
 
 <!--body block-->
@@ -30,7 +30,7 @@
         <div class="content-view">
             <!--Profile Settings Pane-->
             <div>
-                <!-- {{ profileSettings.profile_settings_content(profilePageForm) }}  -->
+                {{ profileSettings.profile_settings_content(profilePageForm) }} 
             </div>
     </body>
 </div>

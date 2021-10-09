@@ -6,46 +6,57 @@
 
 .profile-settings-wrapper{
     background-color: #96E6FF;
-    display: inline-flex;
-    justify-content: center;
+    display: inline-table;
     height: 400px;
     width: 800px;
     margin-top: 10px;
     margin-bottom: 10px;
-    /* margin-left: 40px; */
+}
+
+.profile-settings-wrapper .user-info-pane{
+    width: 50%;
+    display: inline-flex;
+    margin-left: 5%;
+}
+
+.profile-settings-wrapper .user-details-pane{
+    display: block;
+    margin-left: 10%;
+    margin-top: 15%;
 }
 
 /*left side, avatar image */
 .profile-settings-wrapper .avatar-bubble-pane {
-    /* justify-content: left; */
-    display: block;
-    margin-top: 40px;
-    margin-right: 50px;
-    height: 80px;
-    width: 80px;
+    margin-top: 15%;
+    height: 100px;
+    width: 100px;
 }
 
 .profile-settings-wrapper .avatar-bubble {  
     margin-top: 5px;
+    height: 100%;
 }
 
-/*Username*/
-.profile-settings-wrapper .username-label{
-    justify-content: left;
-    /* margin-left: 15px; */
-    margin-top: 30px;
-}
-/*Condense!*/
-/*User Summary*/
-.profile-settings-wrapper .user-content{
-    /* justify-content: left; */
-    /* margin-left: 15px; */
-    margin-top: 60px;
+.profile-settings-wrapper .avatar-change-pane{
+    margin-left: 25%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    width: 50%;
+    height: 30%;
+    background-color: white;
 }
 
-.profile-settings-wrapper .password-change{
-    margin-left: 5px;
+.profile-settings-wrapper .avatar-change-bubble{
+    height: 15%;
+    width: 15%;
+    margin-top: 5%;
+    margin-left: 7%;
+    margin-bottom: 2%;
 }
-.profile-settings-wrapper .verify-password-change{
-    margin-left: 5px;
+
+.profile-settings-wrapper .save-changes-button{
+    margin-left: 5%;
+}
+.profile-settings-wrapper #save-button{
+    width: 30px;
 }

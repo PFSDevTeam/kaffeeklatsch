@@ -21,7 +21,7 @@ from kaffeeklatsch.components.PostHandler import PostHandler # For the posting o
 from kaffeeklatsch.components.ReplyHandler import ReplyHandler
 
 #profile page imports
-from kaffeeklatsch.forms.ProfilePageInfo import ProfilePageInfo
+from kaffeeklatsch.components.ProfilePageInfo import ProfilePageInfo
 
 #community profile page import
 from kaffeeklatsch.forms.CommunityPageInfo import CommunityPageInfo
@@ -131,15 +131,20 @@ def profilePage():
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
-  profilePageForm = ProfilePageInfo()
+  userInfo = ProfilePageInfo()
+  # userProfile = current_user.username
+  # userInfo = ProfilePageInfo.getInfo(userProfile)
+  # print(userInfo)
   posts = Post.query.all()
   print(posts)
   #TODO: logic to implement Profile Page info to be grabbed from the current user in the database
-  return render_template('profile_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, profilePageForm=profilePageForm)
+  return render_template('profile_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, userInfo=userInfo)
 
 #profile settings page routing
-@app.route('/profileSettingsPage')
+@app.route('/profileSettingsPage',  methods=['GET', 'POST'])
 def profileSettingsPage():
+  if request.method == 'POST':
+        return redirect(url_for('feed'))
   profilePageForm = ProfilePageInfo()
   return render_template('profile_settings.html', profilePageForm=profilePageForm)
 
@@ -151,10 +156,11 @@ def communityPage():
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
-  communityPageForm=CommunityPageInfo()
+  # communityPageForm=CommunityPageInfo()
+  communityInfo=Community.query.all()
   posts = Post.query.all()
   print(posts)
-  return render_template('community_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, communityPageForm=communityPageForm)
+  return render_template('community_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, communityInfo=communityInfo)
 
 
 @app.route('/logout')

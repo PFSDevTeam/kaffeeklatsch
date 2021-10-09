@@ -15,20 +15,23 @@
         <!--right side user info-->
         <div class="info-panel">
             <div>
-                <span>{{ profileObject.userName }}</span>
+                <span>{{ profileObject.username }}</span>
             </div>
             <div>
                 <span>{{ profileObject.tagline }}</span>
             </div>
             <div>
-                <span>{{ profileObject.dateJoined }}</span>
+                <span>{{ profileObject.date_joined }}</span>
             </div>
         </div>
     </div>
     <!--User content-->
     <!--TODO: User content-->
     <div class="user-content">
-        <p>{{ profileObject.userContent }}</p>
+        <p>{{ profileObject.summary }}</p>
+    </div>
+    <div class="redirect-profile-settings button-style-b">
+        <a href="/profileSettingsPage">profile settings</a>
     </div>
 </div>
 {% endmacro %}
