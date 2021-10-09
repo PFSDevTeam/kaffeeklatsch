@@ -1,0 +1,51 @@
+/*File: profile-settings.css
+ @author: Emily Godwin
+ Description: This file contains the css classes for
+     the profile settings page */
+
+
+.profile-settings-wrapper{
+    background-color: #96E6FF;
+    display: inline-flex;
+    justify-content: center;
+    height: 400px;
+    width: 800px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* margin-left: 40px; */
+}
+
+/*left side, avatar image */
+.profile-settings-wrapper .avatar-bubble-pane {
+    /* justify-content: left; */
+    display: block;
+    margin-top: 40px;
+    margin-right: 50px;
+    height: 80px;
+    width: 80px;
+}
+
+.profile-settings-wrapper .avatar-bubble {  
+    margin-top: 5px;
+}
+
+/*Username*/
+.profile-settings-wrapper .username-label{
+    justify-content: left;
+    /* margin-left: 15px; */
+    margin-top: 30px;
+}
+/*Condense!*/
+/*User Summary*/
+.profile-settings-wrapper .user-content{
+    /* justify-content: left; */
+    /* margin-left: 15px; */
+    margin-top: 60px;
+}
+
+.profile-settings-wrapper .password-change{
+    margin-left: 5px;
+}
+.profile-settings-wrapper .verify-password-change{
+    margin-left: 5px;
+}

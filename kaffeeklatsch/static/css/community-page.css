@@ -1,13 +1,14 @@
-/*File: profile-page.css
+/*File: community-page.css
  @author: Emily Godwin
  Description: This file contains the css classes for
-     the profile pane components for the user profile page */
+     the community information pane on the community page */
 
 /*wrapper to contain profile information*/
-.profile-wrapper {
+.community-info-wrapper {
     background-color: white;
-    display: flexbox;
+    display: inline-flex;
     border-style: groove;
+    justify-content: center;
     align-items: self-end;
     height: 400px;
     width: 350px;
@@ -16,21 +17,12 @@
     margin-left: 40px;
 }
 
-.profile-wrapper .upper-block{
-    display: inline-flex;
-    align-self: flex-start;
-    margin-left: 15px;
-    margin-top: 10px;
-
-}
-
 /*left side, avatar image */
-.profile-wrapper .avatar_panel {
+.community-wrapper .avatar_panel {
     justify-content: center;
     margin-top: 30px;
-    margin-left: 50px;
     height: 80px;
-    width: 50px;
+    width: 80px;
 }
 
 .profile-wrapper .avatar_image {
@@ -39,18 +31,14 @@
 
 /* right side, user info */
 .profile-wrapper .info-panel {
-    margin-top: 5px;
+    display: right;
+    margin-top: 20px;
     width: 60%;
-    height: 20%;
     background-color: green;
 }
 
-/*bottom user content*/
-.profile-wrapper .user-content{
-    margin-top: 8px;
-    margin-left: 8%;
-    border-style: groove;
-    background-color: white;
-    height: 50%;
-    width: 80%;
+.profile-wrapper .info-panel #info {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
 }

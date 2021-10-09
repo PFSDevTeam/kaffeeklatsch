@@ -1,0 +1,31 @@
+<!--File: profile_settings_content.html
+    @author: Emily Godwin
+    Description: This file contains the html template for
+        the profile setttings page template-->
+{% macro profile_settings_content(profileObject) %}
+<!--CSS Stylesheet-->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile-settings.css') }}" />
+    <!--body block-->
+    <div class="profile-settings-wrapper">
+        <!--Avatar Bubble-->
+        <div class="avatar-bubble-pane">
+            <img class="avatar avatar-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /> 
+        </div>
+        <!--User Info-->
+        <div class="username-label">
+            <span>userName</span>
+        </div> 
+        <!--User Summary-->
+        <div class="user-content">
+            <p>userContent</p>
+        </div>
+        <!--Password Change-->
+        <div class="password-change">
+            <p>password change</p>
+        </div>
+        <!--Verify Password Change-->
+        <div class="verify-password-change">
+            <p>verify password change</p>
+        </div>
+    </div>
+{% endmacro %}

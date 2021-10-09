@@ -1,4 +1,4 @@
-<!--File: profile_page.html
+<!--File: community_page.html
     @author: Emily Godwin
     Description: This file contains the html template for
         the profile content hub page-->
@@ -8,7 +8,7 @@
 {% import 'make_post.html' as makePostTemplate %}
 {% import 'sort_post.html' as sortPostTemplate %}
 {% import 'post_reply.html' as post_reply %}
-{% import 'profile_pane.html' as profilePaneTemplate %}
+{% import 'community_profile_pane.html' as communityPaneTemplate %}
 
 <!--CSS Stylesheet-->
 {% block addedCSS %}
@@ -23,7 +23,7 @@
 
 <!-- avatar block -->
 {% block avatar %}
-<img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /> 
+<a href="/profilepage"><img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /></a>
 {% endblock %}
 
 <!--body block-->
@@ -47,7 +47,7 @@
             </div>
             <!--right block, calls profilePaneTemplate-->
             <div>
-                {{ profilePaneTemplate.profile_pane(profilePageForm) }} 
+                {{ communityPaneTemplate.community_profile_pane(CommunityPageInfo) }} 
             </div>
     </body>
 </div>

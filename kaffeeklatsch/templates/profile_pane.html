@@ -7,26 +7,28 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-pane.css') }}" />
 
 <div class="profile-wrapper">
-    <!--left side user avatar-->
-    <div class=avatar_panel>
-        <img class="avatar avatar_image" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee.png') }}" /> 
-    </div>
-    <!--right side user info-->
-    <div class="info-panel">
-        <div>
-            <span>{{ profileObject.userName }}</span>
+    <div class="upper-block">
+        <!--left side user avatar-->
+        <div class=avatar_panel>
+            <img class="avatar avatar_image" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /> 
         </div>
-        <div>
-            <span>{{ profileObject.tagline }}</span>
-        </div>
-        <div>
-            <span>{{ profileObject.dateJoined }}</span>
+        <!--right side user info-->
+        <div class="info-panel">
+            <div>
+                <span>{{ profileObject.userName }}</span>
+            </div>
+            <div>
+                <span>{{ profileObject.tagline }}</span>
+            </div>
+            <div>
+                <span>{{ profileObject.dateJoined }}</span>
+            </div>
         </div>
     </div>
     <!--User content-->
     <!--TODO: User content-->
-    <!-- <div>
+    <div class="user-content">
         <p>{{ profileObject.userContent }}</p>
-    </div> -->
+    </div>
 </div>
 {% endmacro %}
