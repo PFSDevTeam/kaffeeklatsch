@@ -23,6 +23,7 @@
         <form action="" method="POST">
             <div class="post-panel__reply-line">
                 {{ replyForm.hidden_tag() }}
+                <input type="hidden" id="original_post_id" value="{{postObject.UUID}}">
                 {{ replyForm.replyContent(class="reply-content") }} 
                 {{ replyForm.post(class="button-style-b make-button") }} 
             </div>

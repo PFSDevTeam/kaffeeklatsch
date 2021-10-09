@@ -113,7 +113,7 @@ def feed():
       inputContent = request.form['replyContent']
       inputUsername = current_user.username
       # not passing time, using default value in model
-      inputOriginalPostID = 1
+      inputOriginalPostID = request.form['original_post_id']
       replyHandler.reply(inputOriginalPostID, inputContent, inputUsername)
       #reload the page & clear fields
       return redirect(url_for('feed'))
