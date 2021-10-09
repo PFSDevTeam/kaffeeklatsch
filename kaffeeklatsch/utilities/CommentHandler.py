@@ -11,7 +11,7 @@ class CommentHandler:
     #insert a new comment into the database, posted_date is commented because we are relying on the default value input into the database
     @classmethod
     def insertComment(cls, title, content, posting_user, community):
-        wholePost = Post(title=title, content=content, posting_user=posting_user, community=community, posted_date=datetime.utcnow())
+        wholePost = Post(title=title, content=content, posting_user=posting_user, community=community, posted_date=datetime.utcnow(), tally=0)
 
         try:
             print("Trying to write to the DB with CommentHandler")

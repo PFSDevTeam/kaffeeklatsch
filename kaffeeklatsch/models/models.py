@@ -42,6 +42,7 @@ class Post(db.Model):
     posted_date = db.Column(db.DateTime, nullable=False)
     community = db.Column(db.Text, nullable=False)
     UUID = db.Column(db.Integer, nullable=False, primary_key=True, unique=True)
+    tally = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
         return f"""\nPost {self.UUID}:
