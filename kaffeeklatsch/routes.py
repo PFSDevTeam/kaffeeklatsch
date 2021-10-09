@@ -18,6 +18,7 @@ from kaffeeklatsch.forms.ReplyForm import ReplyForm
 from kaffeeklatsch.forms.MakePostForm import MakePostForm
 from kaffeeklatsch.forms.CommunityPainForm import CommunityPainForm
 from kaffeeklatsch.components.PostHandler import PostHandler # For the posting of comments
+from kaffeeklatsch.components.ReplyHandler import ReplyHandler
 
 #profile page imports
 from kaffeeklatsch.forms.ProfilePageInfo import ProfilePageInfo
@@ -90,6 +91,7 @@ def feed():
     communityPainForm = CommunityPainForm()
     posts = Post.query.all()
     postHandler = PostHandler()
+    replyHandler = ReplyHandler()
     # print(posts)
     # load posts here
 
@@ -104,7 +106,20 @@ def feed():
       #reload the page & clear fields
       return redirect(url_for('feed'))
     else:
-      print("you're stuff still isnt workin")
+      print("you're stuff still isnt workin (post)")
+
+    if replyForm.validate_on_submit():
+      print("Reply form input is validated")
+      inputContent = request.form['replyContent']
+      inputUsername = current_user.username
+      # not passing time, using default value in model
+      inputCommunity = "Test Community" # Will need to be updated with ability to pull relevant community
+      inputOriginalPostID = 1
+      replyHandler.reply(inputOriginalPostID, inputContent, inputUsername, inputCommunity)
+      #reload the page & clear fields
+      return redirect(url_for('feed'))
+    else:
+      print("reply you're stuff still isnt workin (reply)")
 
     return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, posts=posts)
 

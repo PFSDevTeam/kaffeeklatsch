@@ -19,10 +19,14 @@
         <div class="post-panel__post-content">
             <p class="post-content">{{ postObject.content }}</p>
         </div>
-        <div class="post-panel__reply-line">
-            {{ replyForm.replyContent(class="reply-content") }} 
-            {{ replyForm.post(class="button-style-b") }} 
-        </div>
+        <!--REPLY FORM-->
+        <form action="" method="POST">
+            <div class="post-panel__reply-line">
+                {{ replyForm.hidden_tag() }}
+                {{ replyForm.replyContent(class="reply-content") }} 
+                {{ replyForm.post(class="button-style-b make-button") }} 
+            </div>
+        </form>
     </div>
 
 
