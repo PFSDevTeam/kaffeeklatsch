@@ -116,15 +116,17 @@ def profilePage():
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
+  profilePageForm = ProfilePageInfo()
   posts = Post.query.all()
   print(posts)
   #TODO: logic to implement Profile Page info to be grabbed from the current user in the database
-  return render_template('profile_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, ProfilePageInfo=ProfilePageInfo)
+  return render_template('profile_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, profilePageForm=profilePageForm)
 
 #profile settings page routing
 @app.route('/profileSettingsPage')
 def profileSettingsPage():
-  return render_template('profile_settings.html', ProfilePageInfo=ProfilePageInfo)
+  profilePageForm = ProfilePageInfo()
+  return render_template('profile_settings.html', profilePageForm=profilePageForm)
 
 #community page routing
 @app.route('/communityPage', methods=['GET', 'POST'])
