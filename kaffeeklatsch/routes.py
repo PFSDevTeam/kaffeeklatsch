@@ -20,8 +20,8 @@ from kaffeeklatsch.forms.CommunityPainForm import CommunityPainForm
 from kaffeeklatsch.components.PostHandler import PostHandler # For the posting of comments
 from kaffeeklatsch.components.ReplyHandler import ReplyHandler
 
-#profile page imports
-from kaffeeklatsch.components.ProfilePageInfo import ProfilePageInfo
+#Profile Settings changes forms
+from kaffeeklatsch.forms.ProfileSettingsForm import ProfileSettingsForm
 
 #community profile page import
 from kaffeeklatsch.forms.CommunityPageInfo import CommunityPageInfo
@@ -131,10 +131,8 @@ def profilePage():
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
-  userInfo = ProfilePageInfo()
-  # userProfile = current_user.username
-  # userInfo = ProfilePageInfo.getInfo(userProfile)
-  # print(userInfo)
+  userName = current_user.username
+  userInfo = User.query.filter_by(username=userName).first()
   posts = Post.query.all()
   print(posts)
   #TODO: logic to implement Profile Page info to be grabbed from the current user in the database
@@ -145,8 +143,10 @@ def profilePage():
 def profileSettingsPage():
   if request.method == 'POST':
         return redirect(url_for('feed'))
-  profilePageForm = ProfilePageInfo()
-  return render_template('profile_settings.html', profilePageForm=profilePageForm)
+  userName = current_user.username
+  userInfo = User.query.filter_by(username=userName).first()
+  profileSettingsChange = ProfileSettingsForm()
+  return render_template('profile_settings.html', userInfo=userInfo, profileSettingsChange=profileSettingsChange)
 
 #community page routing
 @app.route('/communityPage', methods=['GET', 'POST'])

@@ -2,7 +2,7 @@
     @author: Emily Godwin
     Description: This file contains the html template for
         the profile setttings page template-->
-{% macro profile_settings_content(profileObject) %}
+{% macro profile_settings_content(userInfo, profileSettings) %}
 <!--CSS Stylesheet-->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-settings.css') }}" />
     <!--body block-->
@@ -13,10 +13,10 @@
                 <img class="avatar-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /> 
             </div>
             <div class="user-details-pane">
-                    <span>userName</span>
-                    <p>userContent</p>
-                    <p>password change</p>
-                    <p>verify password change</p>
+                    <span> {{ userInfo.username }}</span>
+                    <span>{{ userInfo.tagline }}</span><span>{{ profileSettings.taglineChange }}</span>
+                    <span>{{ profileSettings.newPassword }}</span>
+                    <span>{{ profileSettings.verifyPassword }}</span>
             </div>
         </div>
         <div class="avatar-change-pane">
@@ -34,7 +34,7 @@
                 <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/whale_avatar.png') }}" />
         </div>
         <div class="save-changes-button">
-            {{ profileObject.save(class="button-style-a save-button") }}
+            {{ profileSettings.save(class="button-style-a save-button") }}
         </div>
     </div>
 </div>
