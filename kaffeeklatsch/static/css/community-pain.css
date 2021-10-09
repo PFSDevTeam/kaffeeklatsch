@@ -1,6 +1,8 @@
 .community-pain-wrapper {
-    background-color: lightslategray;
+    background-color: white;
     display: flex;
+    border-radius: 8px;
+    border-style: groove;
     justify-content: right;
     align-items: center;
     padding-bottom: 10px;
