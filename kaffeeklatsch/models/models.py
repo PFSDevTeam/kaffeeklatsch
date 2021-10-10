@@ -30,7 +30,10 @@ class User(db.Model, UserMixin):
         return f"User Profile: ('{self.username}')"
 
 class Community(db.Model):
-    community = db.Column(db.Text, nullable=False, primary_key=True)
+    community_id = db.Column(db.Integer, nullable=False, primary_key=True)
+    community_name = db.Column(db.Text, nullable=False)
+    community_tagline = db.Column(db.Text, nullable=True)
+    community_content = db.Column(db.Text, nullable=True)
 
     def __repr__(self):
         return f"community: ('{self.community}')"

@@ -7,8 +7,11 @@ CREATE TABLE IF NOT EXISTS "user_access" (
 );
 DROP TABLE IF EXISTS "community";
 CREATE TABLE IF NOT EXISTS "community" (
-	"community"	TEXT NOT NULL,
-	PRIMARY KEY("community")
+	"community_id"	INTEGER NOT NULL,
+	"community_name" TEXT NOT NULL,
+	"community_tagline" TEXT NOT NULL,
+	"community_content" TEXT NOT NULL,
+	PRIMARY KEY("community_id")
 );
 DROP TABLE IF EXISTS "post";
 CREATE TABLE IF NOT EXISTS "post" (
@@ -48,7 +51,7 @@ INSERT INTO "user_access" ("username","password") VALUES ('steve','432c19c7ecdc9
 INSERT INTO "user_access" ("username","password") VALUES ('francis','432c19c7ecdc9ef6884d01b21bd306ddd4b21d4ee139f10358cf5c1b7f113904');
 INSERT INTO "user_access" ("username","password") VALUES ('daphne','432c19c7ecdc9ef6884d01b21bd306ddd4b21d4ee139f10358cf5c1b7f113904');
 INSERT INTO "user_access" ("username","password") VALUES ('jane','432c19c7ecdc9ef6884d01b21bd306ddd4b21d4ee139f10358cf5c1b7f113904');
-INSERT INTO "community" ("community") VALUES ('test');
+INSERT INTO "community" ("community_id","community_name","community_tagline","community_content") VALUES (1,'test','default tagline','default content');
 INSERT INTO "post" ("title","content","posting_user","posted_date","community","UUID") VALUES ('Second','Post','francis','2021-09-27 11:08:38.835803','test',1);
 INSERT INTO "post" ("title","content","posting_user","posted_date","community","UUID") VALUES ('Tastey','Treats','steve','2021-09-27 11:11:17.934762','test',2);
 INSERT INTO "post" ("title","content","posting_user","posted_date","community","UUID") VALUES ('nitrogen','sickness','jane','2021-09-27 11:12:34.648271','test',3);

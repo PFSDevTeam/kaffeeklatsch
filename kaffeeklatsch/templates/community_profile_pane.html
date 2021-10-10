@@ -4,9 +4,9 @@
         the profile pane on the right side of the profile page template-->
         {% macro community_profile_pane(communityProfileObject) %}
         <!--CSS Stylesheet-->
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-pane.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/community-page.css') }}" />
         
-        <div class="profile-wrapper">
+        <div class="community-info-wrapper">
             <div class="upper-block">
                 <!--left side user avatar-->
                 <div class=avatar_panel>
@@ -14,14 +14,13 @@
                 </div>
                 <!--right side user info-->
                 <div class="info-panel">
-                    <span>{{ communityProfileObject.communityName }}</span>
-                    <span>{{ communityProfileObject.communityTagline }}</span>
+                    <span>{{ communityProfileObject.community_name }}</span>
+                    <span>{{ communityProfileObject.community_tagline }}</span>
                 </div>
             </div>
-            <!--User content-->
-            <!--TODO: User content-->
+            <!--Community content-->
             <div class="user-content">
-                <p>{{ communityProfileObject.communityContent }}</p>
+                <p>{{ communityProfileObject.community_content }}</p>
             </div>
         </div>
         {% endmacro %}
