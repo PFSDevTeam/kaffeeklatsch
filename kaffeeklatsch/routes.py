@@ -113,10 +113,16 @@ def feed():
       print("Reply form input is validated")
       inputContent = request.form['replyContent']
       inputUsername = current_user.username
-      # not passing time, using default value in model
-      inputCommunity = "Test Community" # Will need to be updated with ability to pull relevant community
-      inputOriginalPostID = 1
-      replyHandler.reply(inputOriginalPostID, inputContent, inputUsername, inputCommunity)
+      #get the original post ID
+      retrievedPostId = int(request.form['index'])
+      originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
+      originalPostList = list(originalPostFilter)
+      originalPost = originalPostList.pop()
+      print(f'original post id: ', retrievedPostId)
+      print(f'original post: ', originalPost)
+      inputOriginalPostID = retrievedPostId
+      #write the post object
+      replyHandler.reply(inputOriginalPostID, inputContent, inputUsername)
       #reload the page & clear fields
       return redirect(url_for('feed'))
     else:
