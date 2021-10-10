@@ -26,6 +26,10 @@ from kaffeeklatsch.forms.ProfileSettingsForm import ProfileSettingsForm
 #community profile page import
 from kaffeeklatsch.forms.CommunityPageInfo import CommunityPageInfo
 
+#profile settings change handler
+from kaffeeklatsch.components.ProfileSettingsHandler import ProfileSettingsHandler
+
+
 #TEST
 from kaffeeklatsch.models.models import UserAccess, User, Post, Community
 
@@ -93,6 +97,10 @@ def feed():
     posts = Post.query.all()
     postHandler = PostHandler()
     replyHandler = ReplyHandler()
+
+    #grab current user and set info from db
+    userName = current_user.username
+    userInfo = User.query.filter_by(username=userName).first()
     # print(posts)
     # load posts here
 
@@ -128,32 +136,48 @@ def feed():
     else:
       print("reply you're stuff still isnt workin (reply)")
 
-    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, communityInfo=communityInfo, posts=posts)
+    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, communityInfo=communityInfo, posts=posts, userInfo=userInfo)
 
 #profile page routing
 @app.route('/profilepage', methods=['GET', 'POST'])
 def profilePage():
-  if request.method == 'POST':
+    #redirect to feed page on logo click
+    if request.method == 'POST':
         return redirect(url_for('feed'))
-  sortPostForm = SortPostForm()
-  replyForm = ReplyForm()
-  makePostForm = MakePostForm()
-  userName = current_user.username
-  userInfo = User.query.filter_by(username=userName).first()
-  posts = Post.query.all()
-  print(posts)
-  #TODO: logic to implement Profile Page info to be grabbed from the current user in the database
-  return render_template('profile_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, userInfo=userInfo)
+    sortPostForm = SortPostForm()
+    replyForm = ReplyForm()
+    makePostForm = MakePostForm()
+    userName = current_user.username
+    userInfo = User.query.filter_by(username=userName).first()
+    posts = Post.query.all()
+    print(posts)
+    return render_template('profile_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, userInfo=userInfo)
 
 #profile settings page routing
 @app.route('/profileSettingsPage',  methods=['GET', 'POST'])
 def profileSettingsPage():
-  if request.method == 'POST':
-        return redirect(url_for('feed'))
-  userName = current_user.username
-  userInfo = User.query.filter_by(username=userName).first()
-  profileSettingsChange = ProfileSettingsForm()
-  return render_template('profile_settings.html', userInfo=userInfo, profileSettingsChange=profileSettingsChange)
+    profileSettingsHandler=ProfileSettingsHandler()
+    profileSettingsChange=ProfileSettingsForm()
+    userName=current_user.username
+
+    #query to pull the User db info based on given username
+    userInfo = User.query.filter_by(username=userName).first()
+
+    #query to pull the UserAccess db info based on given username
+    userAccessInfo = UserAccess.query.filter_by(username=userName).first()
+
+    # if request.method == 'POST':
+    #     return redirect(url_for('feed'))
+
+    if profileSettingsChange.validate_on_submit():
+        taglineChange = request.form['taglineChange']
+        newPassword = request.form['newPassword']
+        username = userInfo.username
+        profileSettingsHandler.updateInfo(username, taglineChange, newPassword)
+        return redirect(url_for('profileSettingsPage'))
+    else:
+        print("reply you're stuff still isnt workin (settings page)")
+    return render_template('profile_settings.html', userInfo=userInfo, userAccessInfo=userAccessInfo, profileSettingsChange=profileSettingsChange, profileSettingsHandler=profileSettingsHandler)
 
 #community page routing
 @app.route('/communityPage', methods=['GET', 'POST'])

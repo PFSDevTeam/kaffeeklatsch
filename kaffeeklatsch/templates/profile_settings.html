@@ -20,7 +20,7 @@
 
 <!-- avatar block -->
 {% block avatar %}
-<a href="/profilepage"><img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /></a>
+<a href="/profilepage"><img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/'+ userInfo.avatar) }}" /></a>
 {% endblock %}
 
 <!--body block-->

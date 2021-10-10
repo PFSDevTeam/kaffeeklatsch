@@ -20,7 +20,7 @@
 
 <!-- avatar block -->
 {% block avatar %}
-<a href="/profilepage"><img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /></a>
+<a href="/profilepage"><img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/' + userInfo.avatar) }}" /></a>
 {% endblock %}
 
 <!--body block-->
@@ -31,7 +31,7 @@
         <div class="post-pane">
             <!--float the post form at the top-->
             <div>
-                {{ makePostTemplate.make_post(makePostForm) }} 
+                {{ makePostTemplate.make_post(makePostForm) }}
                 {{ sortPostTemplate.sort_post(sortPostForm) }}
             </div>
             {% for post in posts %}

@@ -49,3 +49,32 @@ class UserHandler:
             return True
         except: 
             return False
+
+    #update password based on user in db - Emily
+    @classmethod
+    def updateUserPassword(cls, username, password):
+        user = UserAccess.query.filter_by(username=username).first()
+        try:
+            user.password = password
+            db.session.commit()
+            return True
+        except Exception as ex: 
+            template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+            message = template.format(type(ex).__name__, ex.args)
+            print(message)
+            return False
+    
+    #update tagline in db- Emily
+    @classmethod
+    def updateTagline(cls, username, tagline):
+        user = User.query.filter_by(username=username).first()
+        try:
+            user.tagline = tagline
+            db.session.commit()
+            return True
+        except Exception as ex: 
+            template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+            message = template.format(type(ex).__name__, ex.args)
+            print(message)
+            return False
+

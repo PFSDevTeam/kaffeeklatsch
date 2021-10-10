@@ -23,7 +23,7 @@
 
 <!-- avatar block -->
 {% block avatar %}
-<img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /> 
+<img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/' + userInfo.avatar) }}" /> 
 {% endblock %}
 
 <!--body block-->
@@ -38,9 +38,11 @@
                     {{ makePostTemplate.make_post(makePostForm) }} 
                     {{ sortPostTemplate.sort_post(sortPostForm) }}
                 </form>
+                <!-- {% if posts!= NULL %} -->
                 {% for post in posts %}
                     {{ post_reply.post_reply(replyForm, post) }}
                 {% endfor %}
+                <!-- {% endif %} -->
                 <!--display the available posts below-->
                 <!--post loop-->
                 <!--post macros pulled in-->

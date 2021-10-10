@@ -43,3 +43,10 @@ class NotAbletoPostComment(Error):
 
     def __init__(self):
         super().__init__(self.DEFAULT_MESSAGE)
+#Emily -error for ProfileSettingsHandler
+class previousUserPassword(Error):
+    #password matches current during attempt to change
+    DEFAULT_MESSAGE = "Error: This password could not be set, it has already been used"
+    
+    def __init__(self):
+        super().__init__(self.DEFAULT_MESSAGE)
