@@ -19,8 +19,8 @@
 .profile-wrapper .upper-block{
     display: inline-flex;
     align-self: flex-start;
-    margin-left: 15px;
-    margin-top: 10px;
+    margin-left: 10%;
+    margin-top: 5%;
 
 }
 
@@ -39,16 +39,19 @@
 
 /* right side, user info */
 .profile-wrapper .info-panel {
-    margin-top: 5px;
+    display: grid;
+    margin-top: 10%;
+    margin-left: 2%;
     width: 60%;
     height: 20%;
-    background-color: green;
+    background-color: white;
 }
 
 /*bottom user content*/
 .profile-wrapper .user-content{
-    margin-top: 8px;
+    margin-top: 5%;
     margin-left: 8%;
+    padding-left: 3%;
     border-style: groove;
     background-color: white;
     height: 50%;
