@@ -1,7 +1,6 @@
 {% macro post(replyForm, postObject) %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}" />
 <div class="post-wrapper">
-
     <!--left panel : up and down buttons-->
     <div class="vote-panel">
         {{ replyForm.upArrow(class="vote-button button") }} 
@@ -24,6 +23,7 @@
         <form action="" method="POST">
             <div class="post-panel__reply-line">
                 {{ replyForm.hidden_tag() }}
+                <input type="hidden" id="index" name="index" value="{{ postObject.UUID }}">
                 {{ replyForm.replyContent(class="reply-content") }} 
                 {{ replyForm.post(class="button-style-b make-button") }} 
             </div>
