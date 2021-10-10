@@ -9,19 +9,16 @@ from kaffeeklatsch.utilities.Errors import previousUserPassword
 
 class ProfileSettingsHandler:
 
-    def updateInfo(self, userInfo, userAccessInfo, taglineChange, newPassword):
+    def updateInfo(self, username, taglineChange, newPassword):
         #update the tagline - User db
-        UserHandler.updateTagline(userInfo.username, taglineChange)
-        #local variable assignments
-        password = userInfo.password
-        newPass = newPassword
+        UserHandler.updateTagline(username, taglineChange)
         #hash the input
-        newHashedPassword = Hasher.hash(newPass)
-        foundUser = UserHandler.getUser(userInfo.username)
+        newHashedPassword = Hasher.hash(newPassword)
+        foundUser = UserHandler.getUser(username)
         #check to see if given password to change matches the current password in the database, raise error if True
         if(foundUser.password != newHashedPassword):
             #if not used, insert into the db
-            UserHandler.updateUserPassword(userInfo.username, password)
+            UserHandler.updateUserPassword(username, newHashedPassword)
             return True
         else:
             print(f'your password has alredy been used, please select a different one')

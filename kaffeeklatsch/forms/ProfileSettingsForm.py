@@ -14,6 +14,6 @@ class ProfileSettingsForm(FlaskForm):
     newPassword = PasswordField('change your password:',
                                 validators = [Length(min=8, max=64, message='Password length must be between 8 and 64 characters.'),
                                 Regexp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,64})', message="Password must contain 1 lower and upper case letter, number and a special character")], render_kw={"placeholder": "new Password"})
-    verifyPassword = PasswordField('verify new password:', validators = [DataRequired(), EqualTo('newPassword', message='Passwords must match')], render_kw={"placeholder": "verify Password"})
+    verifyPassword = PasswordField('verify new password:', validators = [EqualTo('newPassword', message='Passwords must match')], render_kw={"placeholder": "verify Password"})
     #    avatar
     submit = SubmitField('save changes')
