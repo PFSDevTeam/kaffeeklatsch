@@ -156,7 +156,6 @@ def profilePage():
 #profile settings page routing
 @app.route('/profileSettingsPage',  methods=['GET', 'POST'])
 def profileSettingsPage():
-    
     profileSettingsHandler=ProfileSettingsHandler()
     profileSettingsChange=ProfileSettingsForm()
     userName=current_user.username
@@ -173,11 +172,11 @@ def profileSettingsPage():
     if profileSettingsChange.validate_on_submit():
         taglineChange = request.form['taglineChange']
         newPassword = request.form['newPassword']
-        verifyPassword = request.form['verifyPassword']
-        profileSettingsHandler.updateInfo(userInfo, userAccessInfo, taglineChange, newPassword, verifyPassword)
+        username = userInfo.username
+        profileSettingsHandler.updateInfo(username, taglineChange, newPassword)
         return redirect(url_for('profileSettingsPage'))
     else:
-        print("reply you're stuff still isnt workin (reply)")
+        print("reply you're stuff still isnt workin (settings page)")
     return render_template('profile_settings.html', userInfo=userInfo, userAccessInfo=userAccessInfo, profileSettingsChange=profileSettingsChange, profileSettingsHandler=profileSettingsHandler)
 
 #community page routing
