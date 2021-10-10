@@ -174,7 +174,7 @@ def profileSettingsPage():
         taglineChange = request.form['taglineChange']
         newPassword = request.form['newPassword']
         verifyPassword = request.form['verifyPassword']
-        ProfileSettingsHandler.updateInfo(userInfo, userAccessInfo, taglineChange, newPassword, verifyPassword)
+        profileSettingsHandler.updateInfo(userInfo, userAccessInfo, taglineChange, newPassword, verifyPassword)
         return redirect(url_for('profileSettingsPage'))
     else:
         print("reply you're stuff still isnt workin (reply)")
