@@ -97,6 +97,10 @@ def feed():
     posts = Post.query.all()
     postHandler = PostHandler()
     replyHandler = ReplyHandler()
+
+    #grab current user and set info from db
+    userName = current_user.username
+    userInfo = User.query.filter_by(username=userName).first()
     # print(posts)
     # load posts here
 
@@ -132,7 +136,7 @@ def feed():
     else:
       print("reply you're stuff still isnt workin (reply)")
 
-    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, communityInfo=communityInfo, posts=posts)
+    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, communityInfo=communityInfo, posts=posts, userInfo=userInfo)
 
 #profile page routing
 @app.route('/profilepage', methods=['GET', 'POST'])
