@@ -9,7 +9,7 @@ class RegistrationForm(FlaskForm):
                             validators =[DataRequired(),
                             Length(min=1, max=25)])
     # Regex pattern taken from https://www.section.io/engineering-education/password-strength-checker-javascript/
-    password = PasswordField('password', 
+    password = PasswordField('password',
                             validators = [DataRequired(),
                             Length(min=8, max=64, message='Password length must be between 8 and 64 characters.'),
                             Regexp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,64})', message="Password must contain 1 lower and upper case letter, number and a special character")])

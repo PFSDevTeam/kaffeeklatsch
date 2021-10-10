@@ -49,3 +49,26 @@ class UserHandler:
             return True
         except: 
             return False
+
+    #update password based on user in db - Emily
+    @classmethod
+    def updateUserPassword(cls, username, password):
+        user_info = UserAccess(username=username, password=password)
+        try:
+            db.session.query(user_info).update({user_info.password, password})
+            db.session.commit()
+            return True
+        except:
+            return False
+    
+    #update tagline in db- Emily
+    @classmethod
+    def updateTagline(cls, username, tagline):
+        user_info = User(username=username)
+        try:
+            db.session.query(user_info).update({user_info.tagline, tagline})
+            db.session.commit()
+            return True
+        except:
+            return False
+
