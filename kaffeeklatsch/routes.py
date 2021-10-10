@@ -171,9 +171,10 @@ def profileSettingsPage():
 
     if profileSettingsChange.validate_on_submit():
         taglineChange = request.form['taglineChange']
+        avatarChange = request.form['newAvatar']
         newPassword = request.form['newPassword']
         username = userInfo.username
-        profileSettingsHandler.updateInfo(username, taglineChange, newPassword)
+        profileSettingsHandler.updateInfo(username, taglineChange, newPassword, avatarChange)
         return redirect(url_for('profileSettingsPage'))
     else:
         print("reply you're stuff still isnt workin (settings page)")

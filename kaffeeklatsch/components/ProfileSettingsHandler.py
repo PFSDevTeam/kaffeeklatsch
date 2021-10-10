@@ -9,9 +9,12 @@ from kaffeeklatsch.utilities.Errors import previousUserPassword
 
 class ProfileSettingsHandler:
 
-    def updateInfo(self, username, taglineChange, newPassword):
+    def updateInfo(self, username, taglineChange, newPassword, avatarChange):
         #update the tagline - User db
         UserHandler.updateTagline(username, taglineChange)
+        #update the avatar
+        avatarChange = avatarChange + "_avatar.png"
+        UserHandler.updateAvatar(username, avatarChange)
         #hash the input
         newHashedPassword = Hasher.hash(newPassword)
         foundUser = UserHandler.getUser(username)
@@ -25,10 +28,10 @@ class ProfileSettingsHandler:
             raise previousUserPassword
 
     #function to compare the passwords given by the UserAccess userInfo and the newHashedPassword
-    def comparePasswords(self, retrievedPass, inputPass):
-        print(f'input password: {inputPass}\n' +
-            f'retrieved password: {retrievedPass}')
-        if (retrievedPass == inputPass):
-            return True
-        else: 
-            return False
+    # def comparePasswords(self, retrievedPass, inputPass):
+    #     print(f'input password: {inputPass}\n' +
+    #         f'retrieved password: {retrievedPass}')
+    #     if (retrievedPass == inputPass):
+    #         return True
+    #     else: 
+    #         return False

@@ -19,8 +19,7 @@
                     <span>{{ userInfo.username }}</span>
                     <!--show the tagline-->
                     <span>{{ userInfo.tagline }}</span>
-                    <div>
-                        {{ profileSettings.taglineChange.label(class="form-control-label")}}
+                    <br><div>
                         {% if profileSettings.taglineChange.errors %}
                         {{ profileSettings.taglineChange(class="form-control form-control-lg is-invalid")}}
                         <div class="invalid-feedback">
@@ -30,7 +29,6 @@
                         {% else %} {{ profileSettings.taglineChange(class="form-control form-control-lg") }} {% endif %}
                     </div>
                     <div>
-                        {{ profileSettings.newPassword.label(class="form-control-label")}}
                         {% if profileSettings.newPassword.errors %}
                         {{ profileSettings.newPassword(style="border-radius: 8px;height: 30px;width: 200px;")}}
                         <div class="invalid-feedback">
@@ -40,7 +38,6 @@
                         {% else %} {{ profileSettings.newPassword(class="form-control form-control-lg") }} {% endif %}
                     </div>
                     <div>
-                        {{ profileSettings.verifyPassword.label(class="form-control-label")}}
                         {% if profileSettings.verifyPassword.errors %}
                         {{ profileSettings.verifyPassword(style="border-radius: 8px;height: 30px;width: 200px;")}}
                         <div class="invalid-feedback">
@@ -51,8 +48,9 @@
                     </div>
                 </div>
             </div>
-            <div class="avatar-change-pane">
-            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /> 
+        </br>
+        <div class="avatar-change-pane">
+            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" />
             <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/beaver_avatar.png') }}" />
             <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/elephant_avatar.png') }}" />
             <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/frog_avatar.png') }}" />
@@ -64,11 +62,13 @@
             <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/penguin_avatar.png') }}" />
             <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/spider_avatar.png') }}" />
             <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/whale_avatar.png') }}" />
-            </div>
-            <div class="save-changes-button">
-            {{ profileSettings.submit(class="button-style-a save-button") }}
-            </div>
-        </form>
+            {{ profileSettings.newAvatar(style="border-radius: 8px;height: 30px;width: 200px;") }}
+        </div>
+        <div class="save-changes-button">
+        {{ profileSettings.submit(class="button-style-a save-button") }}
+        </div>
+    </form>
     </div>
 </div>
+</script>
 {% endmacro %}
