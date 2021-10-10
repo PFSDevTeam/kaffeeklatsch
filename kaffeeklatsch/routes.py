@@ -112,8 +112,15 @@ def feed():
       print("Reply form input is validated")
       inputContent = request.form['replyContent']
       inputUsername = current_user.username
-      # not passing time, using default value in model
-      inputOriginalPostID = 1
+      #get the original post ID
+      retrievedPostId = int(request.form['index'])
+      originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
+      originalPostList = list(originalPostFilter)
+      originalPost = originalPostList.pop()
+      print(f'original post id: ', retrievedPostId)
+      print(f'original post: ', originalPost)
+      inputOriginalPostID = retrievedPostId
+      #write the post object
       replyHandler.reply(inputOriginalPostID, inputContent, inputUsername)
       #reload the page & clear fields
       return redirect(url_for('feed'))
