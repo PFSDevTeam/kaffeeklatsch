@@ -8,4 +8,5 @@ from wtforms import StringField, SubmitField
 
 class CommunityPageInfo(FlaskForm):
     communityName = StringField('communityName', default='communityName')
+    communityTagline = StringField('communityTagline', default='communityTagline')
     communityContent = StringField('communityContent', default='communityContent')

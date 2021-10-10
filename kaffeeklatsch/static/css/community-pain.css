@@ -1,17 +1,37 @@
 .community-pain-wrapper {
     background-color: white;
-    display: flex;
+    display: inline-flex;
     border-radius: 8px;
     border-style: groove;
-    justify-content: right;
     align-items: center;
+    font-size: small;
     padding-bottom: 10px;
     margin-bottom: 10px;
+}
+
+.community-pain-wrapper .small-link{
+    font-size: 2px;
+    margin:1%;
+}
+
+/* community image */
+.community-pain-wrapper .community-image{
+    margin-left: 5%;
+    margin-right: 2%;
+    margin-top: 3%;
+    height: 15%;
+    width: 15%;
+}
+
+/* community title */
+.community-pain-wrapper .community-title{
+    margin-left: 2%;
+    margin-top: 3%;
 }
 
 /*style for community join buttons in community pane */
 .community-pain-wrapper .community-button {
     margin-top: 5%;
-    margin-left: 70%;
-    margin-right: 5%;
+    margin-left: 3%;
+    margin-right: 2%;
 }

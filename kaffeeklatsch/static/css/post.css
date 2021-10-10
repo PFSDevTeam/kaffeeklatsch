@@ -35,6 +35,10 @@
     align-items: center;
 }
 
+.post-panel .post-panel__join-button{
+    margin-left: 80%;
+}
+
 .post-wrapper .post-panel #replyContent {
     width: 500px;
     margin: auto;

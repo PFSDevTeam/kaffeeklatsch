@@ -1,7 +1,7 @@
-{% macro second_thing(communityPainForm) %} 
+{% macro second_thing(communityInfo, communityPainForm) %} 
 
 {% import 'community_pain.html' as communityPainTemplate %}
 <form method="POST">
-    {{ communityPainTemplate.community_pain(communityPainForm) }}
+    {{ communityPainTemplate.community_pain(communityInfo, communityPainForm) }}
 </form>
 {% endmacro %}
