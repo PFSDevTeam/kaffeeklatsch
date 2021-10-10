@@ -34,6 +34,7 @@ class Community(db.Model):
     community_name = db.Column(db.Text, nullable=False)
     community_tagline = db.Column(db.Text, nullable=True)
     community_content = db.Column(db.Text, nullable=True)
+    community_image = db.Column(db.Text, nullable=False)
 
     def __repr__(self):
         return f"community: ('{self.community}')"

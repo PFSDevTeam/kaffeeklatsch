@@ -23,7 +23,7 @@
 
 <!-- avatar block -->
 {% block avatar %}
-<img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /> 
+<img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/' + userInfo.avatar) }}" /> 
 {% endblock %}
 
 <!--body block-->
