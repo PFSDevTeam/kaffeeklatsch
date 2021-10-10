@@ -20,6 +20,7 @@
     display: inline-block;
     text-align: center;
     width: 60%;
+    height: 80%;
     padding-top: 10px;
 }
 
@@ -27,4 +28,10 @@
 #search-input {
     background-color: white;
     width: 80%;
+    height: 45%;
+}
+
+.community-label{
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
 }

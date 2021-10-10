@@ -20,8 +20,8 @@ from kaffeeklatsch.forms.CommunityPainForm import CommunityPainForm
 from kaffeeklatsch.components.PostHandler import PostHandler # For the posting of comments
 from kaffeeklatsch.components.ReplyHandler import ReplyHandler
 
-#profile page imports
-from kaffeeklatsch.forms.ProfilePageInfo import ProfilePageInfo
+#Profile Settings changes forms
+from kaffeeklatsch.forms.ProfileSettingsForm import ProfileSettingsForm
 
 #community profile page import
 from kaffeeklatsch.forms.CommunityPageInfo import CommunityPageInfo
@@ -89,6 +89,7 @@ def feed():
     replyForm = ReplyForm()
     makePostForm = MakePostForm()
     communityPainForm = CommunityPainForm()
+    communityInfo = Community.query.filter_by(community_id=2).first()
     posts = Post.query.all()
     postHandler = PostHandler()
     replyHandler = ReplyHandler()
@@ -127,7 +128,7 @@ def feed():
     else:
       print("reply you're stuff still isnt workin (reply)")
 
-    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, posts=posts)
+    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, communityInfo=communityInfo, posts=posts)
 
 #profile page routing
 @app.route('/profilepage', methods=['GET', 'POST'])
@@ -137,17 +138,22 @@ def profilePage():
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
-  profilePageForm = ProfilePageInfo()
+  userName = current_user.username
+  userInfo = User.query.filter_by(username=userName).first()
   posts = Post.query.all()
   print(posts)
   #TODO: logic to implement Profile Page info to be grabbed from the current user in the database
-  return render_template('profile_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, profilePageForm=profilePageForm)
+  return render_template('profile_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, userInfo=userInfo)
 
 #profile settings page routing
-@app.route('/profileSettingsPage')
+@app.route('/profileSettingsPage',  methods=['GET', 'POST'])
 def profileSettingsPage():
-  profilePageForm = ProfilePageInfo()
-  return render_template('profile_settings.html', profilePageForm=profilePageForm)
+  if request.method == 'POST':
+        return redirect(url_for('feed'))
+  userName = current_user.username
+  userInfo = User.query.filter_by(username=userName).first()
+  profileSettingsChange = ProfileSettingsForm()
+  return render_template('profile_settings.html', userInfo=userInfo, profileSettingsChange=profileSettingsChange)
 
 #community page routing
 @app.route('/communityPage', methods=['GET', 'POST'])
@@ -157,10 +163,10 @@ def communityPage():
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
-  communityPageForm=CommunityPageInfo()
+  communityInfo = Community.query.filter_by(community_id = 2).first()
   posts = Post.query.all()
   print(posts)
-  return render_template('community_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, communityPageForm=communityPageForm)
+  return render_template('community_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, communityInfo=communityInfo)
 
 
 @app.route('/logout')

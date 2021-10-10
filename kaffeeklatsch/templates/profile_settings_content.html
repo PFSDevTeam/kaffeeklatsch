@@ -2,30 +2,40 @@
     @author: Emily Godwin
     Description: This file contains the html template for
         the profile setttings page template-->
-{% macro profile_settings_content(profileObject) %}
+{% macro profile_settings_content(userInfo, profileSettings) %}
 <!--CSS Stylesheet-->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-settings.css') }}" />
     <!--body block-->
     <div class="profile-settings-wrapper">
-        <!--Avatar Bubble-->
-        <div class="avatar-bubble-pane">
-            <img class="avatar avatar-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /> 
+        <div class="user-info-pane">
+            <!--Avatar Bubble-->
+            <div class="avatar-bubble-pane">
+                <img class="avatar-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /> 
+            </div>
+            <div class="user-details-pane">
+                    <span> {{ userInfo.username }}</span>
+                    <span>{{ userInfo.tagline }}</span><span>{{ profileSettings.taglineChange }}</span>
+                    <span>{{ profileSettings.newPassword }}</span>
+                    <span>{{ profileSettings.verifyPassword }}</span>
+            </div>
         </div>
-        <!--User Info-->
-        <div class="username-label">
-            <span>userName</span>
-        </div> 
-        <!--User Summary-->
-        <div class="user-content">
-            <p>userContent</p>
+        <div class="avatar-change-pane">
+                <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /> 
+                <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/beaver_avatar.png') }}" />
+                <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/elephant_avatar.png') }}" />
+                <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/frog_avatar.png') }}" />
+                <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/giraffe_avatar.png') }}" />
+                <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/koala_avatar.png') }}" />
+                <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/lion_avatar.png') }}" />
+                <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/macaw_avatar.png') }}" />
+                <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/owl_avatar.png') }}" />
+                <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/penguin_avatar.png') }}" />
+                <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/spider_avatar.png') }}" />
+                <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/whale_avatar.png') }}" />
         </div>
-        <!--Password Change-->
-        <div class="password-change">
-            <p>password change</p>
-        </div>
-        <!--Verify Password Change-->
-        <div class="verify-password-change">
-            <p>verify password change</p>
+        <div class="save-changes-button">
+            {{ profileSettings.save(class="button-style-a save-button") }}
         </div>
     </div>
+</div>
 {% endmacro %}
