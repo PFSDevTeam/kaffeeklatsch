@@ -98,6 +98,7 @@ def feed():
     communityPainForm = CommunityPainForm()
     communityInfo = Community.query.filter_by(community_id=2).first()
     posts = Post.query.all()
+    communities = Community.query.all()
     postHandler = PostHandler()
     replyHandler = ReplyHandler()
 
@@ -139,7 +140,15 @@ def feed():
     else:
       print("reply you're stuff still isnt workin (reply)")
 
-    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, communityInfo=communityInfo, posts=posts, userInfo=userInfo)
+    return render_template('feed.html', 
+    makePostForm=makePostForm, 
+    sortPostForm=sortPostForm, 
+    replyForm=replyForm, 
+    communityPainForm=communityPainForm, 
+    ommunityInfo=communityInfo, 
+    posts=posts, 
+    communities=communities, 
+    userInfo=userInfo)
 
 #profile page routing
 @app.route('/profilepage', methods=['GET', 'POST'])
