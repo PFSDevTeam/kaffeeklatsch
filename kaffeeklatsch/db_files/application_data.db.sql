@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS "user" (
 );
 DROP TABLE IF EXISTS "community";
 CREATE TABLE IF NOT EXISTS "community" (
-	"community_id"	INTEGER NOT NULL,
+	"community_id"	INTEGER NOT NULL UNIQUE,
 	"community_name"	TEXT NOT NULL,
 	"community_tagline"	TEXT NOT NULL,
 	"community_content"	TEXT NOT NULL,
