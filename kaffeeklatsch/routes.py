@@ -21,7 +21,10 @@ from kaffeeklatsch.components.PostHandler import PostHandler # For the posting o
 from kaffeeklatsch.components.ReplyHandler import ReplyHandler
 
 #Profile Settings changes forms
-from kaffeeklatsch.forms.ProfileSettingsForm import ProfileSettingsForm
+from kaffeeklatsch.forms.ChangeAvatarForm import ChangeAvatarForm
+from kaffeeklatsch.forms.ChangePasswordForm import ChangePasswordForm
+from kaffeeklatsch.forms.ChangeTaglineForm import ChangeTaglineForm
+from kaffeeklatsch.forms.ChangeContentForm import ChangeContentForm
 
 #community profile page import
 from kaffeeklatsch.forms.CommunityPageInfo import CommunityPageInfo
@@ -95,6 +98,7 @@ def feed():
     communityPainForm = CommunityPainForm()
     communityInfo = Community.query.filter_by(community_id=2).first()
     posts = Post.query.all()
+    communities = Community.query.all()
     postHandler = PostHandler()
     replyHandler = ReplyHandler()
 
@@ -136,7 +140,15 @@ def feed():
     else:
       print("reply you're stuff still isnt workin (reply)")
 
-    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, communityInfo=communityInfo, posts=posts, userInfo=userInfo)
+    return render_template('feed.html', 
+    makePostForm=makePostForm, 
+    sortPostForm=sortPostForm, 
+    replyForm=replyForm, 
+    communityPainForm=communityPainForm, 
+    ommunityInfo=communityInfo, 
+    posts=posts, 
+    communities=communities, 
+    userInfo=userInfo)
 
 #profile page routing
 @app.route('/profilepage', methods=['GET', 'POST'])
@@ -157,7 +169,10 @@ def profilePage():
 @app.route('/profileSettingsPage',  methods=['GET', 'POST'])
 def profileSettingsPage():
     profileSettingsHandler=ProfileSettingsHandler()
-    profileSettingsChange=ProfileSettingsForm()
+    changeAvatarForm = ChangeAvatarForm()
+    changePasswordForm = ChangePasswordForm()
+    changeTaglineForm = ChangeTaglineForm()
+    changeContentForm = ChangeContentForm()
     userName=current_user.username
 
     #query to pull the User db info based on given username
@@ -166,19 +181,48 @@ def profileSettingsPage():
     #query to pull the UserAccess db info based on given username
     userAccessInfo = UserAccess.query.filter_by(username=userName).first()
 
-    # if request.method == 'POST':
-    #     return redirect(url_for('feed'))
+      #forms
 
-    if profileSettingsChange.validate_on_submit():
-        taglineChange = request.form['taglineChange']
-        avatarChange = request.form['newAvatar']
-        newPassword = request.form['newPassword']
-        username = userInfo.username
-        profileSettingsHandler.updateInfo(username, taglineChange, newPassword, avatarChange)
-        return redirect(url_for('profileSettingsPage'))
+    #change avatar
+    if changeAvatarForm.validate_on_submit():
+      print(f'change avatar valid')
+      avatarChange = request.form['newAvatar']
+      profileSettingsHandler.updateAvatar(userName, avatarChange)
+      return redirect(url_for('profileSettingsPage'))
     else:
-        print("reply you're stuff still isnt workin (settings page)")
-    return render_template('profile_settings.html', userInfo=userInfo, userAccessInfo=userAccessInfo, profileSettingsChange=profileSettingsChange, profileSettingsHandler=profileSettingsHandler)
+      print(f'change avatar invalid')
+
+    if changePasswordForm.validate_on_submit():
+      print(f'change password form valid')
+      newPassword = request.form['newPassword']
+      profileSettingsHandler.updatePassword(userName, newPassword)
+      return redirect(url_for('profileSettingsPage'))
+    else:
+      print(f'change password form invalid')
+
+    if changeTaglineForm.validate_on_submit():
+      print(f'change tagline form valid')
+      taglineChange = request.form['taglineChange']
+      profileSettingsHandler.updateTagline(userName, taglineChange)
+      return redirect(url_for('profileSettingsPage'))
+    else:
+      print(f'change tagline form invalid')
+
+    if changeContentForm.validate_on_submit():
+      print(f'change user content form valid')
+      newContent = request.form['newContent']
+      profileSettingsHandler.updateUserContent(userName, newContent)
+      return redirect(url_for('profileSettingsPage'))
+    else:
+      print(f'change content form invalid')
+
+    return render_template('profile_settings.html', 
+    userInfo=userInfo, 
+    userAccessInfo=userAccessInfo, 
+    changeAvatarForm=changeAvatarForm,
+    changePasswordForm=changePasswordForm,
+    changeTaglineForm=changeTaglineForm,
+    changeContentForm=changeContentForm)
 
 #community page routing
 @app.route('/communityPage', methods=['GET', 'POST'])
