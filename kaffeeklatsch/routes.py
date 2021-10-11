@@ -33,6 +33,9 @@ from kaffeeklatsch.components.ProfileSettingsHandler import ProfileSettingsHandl
 #TEST
 from kaffeeklatsch.models.models import UserAccess, User, Post, Community
 
+# Imports for voting mechanism
+from kaffeeklatsch.forms.VoteForm import VoteForm
+
 @app.route("/", methods=['GET','POST'])
 def login():
   #LOGIN TESTING
@@ -97,6 +100,7 @@ def feed():
     posts = Post.query.all()
     postHandler = PostHandler()
     replyHandler = ReplyHandler()
+    voteForm = VoteForm()
 
     #grab current user and set info from db
     userName = current_user.username
@@ -136,7 +140,7 @@ def feed():
     else:
       print("reply you're stuff still isnt workin (reply)")
 
-    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, communityInfo=communityInfo, posts=posts, userInfo=userInfo)
+    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, communityInfo=communityInfo, posts=posts, userInfo=userInfo, voteForm=voteForm)
 
 #profile page routing
 @app.route('/profilepage', methods=['GET', 'POST'])
