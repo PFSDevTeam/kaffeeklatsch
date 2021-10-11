@@ -4,7 +4,7 @@
 {% import 'make_post.html' as makePostTemplate %}
 {% import 'sort_post.html' as sortPostTemplate %}
 {% import 'post_reply.html' as post_reply %}
-{% import 'random_component2.html'as rando_component2 %}
+{% import 'community.html'as community_template %}
 
 
 {% block addedCSS %}
@@ -34,40 +34,20 @@
                 {{ makePostTemplate.make_post(makePostForm) }}
                 {{ sortPostTemplate.sort_post(sortPostForm) }}
             </div>
+            <!--post loop-->
             {% for post in posts %}
                 {{ post_reply.post_reply(replyForm, upVoteForm, downVoteForm, post) }}
             {% endfor %}
-            <!--display the available posts below-->
-            <!--post loop-->
-            <!--post macros pulled in-->
         </div>
-
-
         
         <!--right block-->
         <div class="community-pain">
             <p class="community-label">Communities</p>
-            {{ rando_component2.second_thing(communityInfo, communityPainForm) }}
-            {{ rando_component2.second_thing(communityInfo, communityPainForm) }}
-            {{ rando_component2.second_thing(communityInfo, communityPainForm) }}
-            {{ rando_component2.second_thing(communityInfo, communityPainForm) }}
-            {{ rando_component2.second_thing(communityInfo, communityPainForm) }}
-            {{ rando_component2.second_thing(communityInfo, communityPainForm) }}
-            {{ rando_component2.second_thing(communityInfo, communityPainForm) }}
+            <!--communities loop-->
+            {% for community in communities %}
+                {{ community_template.community_component(community, communityPainForm) }}
+            {% endfor %}
         </div>
     </div>
 </div>
 {% endblock %}
-
-                <!-- <form action="" method="POST">
-                    {{ makePostTemplate.make_post(makePostForm) }} 
-                    {{ sortPostTemplate.sort_post(sortPostForm) }}
-                </form> -->
-
-
-                <!-- {{ post_reply.post_reply(replyForm) }} 
-                {{ post_reply.post_reply(replyForm) }} 
-                {{ post_reply.post_reply(replyForm) }} 
-                {{ post_reply.post_reply(replyForm) }} 
-                {{ post_reply.post_reply(replyForm) }} 
-                {{ post_reply.post_reply(replyForm) }} -->
