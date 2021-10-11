@@ -3,7 +3,7 @@ from kaffeeklatsch.utilities.Errors import NotAbletoPostComment
 from kaffeeklatsch.utilities.CommentHandler import CommentHandler
 
 # Class to handle the posting of comments
-class VoteHandler:
+class UpVoteHandler:
 
     def incrementTally(self, original_post_id):
 

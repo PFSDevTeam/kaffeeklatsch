@@ -34,8 +34,10 @@ from kaffeeklatsch.components.ProfileSettingsHandler import ProfileSettingsHandl
 from kaffeeklatsch.models.models import UserAccess, User, Post, Community
 
 # Imports for voting mechanism
-from kaffeeklatsch.forms.VoteForm import VoteForm
-from kaffeeklatsch.components.VoteHandler import VoteHandler
+from kaffeeklatsch.forms.UpVoteForm import UpVoteForm
+from kaffeeklatsch.components.UpVoteHandler import UpVoteHandler
+from kaffeeklatsch.forms.DownVoteForm import DownVoteForm
+from kaffeeklatsch.components.DownVoteHandler import DownVoteHandler
 
 @app.route("/", methods=['GET','POST'])
 def login():
@@ -89,79 +91,91 @@ def register():
 
 @app.route('/feed', methods=['GET', 'POST'])
 def feed():
-    if (current_user.is_authenticated == False):
-      return redirect(url_for('login')) 
+  if (current_user.is_authenticated == False):
+    return redirect(url_for('login')) 
 
-    #main logic path
-    sortPostForm = SortPostForm()
-    replyForm = ReplyForm()
-    makePostForm = MakePostForm()
-    communityPainForm = CommunityPainForm()
-    communityInfo = Community.query.filter_by(community_id=2).first()
-    posts = Post.query.all()
-    postHandler = PostHandler()
-    replyHandler = ReplyHandler()
-    voteForm = VoteForm()
-    voteHandler = VoteHandler()
+  #main logic path
+  sortPostForm = SortPostForm()
+  replyForm = ReplyForm()
+  makePostForm = MakePostForm()
+  communityPainForm = CommunityPainForm()
+  communityInfo = Community.query.filter_by(community_id=2).first()
+  posts = Post.query.all()
+  postHandler = PostHandler()
+  replyHandler = ReplyHandler()
+  upVoteForm = UpVoteForm()
+  upVoteHandler = UpVoteHandler()
+  downVoteForm = DownVoteForm()
+  downVoteHandler = DownVoteHandler()
 
-    #grab current user and set info from db
-    userName = current_user.username
-    userInfo = User.query.filter_by(username=userName).first()
-    # print(posts)
-    # load posts here
+  #grab current user and set info from db
+  userName = current_user.username
+  userInfo = User.query.filter_by(username=userName).first()
+  # print(posts)
+  # load posts here
 
-    if makePostForm.validate_on_submit():
-      print("form input is validated")
-      inputTitle = request.form['postTitle']
-      inputContent = request.form['postContent']
-      inputUsername = current_user.username
-      # not passing time, using default value in model
-      inputCommunity = "Test Community" # Will need to be updated with ability to pull relevant community
-      postHandler.post(inputTitle, inputContent, inputUsername, inputCommunity)
-      #reload the page & clear fields
-      return redirect(url_for('feed'))
-    else:
-      print("you're stuff still isnt workin (post)")
+  if makePostForm.validate_on_submit():
+    print("form input is validated")
+    inputTitle = request.form['postTitle']
+    inputContent = request.form['postContent']
+    inputUsername = current_user.username
+    # not passing time, using default value in model
+    inputCommunity = "Test Community" # Will need to be updated with ability to pull relevant community
+    postHandler.post(inputTitle, inputContent, inputUsername, inputCommunity)
+    #reload the page & clear fields
+    return redirect(url_for('feed'))
+  else:
+    print("you're stuff still isnt workin (post)")
 
-    if replyForm.validate_on_submit():
-      print("Reply form input is validated")
-      inputContent = request.form['replyContent']
-      inputUsername = current_user.username
-      #get the original post ID
-      retrievedPostId = int(request.form['index'])
-      originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
-      originalPostList = list(originalPostFilter)
-      originalPost = originalPostList.pop()
-      print(f'original post id: ', retrievedPostId)
-      print(f'original post: ', originalPost)
-      inputOriginalPostID = retrievedPostId
-      #write the post object
-      replyHandler.reply(inputOriginalPostID, inputContent, inputUsername)
-      #reload the page & clear fields
-      return redirect(url_for('feed'))
-    else:
-      print("reply you're stuff still isnt workin (reply)")
-    
-    if voteForm.validate_on_submit():
-      print('incrementing!!!!!!')
+  if replyForm.validate_on_submit():
+    print("Reply form input is validated")
+    inputContent = request.form['replyContent']
+    inputUsername = current_user.username
+    #get the original post ID
+    retrievedPostId = int(request.form['index'])
+    originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
+    originalPostList = list(originalPostFilter)
+    originalPost = originalPostList.pop()
+    print(f'original post id: ', retrievedPostId)
+    print(f'original post: ', originalPost)
+    inputOriginalPostID = retrievedPostId
+    #write the post object
+    replyHandler.reply(inputOriginalPostID, inputContent, inputUsername)
+    #reload the page & clear fields
+    return redirect(url_for('feed'))
+  else:
+    print("reply you're stuff still isnt workin (reply)")
+  
+  if upVoteForm.is_submitted():
+    #get the original post ID
+    retrievedPostId = int(request.form['index'])
+    originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
+    originalPostList = list(originalPostFilter)
+    originalPost = originalPostList.pop()
+    print(f'original post id: ', retrievedPostId)
+    print(f'original post: ', originalPost)
+    inputOriginalPostID = retrievedPostId
+    upVoteHandler.incrementTally(inputOriginalPostID)
+    return redirect(url_for('feed'))
+  else:
+    print("Didn't enter increment logic.")
 
-      #get the original post ID
-      retrievedPostId = int(request.form['index'])
-      originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
-      originalPostList = list(originalPostFilter)
-      originalPost = originalPostList.pop()
-      print(f'original post id: ', retrievedPostId)
-      print(f'original post: ', originalPost)
-      inputOriginalPostID = retrievedPostId
+  if downVoteForm.is_submitted():
+    #get the original post ID
+    retrievedPostId = int(request.form['index'])
+    originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
+    originalPostList = list(originalPostFilter)
+    originalPost = originalPostList.pop()
+    print(f'original post id: ', retrievedPostId)
+    print(f'original post: ', originalPost)
+    inputOriginalPostID = retrievedPostId
+    downVoteHandler.decrementTally(inputOriginalPostID)
+    return redirect(url_for('feed'))
+  else:
+    print("Didn't enter decrement logic.")
 
-      voteHandler.incrementTally(inputOriginalPostID)
 
-      return redirect(url_for('feed'))
-    else:
-      print("increment isn't working")
-
-
-    return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, communityInfo=communityInfo, posts=posts, userInfo=userInfo, voteForm=voteForm)
+  return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, communityInfo=communityInfo, posts=posts, userInfo=userInfo, upVoteForm=upVoteForm, downVoteForm=downVoteForm)
 
 #profile page routing
 @app.route('/profilepage', methods=['GET', 'POST'])
