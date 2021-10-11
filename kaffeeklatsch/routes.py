@@ -35,6 +35,7 @@ from kaffeeklatsch.models.models import UserAccess, User, Post, Community
 
 # Imports for voting mechanism
 from kaffeeklatsch.forms.VoteForm import VoteForm
+from kaffeeklatsch.components.VoteHandler import VoteHandler
 
 @app.route("/", methods=['GET','POST'])
 def login():
@@ -101,6 +102,7 @@ def feed():
     postHandler = PostHandler()
     replyHandler = ReplyHandler()
     voteForm = VoteForm()
+    voteHandler = VoteHandler()
 
     #grab current user and set info from db
     userName = current_user.username
@@ -139,6 +141,25 @@ def feed():
       return redirect(url_for('feed'))
     else:
       print("reply you're stuff still isnt workin (reply)")
+    
+    if voteForm.validate_on_submit():
+      print('incrementing!!!!!!')
+
+      #get the original post ID
+      retrievedPostId = int(request.form['index'])
+      originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
+      originalPostList = list(originalPostFilter)
+      originalPost = originalPostList.pop()
+      print(f'original post id: ', retrievedPostId)
+      print(f'original post: ', originalPost)
+      inputOriginalPostID = retrievedPostId
+
+      voteHandler.incrementTally(inputOriginalPostID)
+
+      return redirect(url_for('feed'))
+    else:
+      print("increment isn't working")
+
 
     return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, communityInfo=communityInfo, posts=posts, userInfo=userInfo, voteForm=voteForm)
 
