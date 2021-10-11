@@ -202,11 +202,15 @@ def profilePage():
     sortPostForm = SortPostForm()
     replyForm = ReplyForm()
     makePostForm = MakePostForm()
+    upVoteForm = UpVoteForm()
+    upVoteHandler = UpVoteHandler()
+    downVoteForm = DownVoteForm()
+    downVoteHandler = DownVoteHandler()
     userName = current_user.username
     userInfo = User.query.filter_by(username=userName).first()
     posts = Post.query.all()
     print(posts)
-    return render_template('profile_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, userInfo=userInfo)
+    return render_template('profile_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, userInfo=userInfo, upVoteForm=upVoteForm, downVoteForm=downVoteForm)
 
 #profile settings page routing
 @app.route('/profileSettingsPage',  methods=['GET', 'POST'])
@@ -275,10 +279,14 @@ def communityPage():
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
+  upVoteForm = UpVoteForm()
+  upVoteHandler = UpVoteHandler()
+  downVoteForm = DownVoteForm()
+  downVoteHandler = DownVoteHandler()
   communityInfo = Community.query.filter_by(community_id = 2).first()
   posts = Post.query.all()
   print(posts)
-  return render_template('community_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, communityInfo=communityInfo)
+  return render_template('community_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, communityInfo=communityInfo, upVoteForm=upVoteForm, downVoteForm)
 
 
 @app.route('/logout')
