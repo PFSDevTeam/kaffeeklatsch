@@ -145,7 +145,7 @@ def feed():
     sortPostForm=sortPostForm, 
     replyForm=replyForm, 
     communityPainForm=communityPainForm, 
-    ommunityInfo=communityInfo, 
+    communities=communities, 
     posts=posts, 
     communities=communities, 
     userInfo=userInfo)
