@@ -97,13 +97,11 @@ def feed():
   if (current_user.is_authenticated == False):
     return redirect(url_for('login')) 
 
-
   #main logic path
   sortPostForm = SortPostForm()
   replyForm = ReplyForm()
   makePostForm = MakePostForm()
   communityPainForm = CommunityPainForm()
-  communityInfo = Community.query.filter_by(community_id=2).first()
   posts = Post.query.all()
   communities = Community.query.all()
   postHandler = PostHandler()
@@ -117,7 +115,6 @@ def feed():
   userName = current_user.username
   userInfo = User.query.filter_by(username=userName).first()
   # print(posts)
-  # load posts here
 
   if makePostForm.validate_on_submit():
     print("form input is validated")
@@ -150,10 +147,6 @@ def feed():
     return redirect(url_for('feed'))
   else:
     print("reply you're stuff still isnt workin (reply)")
-  
-  print('Up and Down button Submission states:')
-  print(upVoteForm.is_submitted())
-  print(downVoteForm.is_submitted())
 
   if request.form.get("downArrow"):
     print("Entered decrement logic.")
@@ -186,7 +179,6 @@ def feed():
   sortPostForm=sortPostForm, 
   replyForm=replyForm, 
   communityPainForm=communityPainForm, 
-  ommunityInfo=communityInfo, 
   posts=posts, 
   communities=communities, 
   userInfo=userInfo,

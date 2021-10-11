@@ -44,7 +44,7 @@
         <div class="community-pain">
             <p class="community-label">Communities</p>
             <!--communities loop-->
-            {% for community in communities %}
+            {% for community in communities%}
                 {{ community_template.community_component(community, communityPainForm) }}
             {% endfor %}
         </div>
