@@ -11,7 +11,7 @@
         <form action="" method="POST">
             {{ communityInfoForm.hidden_tag() }}
             <div class="user-info-pane">
-                <!-- <div class="user-details-pane"> -->
+                <div class="user-details-pane">
                     <!--enter the community name-->
                     <div>
                         {% if communityInfoForm.communityname.errors %}
@@ -47,7 +47,7 @@
                         </div>
                         {% else %} {{ communityInfoForm.communitycontent(class="form-control form-control-lg") }} {% endif %}
                     </div>
-                <!-- </div> -->
+                </div>
             </div>
             <!--enter the community avatar-->
             <div class="avatar-bubble-pane">

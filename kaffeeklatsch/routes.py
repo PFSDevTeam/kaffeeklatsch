@@ -311,17 +311,21 @@ def logout():
 def communityCreation():
   communityCreationHandler = CommunityCreationHandler()
   communityInfoForm = CommunityInfoForm()
-  
+  userName=current_user.username
+
+  #query to pull the User db info based on given username
+  userInfo = User.query.filter_by(username=userName).first()
+
   if communityInfoForm.validate_on_submit():
     print("community form input is validated")
     communityName = request.form['communityname']
     communityTagline = request.form['communitytagline']
     communityContent = request.form['communitycontent']
     communityAvatar = request.form['communityavatar']
-    communityCreationHandler.insertCommunity(communityName, communityTagline, communityContent, communityAvatar)
+    communityCreationHandler.createCommunity(communityName, communityTagline, communityContent, communityAvatar)
     #redirect to communityPage?? CommunitySuccessPage (create this?)
     return redirect(url_for('feed'))
   else:
     print("community form input is incorrect")
   
-  return render_template('community_creation.html', communityInfoForm=communityInfoForm)
+  return render_template('community_creation.html', userInfo=userInfo, communityInfoForm=communityInfoForm)

@@ -19,13 +19,13 @@
 }
 
 /*user details update*/
-/* .community-creation-wrapper .user-details-pane{
+.community-creation-wrapper .user-details-pane{
     display: grid;
     margin-left: 6%;
     margin-top: 13%;
     margin-bottom: 2%;
     padding: 2%;
-} */
+}
 
 /*left side, avatar image */
 .community-creation-wrapper .avatar-bubble-pane {

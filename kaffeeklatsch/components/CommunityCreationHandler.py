@@ -10,8 +10,8 @@ from kaffeeklatsch.utilities.CommunityHandler import CommunityHandler
 from kaffeeklatsch.utilities.Errors import CommunityAlreadyExistsError
 
 class CommunityCreationHandler:
-    def createCommunity(self, communityname, tagline, content, avatar):        
-        if not (CommunityHandler.checkCommunityExists(communityname)):
-            CommunityHandler.insertCommunity(communityname, tagline, content, avatar)
-        else:
-            raise CommunityAlreadyExistsError
+    def createCommunity(self, communityname, tagline, content, avatar):
+        # if not (CommunityHandler.checkCommunityExists(communityname)):
+        CommunityHandler.insertCommunity(communityname, tagline, content, avatar)
+        # else:
+        #     raise CommunityAlreadyExistsError

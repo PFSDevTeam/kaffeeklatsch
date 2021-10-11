@@ -7,10 +7,10 @@ from wtforms.validators import DataRequired, Length
 class CommunityInfoForm(FlaskForm):
     communityname = StringField('communityname',
                             validators =[DataRequired(),
-                            Length(min=1, max=25)])
+                            Length(min=1, max=25)], render_kw={"placeholder": "enter community name"})
     communitytagline = StringField('communitytagline',
-                            validators =[Length(min=1, max=50)])
-    communitycontent = StringField('communitycontent', validators =[Length(min=1, max=50)])
+                            validators =[Length(min=1, max=50)], render_kw={"placeholder": "enter community tagline"})
+    communitycontent = StringField('communitycontent', validators =[Length(min=1, max=50)], render_kw={"placeholder": "enter community content"})
     communityavatar = SelectField('avatarChoice', choices=[('bee_avatar.png', 'bee'), ('beaver_avatar.png', 'beaver'),
                                     ('elephant_avatar.png', 'elephant'), ('frog_avatar.png', 'frog'),
                                     ('giraffe_avatar.png', 'giraffe'), ('koala_avatar.png', 'koala'),
