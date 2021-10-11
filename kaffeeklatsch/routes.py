@@ -36,6 +36,12 @@ from kaffeeklatsch.components.ProfileSettingsHandler import ProfileSettingsHandl
 #TEST
 from kaffeeklatsch.models.models import UserAccess, User, Post, Community
 
+# Imports for voting mechanism
+from kaffeeklatsch.forms.UpVoteForm import UpVoteForm
+from kaffeeklatsch.components.UpVoteHandler import UpVoteHandler
+from kaffeeklatsch.forms.DownVoteForm import DownVoteForm
+from kaffeeklatsch.components.DownVoteHandler import DownVoteHandler
+
 @app.route("/", methods=['GET','POST'])
 def login():
   #LOGIN TESTING
@@ -88,65 +94,96 @@ def register():
 
 @app.route('/feed', methods=['GET', 'POST'])
 def feed():
-    if (current_user.is_authenticated == False):
-      return redirect(url_for('login')) 
+  if (current_user.is_authenticated == False):
+    return redirect(url_for('login')) 
 
-    #main logic path
-    sortPostForm = SortPostForm()
-    replyForm = ReplyForm()
-    makePostForm = MakePostForm()
-    communityPainForm = CommunityPainForm()
-    communities = Community.query.all()
-    posts = Post.query.all()
-    postHandler = PostHandler()
-    replyHandler = ReplyHandler()
+  #main logic path
+  sortPostForm = SortPostForm()
+  replyForm = ReplyForm()
+  makePostForm = MakePostForm()
+  communityPainForm = CommunityPainForm()
+  posts = Post.query.all()
+  communities = Community.query.all()
+  postHandler = PostHandler()
+  replyHandler = ReplyHandler()
+  upVoteForm = UpVoteForm()
+  upVoteHandler = UpVoteHandler()
+  downVoteForm = DownVoteForm()
+  downVoteHandler = DownVoteHandler()
 
-    #grab current user and set info from db
-    userName = current_user.username
-    userInfo = User.query.filter_by(username=userName).first()
-    # print(posts)
-    # load posts here
+  #grab current user and set info from db
+  userName = current_user.username
+  userInfo = User.query.filter_by(username=userName).first()
+  # print(posts)
 
-    if makePostForm.validate_on_submit():
-      print("form input is validated")
-      inputTitle = request.form['postTitle']
-      inputContent = request.form['postContent']
-      inputUsername = current_user.username
-      # not passing time, using default value in model
-      inputCommunity = "Test Community" # Will need to be updated with ability to pull relevant community
-      postHandler.post(inputTitle, inputContent, inputUsername, inputCommunity)
-      #reload the page & clear fields
-      return redirect(url_for('feed'))
-    else:
-      print("you're stuff still isnt workin (post)")
+  if makePostForm.validate_on_submit():
+    print("form input is validated")
+    inputTitle = request.form['postTitle']
+    inputContent = request.form['postContent']
+    inputUsername = current_user.username
+    # not passing time, using default value in model
+    inputCommunity = "Test Community" # Will need to be updated with ability to pull relevant community
+    postHandler.post(inputTitle, inputContent, inputUsername, inputCommunity)
+    #reload the page & clear fields
+    return redirect(url_for('feed'))
+  else:
+    print("you're stuff still isnt workin (post)")
 
-    if replyForm.validate_on_submit():
-      print("Reply form input is validated")
-      inputContent = request.form['replyContent']
-      inputUsername = current_user.username
-      #get the original post ID
-      retrievedPostId = int(request.form['index'])
-      originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
-      originalPostList = list(originalPostFilter)
-      originalPost = originalPostList.pop()
-      print(f'original post id: ', retrievedPostId)
-      print(f'original post: ', originalPost)
-      inputOriginalPostID = retrievedPostId
-      #write the post object
-      replyHandler.reply(inputOriginalPostID, inputContent, inputUsername)
-      #reload the page & clear fields
-      return redirect(url_for('feed'))
-    else:
-      print("reply you're stuff still isnt workin (reply)")
+  if replyForm.validate_on_submit():
+    print("Reply form input is validated")
+    inputContent = request.form['replyContent']
+    inputUsername = current_user.username
+    #get the original post ID
+    retrievedPostId = int(request.form['index'])
+    originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
+    originalPostList = list(originalPostFilter)
+    originalPost = originalPostList.pop()
+    print(f'original post id: ', retrievedPostId)
+    print(f'original post: ', originalPost)
+    inputOriginalPostID = retrievedPostId
+    #write the post object
+    replyHandler.reply(inputOriginalPostID, inputContent, inputUsername)
+    #reload the page & clear fields
+    return redirect(url_for('feed'))
+  else:
+    print("reply you're stuff still isnt workin (reply)")
 
-    return render_template('feed.html', 
-    makePostForm=makePostForm, 
-    sortPostForm=sortPostForm, 
-    replyForm=replyForm, 
-    communityPainForm=communityPainForm, 
-    communities=communities, 
-    posts=posts,
-    userInfo=userInfo)
+  if request.form.get("downArrow"):
+    print("Entered decrement logic.")
+    #get the original post ID
+    retrievedPostId = int(request.form['index'])
+    originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
+    originalPostList = list(originalPostFilter)
+    originalPost = originalPostList.pop()
+    print(f'original post id: ', retrievedPostId)
+    print(f'original post: ', originalPost)
+    inputOriginalPostID = retrievedPostId
+    downVoteHandler.decrementTally(inputOriginalPostID)
+    return redirect(url_for('feed'))
+
+  if request.form.get("upArrow"):
+    print("Entered increment logic.")
+    #get the original post ID
+    retrievedPostId = int(request.form['index'])
+    originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
+    originalPostList = list(originalPostFilter)
+    originalPost = originalPostList.pop()
+    print(f'original post id: ', retrievedPostId)
+    print(f'original post: ', originalPost)
+    inputOriginalPostID = retrievedPostId
+    upVoteHandler.incrementTally(inputOriginalPostID)
+    return redirect(url_for('feed'))
+
+  return render_template('feed.html', 
+  makePostForm=makePostForm, 
+  sortPostForm=sortPostForm, 
+  replyForm=replyForm, 
+  communityPainForm=communityPainForm, 
+  posts=posts, 
+  communities=communities, 
+  userInfo=userInfo,
+  upVoteForm=upVoteForm, 
+  downVoteForm=downVoteForm)
 
 #profile page routing
 @app.route('/profilepage', methods=['GET', 'POST'])

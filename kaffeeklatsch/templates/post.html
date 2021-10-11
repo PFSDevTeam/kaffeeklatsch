@@ -1,10 +1,16 @@
-{% macro post(replyForm, postObject) %}
+{% macro post(replyForm, upVoteForm, downVoteForm, postObject) %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}" />
 <div class="post-wrapper">
     <!--left panel : up and down buttons-->
     <div class="vote-panel">
-        {{ replyForm.upArrow(class="vote-button button") }} 
-        {{ replyForm.downArrow(class="vote-button button") }}
+        <form action="" method="POST">
+            <input type="hidden" id="index" name="index" value="{{ postObject.UUID }}">
+            {{ upVoteForm.upArrow(class="button-style-b make-button") }}
+        </form>
+        <form action="" method="POST">
+            <input type="hidden" id="index" name="index" value="{{ postObject.UUID }}">
+            {{ downVoteForm.downArrow(class="button-style-b make-button") }}
+        </form>
         <p class="post-tally">{{ postObject.tally }}</p>
     </div>
     <!--right panel: post content-->

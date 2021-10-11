@@ -36,7 +36,7 @@
             </div>
             <!--post loop-->
             {% for post in posts %}
-                {{ post_reply.post_reply(replyForm, post) }}
+                {{ post_reply.post_reply(replyForm, upVoteForm, downVoteForm, post) }}
             {% endfor %}
         </div>
         
