@@ -96,7 +96,7 @@ def feed():
     replyForm = ReplyForm()
     makePostForm = MakePostForm()
     communityPainForm = CommunityPainForm()
-    communityInfo = Community.query.filter_by(community_id=2).first()
+    communityInfo = Community.query.all()
     posts = Post.query.all()
     communities = Community.query.all()
     postHandler = PostHandler()
