@@ -9,13 +9,10 @@ from kaffeeklatsch.utilities.Errors import previousUserPassword
 
 class ProfileSettingsHandler:
 
-    def updateInfo(self, username, taglineChange, newPassword, avatarChange):
-        #update the tagline - User db
-        UserHandler.updateTagline(username, taglineChange)
-        #update the avatar
-        avatarChange = avatarChange + "_avatar.png"
-        UserHandler.updateAvatar(username, avatarChange)
-        #hash the input
+    def updateTagline(self, username, newTagline):
+        UserHandler.updateTagline(username, newTagline)
+    
+    def updatePassword(self, username, newPassword):
         newHashedPassword = Hasher.hash(newPassword)
         foundUser = UserHandler.getUser(username)
         #check to see if given password to change matches the current password in the database, raise error if True
@@ -26,12 +23,7 @@ class ProfileSettingsHandler:
         else:
             print(f'your password has alredy been used, please select a different one')
             raise previousUserPassword
-
-    #function to compare the passwords given by the UserAccess userInfo and the newHashedPassword
-    # def comparePasswords(self, retrievedPass, inputPass):
-    #     print(f'input password: {inputPass}\n' +
-    #         f'retrieved password: {retrievedPass}')
-    #     if (retrievedPass == inputPass):
-    #         return True
-    #     else: 
-    #         return False
+    
+    def updateAvatar(self, username, newAvatar):
+        newAvatar = newAvatar + "_avatar.png"
+        UserHandler.updateAvatar(username, newAvatar)

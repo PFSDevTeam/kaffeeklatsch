@@ -1,0 +1,19 @@
+{% macro change_tagline_form(changeTaglineForm) %}
+<form action="" method="POST">
+    <div class="avatar-change-pane">
+        {{ changeTaglineForm.hidden_tag() }}
+        <div>
+            {% if changeTaglineForm.taglineChange.errors %}
+            {{ changeTaglineForm.taglineChange(class="form-control form-control-lg is-invalid")}}
+            <div class="invalid-feedback">
+                {% for error in changeTaglineForm.taglineChange.errors %}
+                <span>{{ error }}</span> {% endfor %}
+            </div>
+            {% else %} {{ changeTaglineForm.taglineChange(class="form-control form-control-lg") }} {% endif %}
+            <div class="save-changes-button">
+                {{ changeTaglineForm.submit(class="button-style-a save-button") }}
+            </div>
+        </div>
+    </div>
+</form>
+{% endmacro %}
