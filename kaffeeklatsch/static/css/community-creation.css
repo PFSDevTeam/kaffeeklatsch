@@ -1,0 +1,69 @@
+/*File: community-creation.css
+ @author: Emily Godwin
+ Description: This file contains the css classes for
+     the community creation page */
+
+.community-creation-wrapper{
+    background-color: #96E6FF;
+    display: inline-block;
+    height: 500px;
+    width: 800px;
+    margin-bottom: 10px;
+}
+
+.community-creation-wrapper .user-info-pane{
+    width: 50%;
+    height: 80%;
+    display: inline-flex;
+    margin-left: 2%;
+}
+
+/*user details update*/
+/* .community-creation-wrapper .user-details-pane{
+    display: grid;
+    margin-left: 6%;
+    margin-top: 13%;
+    margin-bottom: 2%;
+    padding: 2%;
+} */
+
+/*left side, avatar image */
+.community-creation-wrapper .avatar-bubble-pane {
+    margin-top: 15%;
+    margin-left: 2%;
+    height: 100px;
+    width: 100px;
+}
+
+/*change avatar selection pane*/
+.community-creation-wrapper .avatar-change-pane{
+    margin-left: 25%;
+    margin-bottom: 5%;
+    margin-top: 50%;
+    width: 280px;
+    background-color: white;
+}
+
+.community-creation-wrapper .avatar-change-bubble{
+    height: 15%;
+    width: 15%;
+    margin-top: 5%;
+    margin-left: 7%;
+    margin-bottom: 2%;
+}
+
+/* .community-creation-wrapper .save-changes-button{
+    margin-left: 5%;
+} */
+.community-creation-wrapper .save-button{
+    width: 50%;
+    font-size: 10px;
+}
+
+/* .community-creation-wrapper .new-content{
+    height: 100px;
+} */
+
+/* .community-creation-wrapper .save-avatar{
+    margin-left: 25%;
+} */

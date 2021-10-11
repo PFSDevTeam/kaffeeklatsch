@@ -59,3 +59,10 @@ class CommunityNotFoundError(Error):
 
     def __init__(self):
         super().__init__(self.DEFAULT_MESSAGE)  
+
+class CommunityAlreadyExistsError(Error):
+    #user already exists
+    DEFAULT_MESSAGE = "Error: community already exists"
+
+    def __init__(self):
+        super().__init__(self.DEFAULT_MESSAGE)

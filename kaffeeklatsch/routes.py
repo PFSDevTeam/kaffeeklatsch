@@ -32,11 +32,11 @@ from kaffeeklatsch.forms.CommunityPageInfo import CommunityPageInfo
 #profile settings change handler import
 from kaffeeklatsch.components.ProfileSettingsHandler import ProfileSettingsHandler
 
-#community creation form import
-from kaffeeklatsch.forms.CommunityInfoForm import CommunityInfoForm
-
 #community creation page handler import
-from kaffeeklastch.components.CommunityHandler import CommunityHandler
+from kaffeeklatsch.components.CommunityCreationHandler import CommunityCreationHandler
+
+#community Info Form import
+from kaffeeklatsch.forms.CommunityInfoForm import CommunityInfoForm
 
 #TEST
 from kaffeeklatsch.models.models import UserAccess, User, Post, Community
@@ -307,9 +307,9 @@ def logout():
   logout_user()
   return redirect(url_for('login'))
 
-@app.route('/communityCreation', , methods=['GET','POST'])
+@app.route('/communityCreation', methods=['GET','POST'])
 def communityCreation():
-  communityHandler = CommunityHandler()
+  communityCreationHandler = CommunityCreationHandler()
   communityInfoForm = CommunityInfoForm()
   
   if communityInfoForm.validate_on_submit():
@@ -318,7 +318,7 @@ def communityCreation():
     communityTagline = request.form['communitytagline']
     communityContent = request.form['communitycontent']
     communityAvatar = request.form['communityavatar']
-    communityHandler.insertCommunity(communityName, communityTagline, communityContent, communityAvatar)
+    communityCreationHandler.insertCommunity(communityName, communityTagline, communityContent, communityAvatar)
     #redirect to communityPage?? CommunitySuccessPage (create this?)
     return redirect(url_for('feed'))
   else:
