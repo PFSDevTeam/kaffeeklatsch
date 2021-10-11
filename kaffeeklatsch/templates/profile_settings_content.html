@@ -1,13 +1,14 @@
 <!--File: profile_settings_content.html
-    @author: Emily Godwin
-    Description: This file contains the html template for
-        the profile setttings page template-->
+    @author: Emily Godwin, David Hovey
+    Description: This file contains the profile setttings page template
+        that hosts the form calls to change user info templates-->
 
 {% import 'change_avatar.html' as changeAvatar %}
 {% import 'change_tagline.html' as changeTagline %}
 {% import 'change_password.html' as changePassword %}
+{% import 'change_content.html' as changeContent %}
 
-{% macro profile_settings_content(userInfo, changeAvatarForm, changePasswordForm, changeTaglineForm) %}
+{% macro profile_settings_content(userInfo, changeAvatarForm, changePasswordForm, changeTaglineForm, changeContentForm) %}
 <!--CSS Stylesheet-->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-settings.css') }}" />
     <!--body block-->
@@ -24,15 +25,20 @@
                     <span>{{ userInfo.username }}</span>
                     <!--show the tagline-->
                     <span>{{ userInfo.tagline }}</span>
+                    <!--show the current user content-->
+                    <span>{{ userInfo.summary }}</span>
 
-                    <br>
+                <br>
                     <!--change tagline form-->
                     {{ changeTagline.change_tagline_form(changeTaglineForm) }}
 
                     <!--change password form-->
                     {{ changePassword.change_password_form(changePasswordForm) }}
+
+                    <!--change user content form-->
+                    {{ changeContent.change_content_form(changeContentForm) }}
                 </div>
-        </br>
+              </br>
         <!--avatar macro-->
         {{ changeAvatar.change_avatar_form(changeAvatarForm) }}
     </div>

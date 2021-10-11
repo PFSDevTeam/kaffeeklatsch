@@ -24,6 +24,7 @@ from kaffeeklatsch.components.ReplyHandler import ReplyHandler
 from kaffeeklatsch.forms.ChangeAvatarForm import ChangeAvatarForm
 from kaffeeklatsch.forms.ChangePasswordForm import ChangePasswordForm
 from kaffeeklatsch.forms.ChangeTaglineForm import ChangeTaglineForm
+from kaffeeklatsch.forms.ChangeContentForm import ChangeContentForm
 
 #community profile page import
 from kaffeeklatsch.forms.CommunityPageInfo import CommunityPageInfo
@@ -162,6 +163,7 @@ def profileSettingsPage():
     changeAvatarForm = ChangeAvatarForm()
     changePasswordForm = ChangePasswordForm()
     changeTaglineForm = ChangeTaglineForm()
+    changeContentForm = ChangeContentForm()
     userName=current_user.username
 
     #query to pull the User db info based on given username
@@ -197,12 +199,21 @@ def profileSettingsPage():
     else:
       print(f'change tagline form invalid')
 
+    if changeContentForm.validate_on_submit():
+      print(f'change user content form valid')
+      newContent = request.form['newContent']
+      profileSettingsHandler.updateUserContent(userName, newContent)
+      return redirect(url_for('profileSettingsPage'))
+    else:
+      print(f'change content form invalid')
+
     return render_template('profile_settings.html', 
     userInfo=userInfo, 
     userAccessInfo=userAccessInfo, 
     changeAvatarForm=changeAvatarForm,
     changePasswordForm=changePasswordForm,
-    changeTaglineForm=changeTaglineForm)
+    changeTaglineForm=changeTaglineForm,
+    changeContentForm=changeContentForm)
 
 #community page routing
 @app.route('/communityPage', methods=['GET', 'POST'])
