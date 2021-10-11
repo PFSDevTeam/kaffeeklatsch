@@ -96,9 +96,8 @@ def feed():
     replyForm = ReplyForm()
     makePostForm = MakePostForm()
     communityPainForm = CommunityPainForm()
-    communityInfo = Community.query.all()
-    posts = Post.query.all()
     communities = Community.query.all()
+    posts = Post.query.all()
     postHandler = PostHandler()
     replyHandler = ReplyHandler()
 
@@ -146,8 +145,7 @@ def feed():
     replyForm=replyForm, 
     communityPainForm=communityPainForm, 
     communities=communities, 
-    posts=posts, 
-    communities=communities, 
+    posts=posts,
     userInfo=userInfo)
 
 #profile page routing
