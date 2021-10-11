@@ -2,11 +2,13 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}" />
 <div class="post-wrapper">
     <!--left panel : up and down buttons-->
-    <div class="vote-panel">
+    <div class="up-vote-panel">
         <form action="" method="POST">
             <input type="hidden" id="index" name="index" value="{{ postObject.UUID }}">
             {{ upVoteForm.upArrow(class="button-style-b make-button") }}
         </form>
+    </div>
+    <div class="down-vote-panel">
         <form action="" method="POST">
             <input type="hidden" id="index" name="index" value="{{ postObject.UUID }}">
             {{ downVoteForm.downArrow(class="button-style-b make-button") }}

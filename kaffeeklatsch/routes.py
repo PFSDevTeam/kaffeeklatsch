@@ -146,7 +146,12 @@ def feed():
   else:
     print("reply you're stuff still isnt workin (reply)")
   
+  print('Up and Down button Submission states:')
+  print(upVoteForm.is_submitted())
+  print(downVoteForm.is_submitted())
+
   if upVoteForm.is_submitted():
+    print("Entered increment logic.")
     #get the original post ID
     retrievedPostId = int(request.form['index'])
     originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
@@ -161,6 +166,7 @@ def feed():
     print("Didn't enter increment logic.")
 
   if downVoteForm.is_submitted():
+    print("Entered decrement logic.")
     #get the original post ID
     retrievedPostId = int(request.form['index'])
     originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
