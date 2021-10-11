@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/community-pain.css') }}" />
 <div class="community-pain-wrapper">
     <img class="avatar community-image" src="{{ url_for('static', filename='assets/imagefiles/Profile/'+communityInfo.community_image) }}">
-    <a href="/communityPage"><span class="community-title">{{ communityInfo.community_name}}</span></a>
-    <span>{{ communityPainForm.join(class="button-style-a community-button") }} </span>
+    <a href="/communityPage" class="community-title"><span>{{ communityInfo.community_name}}</span></a>
+    <span class="community-button">{{ communityPainForm.join(class="button-style-a community-button-settings") }} </span>
 </div>
 {% endmacro %}
