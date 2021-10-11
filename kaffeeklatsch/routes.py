@@ -324,4 +324,4 @@ def communityCreation():
   else:
     print("community form input is incorrect")
   
-  return render_template('community_creation.html', form=communityInfoForm)
+  return render_template('community_creation.html', communityInfoForm=communityInfoForm)
