@@ -39,7 +39,7 @@
                     {{ sortPostTemplate.sort_post(sortPostForm) }}
                 </form>
                 {% for post in posts %}
-                    {{ post_reply.post_reply(replyForm, post) }}
+                    {{ post_reply.post_reply(replyForm, upVoteForm, downVoteForm, post) }}
                 {% endfor %}
             </div>
             <!--right block, calls communityPaneTemplate-->
