@@ -6,44 +6,47 @@
 
 .profile-settings-wrapper{
     background-color: #96E6FF;
-    display: inline-table;
-    height: 400px;
+    display: inline-block;
+    height: 500px;
     width: 800px;
-    margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .profile-settings-wrapper .user-info-pane{
     width: 50%;
+    height: 80%;
     display: inline-flex;
-    margin-left: 5%;
+    margin-left: 2%;
 }
 
+/*user details update*/
 .profile-settings-wrapper .user-details-pane{
     display: grid;
-    margin-left: 10%;
-    margin-top: 15%;
+    margin-left: 6%;
+    margin-top: 13%;
     margin-bottom: 2%;
+    padding: 2%;
 }
 
 /*left side, avatar image */
 .profile-settings-wrapper .avatar-bubble-pane {
     margin-top: 15%;
+    margin-left: 2%;
     height: 100px;
     width: 100px;
 }
 
 .profile-settings-wrapper .avatar-bubble {  
     margin-top: 5px;
-    height: 100%;
+    height: 120%;
 }
 
+/*change avatar selection pane*/
 .profile-settings-wrapper .avatar-change-pane{
     margin-left: 25%;
     margin-bottom: 5%;
-    margin-top: 5%;
-    width: 50%;
-    height: 30%;
+    margin-top: 50%;
+    width: 280px;
     background-color: white;
 }
 
@@ -59,5 +62,14 @@
     margin-left: 5%;
 }
 .profile-settings-wrapper .save-button{
-    width: 25%;
+    width: 50%;
+    font-size: 10px;
+}
+
+.profile-settings-wrapper .new-content{
+    height: 100px;
+}
+
+.profile-settings-wrapper .save-avatar{
+    margin-left: 25%;
 }

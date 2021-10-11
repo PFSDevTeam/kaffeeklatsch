@@ -1,74 +1,45 @@
 <!--File: profile_settings_content.html
-    @author: Emily Godwin
-    Description: This file contains the html template for
-        the profile setttings page template-->
-{% macro profile_settings_content(userInfo, profileSettings) %}
+    @author: Emily Godwin, David Hovey
+    Description: This file contains the profile setttings page template
+        that hosts the form calls to change user info templates-->
+
+{% import 'change_avatar.html' as changeAvatar %}
+{% import 'change_tagline.html' as changeTagline %}
+{% import 'change_password.html' as changePassword %}
+{% import 'change_content.html' as changeContent %}
+
+{% macro profile_settings_content(userInfo, changeAvatarForm, changePasswordForm, changeTaglineForm, changeContentForm) %}
 <!--CSS Stylesheet-->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-settings.css') }}" />
     <!--body block-->
     <div class="profile-settings-wrapper">
-        <form action="" method="POST">
-            {{ profileSettings.hidden_tag() }}
+
             <div class="user-info-pane">
                 <!--Avatar Bubble-->
                 <div class="avatar-bubble-pane">
                     <img class="avatar-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/' + userInfo.avatar) }}" /> 
                 </div>
                 <div class="user-details-pane">
+
                     <!--show the user name-->
                     <span>{{ userInfo.username }}</span>
                     <!--show the tagline-->
                     <span>{{ userInfo.tagline }}</span>
-                    <div>
-                        {{ profileSettings.taglineChange.label(class="form-control-label")}}
-                        {% if profileSettings.taglineChange.errors %}
-                        {{ profileSettings.taglineChange(class="form-control form-control-lg is-invalid")}}
-                        <div class="invalid-feedback">
-                         {% for error in profileSettings.taglineChange.errors %}
-                         <span>{{ error }}</span> {% endfor %}
-                        </div>
-                        {% else %} {{ profileSettings.taglineChange(class="form-control form-control-lg") }} {% endif %}
-                    </div>
-                    <div>
-                        {{ profileSettings.newPassword.label(class="form-control-label")}}
-                        {% if profileSettings.newPassword.errors %}
-                        {{ profileSettings.newPassword(style="border-radius: 8px;height: 30px;width: 200px;")}}
-                        <div class="invalid-feedback">
-                            {% for error in profileSettings.newPassword.errors %}
-                            <span>{{ error }}</span>{% endfor %}
-                        </div>
-                        {% else %} {{ profileSettings.newPassword(class="form-control form-control-lg") }} {% endif %}
-                    </div>
-                    <div>
-                        {{ profileSettings.verifyPassword.label(class="form-control-label")}}
-                        {% if profileSettings.verifyPassword.errors %}
-                        {{ profileSettings.verifyPassword(style="border-radius: 8px;height: 30px;width: 200px;")}}
-                        <div class="invalid-feedback">
-                            {% for error in profileSettings.verifyPassword.errors %}
-                            <span>{{ error }}</span>{% endfor %}
-                        </div>
-                        {% else %} {{ profileSettings.verifyPassword(class="form-control form-control-lg") }} {% endif %}
-                    </div>
+                    <!--show the current user content-->
+                    <span>{{ userInfo.summary }}</span>
+
+                <br>
+                    <!--change tagline form-->
+                    {{ changeTagline.change_tagline_form(changeTaglineForm) }}
+
+                    <!--change password form-->
+                    {{ changePassword.change_password_form(changePasswordForm) }}
+
+                    <!--change user content form-->
+                    {{ changeContent.change_content_form(changeContentForm) }}
                 </div>
-            </div>
-            <div class="avatar-change-pane">
-            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" /> 
-            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/beaver_avatar.png') }}" />
-            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/elephant_avatar.png') }}" />
-            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/frog_avatar.png') }}" />
-            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/giraffe_avatar.png') }}" />
-            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/koala_avatar.png') }}" />
-            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/lion_avatar.png') }}" />
-            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/macaw_avatar.png') }}" />
-            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/owl_avatar.png') }}" />
-            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/penguin_avatar.png') }}" />
-            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/spider_avatar.png') }}" />
-            <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/whale_avatar.png') }}" />
-            </div>
-            <div class="save-changes-button">
-            {{ profileSettings.submit(class="button-style-a save-button") }}
-            </div>
-        </form>
+              </br>
+        <!--avatar macro-->
+        {{ changeAvatar.change_avatar_form(changeAvatarForm) }}
     </div>
-</div>
 {% endmacro %}
