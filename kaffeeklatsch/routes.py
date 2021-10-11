@@ -202,7 +202,15 @@ def profilePage():
     userInfo = User.query.filter_by(username=userName).first()
     posts = Post.query.all()
     print(posts)
-    return render_template('profile_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, userInfo=userInfo, upVoteForm=upVoteForm, downVoteForm=downVoteForm)
+
+    return render_template('profile_page.html', 
+    makePostForm=makePostForm, 
+    sortPostForm=sortPostForm, 
+    replyForm=replyForm, 
+    posts=posts, 
+    userInfo=userInfo, 
+    upVoteForm=upVoteForm, 
+    downVoteForm=downVoteForm)
 
 #profile settings page routing
 @app.route('/profileSettingsPage',  methods=['GET', 'POST'])
@@ -278,7 +286,15 @@ def communityPage():
   communityInfo = Community.query.filter_by(community_id = 2).first()
   posts = Post.query.all()
   print(posts)
-  return render_template('community_page.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, posts=posts, communityInfo=communityInfo, upVoteForm=upVoteForm, downVoteForm)
+
+  return render_template('community_page.html', 
+  makePostForm=makePostForm, 
+  sortPostForm=sortPostForm, 
+  replyForm=replyForm, 
+  posts=posts, 
+  communityInfo=communityInfo, 
+  upVoteForm=upVoteForm, 
+  downVoteForm=downVoteForm)
 
 
 @app.route('/logout')
