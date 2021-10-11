@@ -97,7 +97,7 @@ class UserHandler:
     def updateContent(cls, username, usercontent):
         user = User.query.filter_by(username=username).first()
         try:
-            user.summmary = usercontent
+            user.summary = usercontent
             db.session.commit()
             return True
         except Exception as ex: 
