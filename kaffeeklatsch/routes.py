@@ -150,22 +150,7 @@ def feed():
   print(upVoteForm.is_submitted())
   print(downVoteForm.is_submitted())
 
-  if upVoteForm.is_submitted():
-    print("Entered increment logic.")
-    #get the original post ID
-    retrievedPostId = int(request.form['index'])
-    originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
-    originalPostList = list(originalPostFilter)
-    originalPost = originalPostList.pop()
-    print(f'original post id: ', retrievedPostId)
-    print(f'original post: ', originalPost)
-    inputOriginalPostID = retrievedPostId
-    upVoteHandler.incrementTally(inputOriginalPostID)
-    return redirect(url_for('feed'))
-  else:
-    print("Didn't enter increment logic.")
-
-  if downVoteForm.is_submitted():
+  if request.form.get("downArrow"):
     print("Entered decrement logic.")
     #get the original post ID
     retrievedPostId = int(request.form['index'])
@@ -177,9 +162,19 @@ def feed():
     inputOriginalPostID = retrievedPostId
     downVoteHandler.decrementTally(inputOriginalPostID)
     return redirect(url_for('feed'))
-  else:
-    print("Didn't enter decrement logic.")
 
+  if request.form.get("upArrow"):
+    print("Entered increment logic.")
+    #get the original post ID
+    retrievedPostId = int(request.form['index'])
+    originalPostFilter = filter(lambda post: post.UUID == retrievedPostId, posts)
+    originalPostList = list(originalPostFilter)
+    originalPost = originalPostList.pop()
+    print(f'original post id: ', retrievedPostId)
+    print(f'original post: ', originalPost)
+    inputOriginalPostID = retrievedPostId
+    upVoteHandler.incrementTally(inputOriginalPostID)
+    return redirect(url_for('feed'))
 
   return render_template('feed.html', makePostForm=makePostForm, sortPostForm=sortPostForm, replyForm=replyForm, communityPainForm=communityPainForm, communityInfo=communityInfo, posts=posts, userInfo=userInfo, upVoteForm=upVoteForm, downVoteForm=downVoteForm)
 
