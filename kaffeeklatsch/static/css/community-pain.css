@@ -1,3 +1,4 @@
+/*wrapper to contain the communities pane for feed page*/
 .community-pain-wrapper {
     background-color: white;
     display: inline-flex;
@@ -29,6 +30,7 @@
     margin-top: 2%;
 }
 
+/*button to link to community settings*/
 .community-pain-wrapper .community-button-settings{
     font-size: small;
     width: 95%;
