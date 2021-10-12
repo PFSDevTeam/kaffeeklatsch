@@ -297,7 +297,7 @@ def communityPage():
   downVoteForm=downVoteForm)
 
 
-@app.route('/logout')
+@app.route('/logout', methods=['GET'])
 def logout():
   logout_user()
   return redirect(url_for('login'))

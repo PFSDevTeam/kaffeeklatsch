@@ -24,6 +24,7 @@
 <!-- avatar block -->
 {% block avatar %}
 <img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/' + userInfo.avatar) }}" /> 
+<button onclick="document.location='logout'" class="button-style-credential">sign out</button>
 {% endblock %}
 
 <!--body block-->
