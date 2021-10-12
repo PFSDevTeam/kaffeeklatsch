@@ -1,3 +1,8 @@
+#File: ChangePasswordForm.py
+#@author: Emily Godwin, David Hovey
+#Description: this file contains the form to update the user's password
+#   as called by the change_password.html form
+
 # Imports
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, SubmitField
