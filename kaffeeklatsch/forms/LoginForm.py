@@ -1,3 +1,8 @@
+#File: LoginForm.py
+#@author: Geoff Floding, David Hovey, Ryan Dombek
+#Description: this file contains the form to login
+#   a user by grabbing credentials
+
 # Imports
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
