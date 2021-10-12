@@ -1,5 +1,8 @@
-# on init we're going to accept username and password
-# Login Handler should be created in the form On submit section so as to scope it to pressing the login button
+#File: LoginHandler.py
+#@author: Ryan Dombek, Geoff Floding, Majestic Dwyer, David Hovey
+#Description: This file contains the python logic to handle
+#   the login form routing to the database in UserHandler
+#   on init: accept username and password
 
 #custom clases
 from kaffeeklatsch.utilities.Errors import InvalidPasswordError, InvalidUsernameError, UserNotFoundError
