@@ -1,4 +1,8 @@
-# the user handler class handles the repetative functions for the Login and registration functions
+#File: CommentHandler.py
+#@author: Emily Godwin
+#Description: This file contains the class methods
+#   to update the database based on the fields of the
+#   post object
 
 #libraries
 from kaffeeklatsch.models.models import Post
