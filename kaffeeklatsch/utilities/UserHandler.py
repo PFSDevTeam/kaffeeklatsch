@@ -1,7 +1,8 @@
 #File: UserHandler.py
 #@author: Emily Godwin
-#Description: this file contains the form to update the user's content
-#   as called by the change_content, login and registration templates
+#Description: this file contains the methods to access and change 
+#   the database for the User table when a user adds a registration,
+#   logs in or uses the profile settings page
 
 # Imports
 from kaffeeklatsch.utilities.Errors import UserNotFoundError
