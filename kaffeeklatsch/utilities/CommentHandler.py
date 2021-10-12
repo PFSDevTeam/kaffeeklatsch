@@ -1,5 +1,5 @@
 #File: CommentHandler.py
-#@author: Emily Godwin
+#@author: David Hovey, Ryan Dombek, Geoff Floding
 #Description: This file contains the class methods
 #   to update the database based on the fields of the
 #   post object
