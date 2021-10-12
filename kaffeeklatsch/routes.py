@@ -276,6 +276,32 @@ def profileSettingsPage():
     changeTaglineForm=changeTaglineForm,
     changeContentForm=changeContentForm)
 
+# #community page routing
+# @app.route('/communityPage/<comm>', methods=['GET', 'POST'])
+# def communityPage(comm):
+#   if request.method == 'POST':
+#     return redirect(url_for('feed'))
+#   sortPostForm = SortPostForm()
+#   replyForm = ReplyForm()
+#   makePostForm = MakePostForm()
+#   upVoteForm = UpVoteForm()
+#   upVoteHandler = UpVoteHandler()
+#   downVoteForm = DownVoteForm()
+#   downVoteHandler = DownVoteHandler()
+#   comm = request.args.get('comm')
+#   communityInfo = Community.query.filter_by(community_name=comm).first()
+#   posts = Post.query.all()
+#   print(posts)
+
+#   return render_template('community_page.html', 
+#   makePostForm=makePostForm, 
+#   sortPostForm=sortPostForm, 
+#   replyForm=replyForm, 
+#   posts=posts, 
+#   communityInfo=communityInfo, 
+#   upVoteForm=upVoteForm, 
+#   downVoteForm=downVoteForm)
+
 #community page routing
 @app.route('/communityPage', methods=['GET', 'POST'])
 def communityPage():
@@ -288,7 +314,7 @@ def communityPage():
   upVoteHandler = UpVoteHandler()
   downVoteForm = DownVoteForm()
   downVoteHandler = DownVoteHandler()
-  communityInfo = Community.query.filter_by(community_id = 2).first()
+  communityInfo = Community.query.filter_by(community_name=2).first()
   posts = Post.query.all()
   print(posts)
 

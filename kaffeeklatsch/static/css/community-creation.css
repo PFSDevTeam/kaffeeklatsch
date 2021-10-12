@@ -5,13 +5,15 @@
 
 .community-creation-wrapper{
     background-color: #96E6FF;
+    border-style: groove;
+    border-color: #00aaff;
     display: inline-block;
     height: 500px;
     width: 800px;
     margin-bottom: 10px;
 }
 
-.community-creation-wrapper .user-info-pane{
+.community-creation-wrapper .comm-info-pane{
     width: 50%;
     height: 80%;
     display: inline-flex;
@@ -19,7 +21,7 @@
 }
 
 /*user details update*/
-.community-creation-wrapper .user-details-pane{
+.community-creation-wrapper .comm-details-pane{
     display: grid;
     margin-left: 6%;
     margin-top: 13%;
@@ -27,19 +29,35 @@
     padding: 2%;
 }
 
+.community-creation-wrapper .placeholder-detail{
+    padding: 1%;
+}
+
+.community-creation-wrapper .content-entry{
+    height: 80px;
+    width: 225px;
+    margin-top: 3%;
+    border-radius: 8px;
+    padding: 2%;
+    overflow-wrap: break-word; 
+    word-wrap: break-word;
+    word-wrap: soft;
+} 
+
 /*left side, avatar image */
 .community-creation-wrapper .avatar-bubble-pane {
-    margin-top: 15%;
-    margin-left: 2%;
+    margin-top: 27%;
+    margin-left: 20%;
     height: 100px;
-    width: 100px;
+    width: 50%;
 }
 
 /*change avatar selection pane*/
 .community-creation-wrapper .avatar-change-pane{
-    margin-left: 25%;
-    margin-bottom: 5%;
-    margin-top: 50%;
+    border-style: groove;
+    border-color: #00aaff;
+    margin-left: 35%;
+    margin-top: 10%;
     width: 280px;
     background-color: white;
 }
@@ -52,18 +70,23 @@
     margin-bottom: 2%;
 }
 
-/* .community-creation-wrapper .save-changes-button{
-    margin-left: 5%;
-} */
+.community-creation-wrapper .save-avatar{
+    margin-top: 15%;
+    margin-left: 8%;
+}
+
 .community-creation-wrapper .save-button{
-    width: 50%;
+    width: 80%;
+    margin-top: 10%;
     font-size: 10px;
 }
 
-/* .community-creation-wrapper .new-content{
-    height: 100px;
-} */
+.community-label{
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+}
 
-/* .community-creation-wrapper .save-avatar{
-    margin-left: 25%;
-} */
+.community-entry-label{
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: small;
+}

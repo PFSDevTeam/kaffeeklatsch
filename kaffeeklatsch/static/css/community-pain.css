@@ -12,46 +12,24 @@
 
 /* community image */
 .community-pain-wrapper .community-image{
-    /* margin-left: 2%;
-    margin-right: 10px;
-    margin-top: 3%; */
     height: 15%;
     width: 15%;
     float: none;
+    margin-right: 8px;
 }
 
 /* community title */
 .community-pain-wrapper .community-title{
-    /* margin-right: 10%; */
-    /* padding: 5%; */
-    /* margin-top: 2%; */
-    /* margin-right: 30%; */
-    /* align-self: center;
-    padding-right: 20%;
-    text-decoration: none; */
+    width: 100%;
 }
 
 /*style for community join buttons in community pane */
 .community-pain-wrapper .community-button {
-    /* margin-top: 5%; */
-    /* margin-left: 9%; */
-    /* float: right; */
-    /* margin-right: 3%; */
-    /* size: 20%; */
-    /* float: right;
-    margin-left: 30%; */
-    /* margin-left: 10%; */
-    /* margin-right: 5%;
-     */
-     /* float: right; */
-    /* top: 0px; */
-    /* margin-left: 5%; */
-    /* padding-right: 2%; */
-    /* margin-right: 10%; */
-    /* align-self: center; */
+    margin-left:8%;
+    margin-top: 2%;
 }
 
 .community-pain-wrapper .community-button-settings{
-    /* width: 60px; */
-    /* size: 10px; */
+    font-size: small;
+    width: 95%;
 }

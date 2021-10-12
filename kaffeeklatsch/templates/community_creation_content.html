@@ -10,10 +10,12 @@
     <div class="community-creation-wrapper">
         <form action="" method="POST">
             {{ communityInfoForm.hidden_tag() }}
-            <div class="user-info-pane">
-                <div class="user-details-pane">
+            <div class="comm-info-pane">
+                <div class="comm-details-pane">
+                    <p class="community-label">Create a Community!</p>
                     <!--enter the community name-->
                     <div>
+                        {{ communityInfoForm.communityname.label(class="form-control-label community-entry-label") }}
                         {% if communityInfoForm.communityname.errors %}
                         {{ communityInfoForm.communityname(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
@@ -21,11 +23,12 @@
                             {% for error in communityInfoForm.communityname.errors %}
                             <span>{{ error }}</span> {% endfor %}
                         </div>
-                        {% else %} {{ communityInfoForm.communityname(class="form-control form-control-lg") }} {% endif %}
+                        {% else %} {{ communityInfoForm.communityname(class="form-control form-control-lg placeholder-detail") }} {% endif %}
                     </div>
 
                     <!--enter the community tagline-->
                     <div>
+                        {{ communityInfoForm.communitytagline.label(class="form-control-label community-entry-label") }}
                         {% if communityInfoForm.communitytagline.errors %}
                         {{ communityInfoForm.communitytagline(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
@@ -33,11 +36,12 @@
                             {% for error in communityInfoForm.communitytagline.errors %}
                             <span>{{ error }}</span> {% endfor %}
                         </div>
-                        {% else %} {{ communityInfoForm.communitytagline(class="form-control form-control-lg") }} {% endif %}
+                        {% else %} {{ communityInfoForm.communitytagline(class="form-control form-control-lg placeholder-detail") }} {% endif %}
                     </div>
 
                     <!--enter the community content-->
                     <div>
+                        {{ communityInfoForm.communitycontent.label(class="form-control-label community-entry-label") }}
                         {% if communityInfoForm.communitycontent.errors %}
                         {{ communityInfoForm.communitycontent(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
@@ -45,31 +49,32 @@
                             {% for error in communityInfoForm.communitycontent.errors %}
                             <span>{{ error }}</span> {% endfor %}
                         </div>
-                        {% else %} {{ communityInfoForm.communitycontent(class="form-control form-control-lg") }} {% endif %}
+                        {% else %} {{ communityInfoForm.communitycontent(class="form-control form-control-lg content-entry") }} {% endif %}
                     </div>
                 </div>
-            </div>
-            <!--enter the community avatar-->
-            <div class="avatar-bubble-pane">
-                <div class="avatar-change-pane">
-                    <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" />
-                    <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/beaver_avatar.png') }}" />
-                    <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/elephant_avatar.png') }}" />
-                    <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/frog_avatar.png') }}" />
-                    <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/giraffe_avatar.png') }}" />
-                    <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/koala_avatar.png') }}" />
-                    <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/lion_avatar.png') }}" />
-                    <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/macaw_avatar.png') }}" />
-                    <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/owl_avatar.png') }}" />
-                    <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/penguin_avatar.png') }}" />
-                    <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/spider_avatar.png') }}" />
-                    <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/whale_avatar.png') }}" />
+                <!--enter the community avatar-->
+                <div class="avatar-bubble-pane">
+                    {{ communityInfoForm.communityavatar.label(class="form-control-label community-entry-label") }}
+                    <div class="avatar-change-pane">
+                        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" />
+                        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/beaver_avatar.png') }}" />
+                        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/elephant_avatar.png') }}" />
+                        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/frog_avatar.png') }}" />
+                        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/giraffe_avatar.png') }}" />
+                        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/koala_avatar.png') }}" />
+                        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/lion_avatar.png') }}" />
+                        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/macaw_avatar.png') }}" />
+                        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/owl_avatar.png') }}" />
+                        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/penguin_avatar.png') }}" />
+                        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/spider_avatar.png') }}" />
+                        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/whale_avatar.png') }}" />
+                    </div>
+                    <div class="save-avatar">
+                        {{ communityInfoForm.communityavatar(style="border-radius: 8px;height: 30px;width: 200px;") }}
+                        {{ communityInfoForm.submit(class="button-style-a save-button")}}
+                    </div>
                 </div>
-            </div>
-            <div class="save-avatar">
-                {{ communityInfoForm.communityavatar(style="border-radius: 8px;height: 30px;width: 200px;") }}
-                {{ communityInfoForm.submit(class="button-style-a save-button")}}
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 {% endmacro %}
