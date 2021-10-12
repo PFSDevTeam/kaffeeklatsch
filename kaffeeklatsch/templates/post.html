@@ -27,6 +27,14 @@
         <div class="post-panel__post-content">
             <p class="post-content">{{ postObject.content }}</p>
         </div>
+        <!--PREVIOUS REPLIES-->
+        {% for reply in postObject.replies %}
+            <div class="post-panel__reply">
+                <span>{{reply.reply_user}}</span> | <span>{{reply.reply_date}}</span>
+                <br>
+                <p>{{reply.reply_content}}</p>
+            </div>
+        {% endfor %}
         <!--REPLY FORM-->
         <form action="" method="POST">
             <div class="post-panel__reply-line">
