@@ -1,14 +1,14 @@
 /* File: globalstylesheet.css
     @author: Ryan Dombek, Emily Godwin
-    Description: This file contains the global style sheet*/
+    Description: This file contains the global style sheet
+                css classes that cascade over the entire app*/
 
+/*all background pages*/
 body {
     background-color: #E5FFF9
 }
 
-
 /*header*/
-
 .header {
     background-color: #C3F1FF;
     font-size: 50px;
@@ -20,14 +20,14 @@ body {
 }
 
 
-/*logo*/
+/*logo in header*/
 .logo {
     width: 120px;
     margin-top: 0px;
     float: left;
 }
 
-/*avatar*/
+/*avatar in header*/
 .avatar {
     height: 100%;
     float: right;
@@ -50,7 +50,7 @@ body {
     padding-top: 50px;
 }
 
-/* large buttons on login/registration */
+/* large credentialing or routing buttons */
 .button-style-credential {
     border-radius: 8px;
     background-color: #6259df;
