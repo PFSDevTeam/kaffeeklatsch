@@ -41,13 +41,16 @@ class UserHandler:
     @classmethod
     def insertUser(cls, username, password):
         newUserAccess = UserAccess(username=username, password=password)
-        newUserProfile = User(username=username, date_joined=datetime.utcnow())
+        newUserProfile = User(username=username, date_joined=datetime.utcnow(), avatar="bee_avatar.png")
         try:
             db.session.add(newUserAccess)
             db.session.add(newUserProfile)
             db.session.commit()
             return True
-        except: 
+        except Exception as ex: 
+            template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+            message = template.format(type(ex).__name__, ex.args)
+            print(message)
             return False
 
     #update password based on user in db - Emily
