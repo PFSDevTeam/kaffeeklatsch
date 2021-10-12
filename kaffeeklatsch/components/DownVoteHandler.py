@@ -1,3 +1,8 @@
+#File: DownVoteHandler.py
+#@author: Geoff Floding, David Hovey
+#Description: This file contains the python logic to handle
+#   the downvote db access call to CommentHandler
+
 #libraries
 from kaffeeklatsch.utilities.Errors import NotAbletoPostComment
 from kaffeeklatsch.utilities.CommentHandler import CommentHandler
@@ -6,7 +11,6 @@ from kaffeeklatsch.utilities.CommentHandler import CommentHandler
 class DownVoteHandler:
 
     def decrementTally(self, original_post_id):
-
         try:
             print("ReplyHandler is trying to call CommentHandler")
             CommentHandler.decrementTally(original_post_id)
