@@ -1,3 +1,8 @@
+#File: ReplyForm.py
+#@author: David Hovey
+#Description: this file contains the form to grab
+#   the reply fields in the post pane
+
 # Imports
 from flask_wtf import FlaskForm
 from wtforms.validators import DataRequired, Length

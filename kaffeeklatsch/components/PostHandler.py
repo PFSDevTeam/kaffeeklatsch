@@ -1,3 +1,8 @@
+#File: PostHandler.py
+#@author: Geoff Floding, David Hovey, Ryan Dombek
+#Description: This file contains the python logic to handle
+#   calls to CommentHandler which pushes to the database
+
 #libraries
 from kaffeeklatsch.utilities.Errors import NotAbletoPostComment
 from kaffeeklatsch.utilities.CommentHandler import CommentHandler
@@ -6,7 +11,6 @@ from kaffeeklatsch.utilities.CommentHandler import CommentHandler
 class PostHandler:
 
     def post(self, title, content, posting_user, community):
-
         try:
             print("PostHandler is trying to call CommentHandler")
             CommentHandler.insertComment(title, content, posting_user, community)

@@ -1,4 +1,4 @@
-#File: ProfileSettingsHandler.py
+#File: CommunityCreationHandler.py
 #@author: Emily Godwin, David Hovey
 #Description: This file contains the python logic to handle
 #   user information updates given by routes, taken in by the

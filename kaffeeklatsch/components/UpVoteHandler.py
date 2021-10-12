@@ -1,3 +1,9 @@
+#File: UpVoteHandler.py
+#@author: Geoff Floding, David Hovey
+#Description: This file contains the python logic to handle
+#   the posting of the upvote button calls to the database
+#   in CommentHandler
+
 #libraries
 from kaffeeklatsch.utilities.Errors import NotAbletoPostComment
 from kaffeeklatsch.utilities.CommentHandler import CommentHandler
@@ -6,7 +12,6 @@ from kaffeeklatsch.utilities.CommentHandler import CommentHandler
 class UpVoteHandler:
 
     def incrementTally(self, original_post_id):
-
         try:
             print("ReplyHandler is trying to call CommentHandler")
             CommentHandler.incrementTally(original_post_id)

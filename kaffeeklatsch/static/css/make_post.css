@@ -1,3 +1,9 @@
+/*File: make_post.css
+ @author: Ryan Dombek, Geoff Floding, Majestic Dwyer
+ Description: This file contains the css classes for
+     the make post template */
+
+/*wrapper to contain make post*/
 .make-post-wrapper {
     display: block;
     border-radius: 8px;
@@ -6,6 +12,7 @@
     margin-bottom: 10px;
 }
 
+/*post title*/
 .make-post-wrapper .post-title {
     display: block;
     width: 99.6%;
@@ -15,6 +22,7 @@
     padding: 0;
 }
 
+/*post content*/
 .make-post-wrapper .post-content {
     display: block;
     width: 99.6%;
@@ -25,6 +33,7 @@
     height: 100px;
 }
 
+/*submit button*/
 .make-post-wrapper .make-button{
     float: right;
     margin-top: 1%;

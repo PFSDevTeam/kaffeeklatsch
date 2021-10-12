@@ -1,3 +1,8 @@
+#File: MakePostForm.py
+#@author: Ryan Dombek, David Hovey, Geoff Floding
+#Description: this file contains the form create a post
+#   by taking in post fields
+
 # Imports
 from flask_wtf import FlaskForm
 from wtforms.validators import DataRequired, Length

@@ -1,12 +1,20 @@
+/*File: feed.css
+ @author: Ryan Dombek, Majestic Dwyer, Geoff Floding, Emily Godwin
+ Description: This file contains the css classes for
+     the community creation page */
+
+/*content pane container*/
 .content-view {
     display: flex;
 }
 
+/*post pane container*/
 .post-pane {
     display: inline-block;
     width: 60%;
 }
 
+/*community pane container*/
 .community-pain {
     display: inline-block;
     background-color: #E5FFF9;
@@ -31,11 +39,13 @@
     height: 45%;
 }
 
+/*community label on feed page*/
 .community-label{
     font-family: "Helvetica Neue", "Arial", sans-serif;
     font-size: medium;
 }
 
+/*button to link to communityCreationPage*/
 .create-comm-button{
     width: 70%;
     height: 10%;
@@ -43,6 +53,7 @@
     display: flex;
 }
 
+/*decorators for create community button*/
 .create-comm{
     text-decoration: none;
     font-size: small;

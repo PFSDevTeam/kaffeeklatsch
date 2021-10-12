@@ -1,4 +1,8 @@
-# The user handler class handles the repetitive functions for the Login and registration functions
+#File: UserHandler.py
+#@author: Emily Godwin
+#Description: this file contains the methods to access and change 
+#   the database for the User table when a user adds a registration,
+#   logs in or uses the profile settings page
 
 # Imports
 from kaffeeklatsch.utilities.Errors import UserNotFoundError

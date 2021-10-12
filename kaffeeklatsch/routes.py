@@ -1,3 +1,8 @@
+#File: routes.py
+#@author: David Hovey, Geoff Floding, Ryan Dombek, Majestic Dwyer, Emily Godwin
+#Description: This file contains the definitions app routes between pages
+# including form calling, handling, and rendering of Flask templates
+
 # Imports for Flask.
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, current_user, logout_user

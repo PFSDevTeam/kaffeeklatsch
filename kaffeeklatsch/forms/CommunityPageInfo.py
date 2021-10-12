@@ -1,8 +1,9 @@
 #File: CommunityPageInfo.py
 #@author: Emily Godwin
-#Description: This file contains the logic to handle the profile
-#    page information for the current user
+#Description: This file contains the logic to handle the community
+#    page information for given community
 
+#imports
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 

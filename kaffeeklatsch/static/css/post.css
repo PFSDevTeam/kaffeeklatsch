@@ -1,3 +1,9 @@
+/*File: post.css
+ @author: Ryan Dombek, Geoff Floding, Majestic Dwyer, Emily Godwin
+ Description: This file contains the css classes for
+     the the posts on the feed template */
+
+/*post wrapper class*/
 .post-wrapper {
     background-color: white;
     border-style: groove;
@@ -8,6 +14,7 @@
     margin-bottom: 10px;
 }
 
+/*vote panel input container*/
 .post-wrapper .vote-panel input {
     width: 50px;
     height: 50px;
@@ -20,16 +27,19 @@
     align-content: center;
 }
 
+/*tally container*/
 .post-wrapper .post-tally{
     margin-left: 80%;
 }
 
+/*panel for post information*/
 .post-wrapper .post-panel {
     display: inline-block;
     width: 80%;
     background-color: white;
 }
 
+/*post information containers, decorators*/
 .post-panel .post-panel__reply-line {
     display: flex;
     justify-content: center;

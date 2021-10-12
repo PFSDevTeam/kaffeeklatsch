@@ -1,4 +1,9 @@
 #File: CommunityInfoForm.py
+#@author: Emily Godwin
+#Description: this file contains the form to create
+#   Community information in community_creation.html
+
+#imports
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, TextAreaField
 from wtforms.validators import DataRequired, Length

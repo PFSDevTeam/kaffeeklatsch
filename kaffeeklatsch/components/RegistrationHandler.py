@@ -1,4 +1,7 @@
-#handles writing new users
+#File: RegistrationHandler.py
+#@author: Ryan Dombek, Geoff Floding
+#Description: This file contains the python logic to handle
+#   calls to UserHandler to post to the database
 
 #custom classes
 from kaffeeklatsch.utilities.Hasher import Hasher

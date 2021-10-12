@@ -1,4 +1,9 @@
-# Imports necessary for the form to function
+#File: ChangeContentForm.py
+#@author: Geoff Floding, David Hovey
+#Description: this file contains the form to grab down arrow
+#   submission
+
+# Imports
 from flask_wtf import FlaskForm
 from wtforms import SubmitField
 

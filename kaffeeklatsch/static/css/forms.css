@@ -2,7 +2,6 @@
     @author: Geoff Floding, Emily Godwin
     Description: This file contains the credentialing form style sheet*/
 
-
 /* style for button to direct to opposite credentialing */
 .sign-up-button {
     float: right;
@@ -11,7 +10,6 @@
     width: 150px;
     height: 40px;
 }
-
 
 /*container for form*/
 .container {
@@ -26,9 +24,7 @@
     font-family: "Helvetica Neue", "Arial", sans-serif;
 }
 
-
 /*input styling*/
-
 input {
     margin-bottom: 10px;
     border-radius: 8px;

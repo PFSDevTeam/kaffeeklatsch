@@ -3,7 +3,7 @@
  Description: This file contains the css classes for
      the profile settings page */
 
-
+/*wrapper to contain profile settings pane*/
 .profile-settings-wrapper{
     background-color: #96E6FF;
     border-style: groove;
@@ -14,6 +14,7 @@
     margin-bottom: 10px;
 }
 
+/*information pane*/
 .profile-settings-wrapper .user-info-pane{
     width: 50%;
     height: 80%;
@@ -54,6 +55,7 @@
     background-color: white;
 }
 
+/*change update buttons*/
 .profile-settings-wrapper .avatar-change-bubble{
     height: 15%;
     width: 15%;
@@ -72,6 +74,7 @@
     font-size: 10px;
 }
 
+/*user content update pane*/
 .profile-settings-wrapper .new-content{
     border-style: groove;
     background-color: white;
@@ -84,6 +87,7 @@
     word-wrap: soft;
 }
 
+/*button to save avatar from SelectField*/
 .profile-settings-wrapper .save-avatar{
     margin-left: 25%;
 }
