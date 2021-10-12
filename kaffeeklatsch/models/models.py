@@ -1,3 +1,4 @@
+from sqlalchemy.orm import relationship
 from kaffeeklatsch import db, login_manager
 from flask_login import UserMixin
 
@@ -47,6 +48,7 @@ class Post(db.Model):
     community = db.Column(db.Text, nullable=False)
     UUID = db.Column(db.Integer, nullable=False, primary_key=True, unique=True)
     tally = db.Column(db.Integer, nullable=False)
+    replies = relationship('Reply', backref='reply', lazy=True)
 
     def __repr__(self):
         return f"""\nPost {self.UUID}:
