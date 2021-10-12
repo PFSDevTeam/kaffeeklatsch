@@ -1,3 +1,8 @@
+/*File: community-pain.css
+ @author: Ryan Dombek, Emily Godwin
+ Description: This file contains the css classes for
+     the community pain on feed page */
+
 /*wrapper to contain the communities pane for feed page*/
 .community-pain-wrapper {
     background-color: white;
