@@ -1,4 +1,10 @@
-# Imports for the RegistrationForm class, added additional wtform validators to handle the registration fields
+
+#File: RegistrationForm.py
+#@author: Ryan Dombek, Geoff Floding, David Hovey
+#Description: this file contains the form to register the user
+#   based on given credentials
+
+# Imports
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired, Length, Regexp, EqualTo
