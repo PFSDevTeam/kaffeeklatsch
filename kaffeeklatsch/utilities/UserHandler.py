@@ -1,6 +1,6 @@
-# the user handler class handles the repetative functions for the Login and registration functions
+# The user handler class handles the repetitive functions for the Login and registration functions
 
-#libraries
+# Imports
 from kaffeeklatsch.utilities.Errors import UserNotFoundError
 from kaffeeklatsch.models.models import UserAccess, User
 from kaffeeklatsch import db

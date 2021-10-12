@@ -1,8 +1,9 @@
+# Imports
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, SubmitField
 from wtforms.validators import Length, EqualTo, Regexp
 
-
+# Define the elements of the ChangePasswordForm
 class ChangePasswordForm(FlaskForm):
     #validation for newPassword, requirement: must be 8-64 characters, contain 1 upper and lower case letter, one number and one special character
     newPassword = PasswordField('change your password:',
