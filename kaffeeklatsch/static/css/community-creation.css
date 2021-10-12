@@ -3,6 +3,7 @@
  Description: This file contains the css classes for
      the community creation page */
 
+/*wrapper to contain the community creation content*/
 .community-creation-wrapper{
     background-color: #96E6FF;
     border-style: groove;
@@ -13,6 +14,7 @@
     margin-bottom: 10px;
 }
 
+/*left side, enter community info*/
 .community-creation-wrapper .comm-info-pane{
     width: 50%;
     height: 80%;
@@ -20,7 +22,7 @@
     margin-left: 2%;
 }
 
-/*user details update*/
+/*community detail form*/
 .community-creation-wrapper .comm-details-pane{
     display: grid;
     margin-left: 6%;
@@ -29,10 +31,12 @@
     padding: 2%;
 }
 
+/*do you need this??*/
 .community-creation-wrapper .placeholder-detail{
     padding: 1%;
 }
 
+/*enter community content*/
 .community-creation-wrapper .content-entry{
     height: 80px;
     width: 225px;
@@ -43,7 +47,7 @@
     word-wrap: soft;
 } 
 
-/*left side, avatar image */
+/*right side to change avatar*/
 .community-creation-wrapper .avatar-bubble-pane {
     margin-top: 27%;
     margin-left: 20%;
@@ -61,6 +65,7 @@
     background-color: white;
 }
 
+/*avatar bubbles*/
 .community-creation-wrapper .avatar-change-bubble{
     height: 15%;
     width: 15%;
@@ -69,6 +74,8 @@
     margin-bottom: 2%;
 }
 
+/*save buttons*/
+/*Do you need both?*/
 .community-creation-wrapper .save-avatar{
     margin-top: 15%;
     margin-left: 8%;
@@ -80,6 +87,7 @@
     font-size: 10px;
 }
 
+/*labels*/
 .community-label{
     font-family: "Helvetica Neue", "Arial", sans-serif;
     font-size: medium;
