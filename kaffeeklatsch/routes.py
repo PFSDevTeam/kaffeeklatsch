@@ -92,7 +92,7 @@ def register():
   else:
     print("form input is incorrect")
   
-  return render_template('register.html', registrationForm=registrationForm)
+  return render_template('register.html', form=registrationForm)
 
 # Here we create the route for the feed page.
 @app.route('/feed', methods=['GET', 'POST'])
