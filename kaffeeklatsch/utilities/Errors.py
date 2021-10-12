@@ -43,10 +43,26 @@ class NotAbletoPostComment(Error):
 
     def __init__(self):
         super().__init__(self.DEFAULT_MESSAGE)
-#Emily -error for ProfileSettingsHandler
+
+#error to throw if previous password used - @author:Emily
 class previousUserPassword(Error):
     #password matches current during attempt to change
     DEFAULT_MESSAGE = "Error: This password could not be set, it has already been used"
     
+    def __init__(self):
+        super().__init__(self.DEFAULT_MESSAGE)
+
+#error to throw if community not found - @author:Emily
+class CommunityNotFoundError(Error):
+    #community not found
+    DEFAULT_MESSAGE = "Error: community not found"
+
+    def __init__(self):
+        super().__init__(self.DEFAULT_MESSAGE)  
+
+class CommunityAlreadyExistsError(Error):
+    #user already exists
+    DEFAULT_MESSAGE = "Error: community already exists"
+
     def __init__(self):
         super().__init__(self.DEFAULT_MESSAGE)

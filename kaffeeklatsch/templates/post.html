@@ -11,14 +11,16 @@
             <input type="hidden" id="index" name="index" value="{{ postObject.UUID }}">
             {{ downVoteForm.downArrow(class="button-style-b make-button") }}
         </form>
-        <p class="post-tally">{{ postObject.tally }}</p>
+        <div class="post-tally">
+            <p>{{ postObject.tally }}</p>
+        </div>
     </div>
     <!--right panel: post content-->
     <div class="post-panel">
         <div class="post-panel__top-line">
             <span class="owner-name">{{ postObject.posting_user }}</span> | <span class="community-content">{{ postObject.community }}</span>
-            {{ replyForm.join(class="button-style-a post-panel__join-button") }}
         </div>
+        {{ replyForm.join(class="button-style-a post-panel__join-button") }}
         <div class="post-panel__title-line">
             <span class="post-title">{{ postObject.title }}</span>
         </div>

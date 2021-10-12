@@ -6,6 +6,8 @@
 
 .profile-settings-wrapper{
     background-color: #96E6FF;
+    border-style: groove;
+    border-color: #00aaff;
     display: inline-block;
     height: 500px;
     width: 800px;
@@ -23,9 +25,9 @@
 .profile-settings-wrapper .user-details-pane{
     display: grid;
     margin-left: 6%;
-    margin-top: 13%;
+    margin-top: 8%;
     margin-bottom: 2%;
-    padding: 2%;
+    /* padding: 2%; */
 }
 
 /*left side, avatar image */
@@ -43,9 +45,11 @@
 
 /*change avatar selection pane*/
 .profile-settings-wrapper .avatar-change-pane{
+    border-style: groove;
+    border-color: #00aaff;
     margin-left: 25%;
     margin-bottom: 5%;
-    margin-top: 50%;
+    margin-top: 45%;
     width: 280px;
     background-color: white;
 }
@@ -60,14 +64,24 @@
 
 .profile-settings-wrapper .save-changes-button{
     margin-left: 5%;
+    margin-top: 2%;
 }
 .profile-settings-wrapper .save-button{
     width: 50%;
+    margin-top: 2%;
     font-size: 10px;
 }
 
 .profile-settings-wrapper .new-content{
+    border-style: groove;
+    background-color: white;
     height: 100px;
+    width: 225px;
+    margin-top: 3%;
+    border-radius: 8px;
+    padding: 3%;
+    overflow-wrap: break-word; 
+    word-wrap: soft;
 }
 
 .profile-settings-wrapper .save-avatar{

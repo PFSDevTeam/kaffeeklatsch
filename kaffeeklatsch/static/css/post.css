@@ -14,13 +14,14 @@
 }
 
 .post-wrapper .vote-panel {
-    align-items: center;
-    display: inline-block;
+    margin-right: 8%;
+    margin-top: 3%;
     width: 10%;
+    align-content: center;
 }
 
-.post-wrapper .vote-panel .vote-button {
-    display: block;
+.post-wrapper .post-tally{
+    margin-left: 80%;
 }
 
 .post-wrapper .post-panel {
@@ -37,6 +38,7 @@
 
 .post-panel .post-panel__join-button{
     margin-left: 80%;
+    width: 15%;
 }
 
 .post-wrapper .post-panel #replyContent {
@@ -51,6 +53,7 @@
 
 .post-panel__top-line {
     background-color: white;
+    display: inline-flex;
 }
 
 #communityInfo {
