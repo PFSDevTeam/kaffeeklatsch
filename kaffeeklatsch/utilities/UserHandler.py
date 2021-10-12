@@ -1,4 +1,7 @@
-# The user handler class handles the repetitive functions for the Login and registration functions
+#File: UserHandler.py
+#@author: Emily Godwin
+#Description: this file contains the form to update the user's content
+#   as called by the change_content, login and registration templates
 
 # Imports
 from kaffeeklatsch.utilities.Errors import UserNotFoundError
