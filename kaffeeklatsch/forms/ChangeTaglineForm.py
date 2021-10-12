@@ -1,3 +1,8 @@
+#File: ChangeTaglineForm.py
+#@author: Emily Godwin, David Hovey
+#Description: this file contains the form to update the user's content
+#   as called by the change_tagline.html form
+
 # Imports
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
