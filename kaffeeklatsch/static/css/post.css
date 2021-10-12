@@ -44,6 +44,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2%;
+}
+
+/*post information containers, decorators*/
+.post-panel .post-panel__reply {
+    border-style: groove;
+    border-radius: 8px;
+    font-size: small;
+    margin-bottom: 2%;
+    padding: 1%;
+
 }
 
 .post-panel .post-panel__join-button{
