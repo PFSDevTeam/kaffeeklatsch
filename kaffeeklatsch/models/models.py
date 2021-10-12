@@ -1,3 +1,8 @@
+#File: models.py
+#@author: David Hovey, Ryan Dombek, Geoff Floding, Majestic Dwyer, Emily Godwin
+#Description: this file contains the models for the database information,
+#   allowing the various form objects to grab and set fields in the database
+
 from sqlalchemy.orm import relationship
 from kaffeeklatsch import db, login_manager
 from flask_login import UserMixin
