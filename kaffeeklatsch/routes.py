@@ -289,8 +289,8 @@ def profileSettingsPage():
     changeTaglineForm=changeTaglineForm,
     changeContentForm=changeContentForm)
 
-@app.route('/communityPage', methods=['GET', 'POST'])
-def communityPage():
+@app.route('/communityPage/<int:comm_id>', methods=['GET', 'POST'])
+def communityPage(comm_id):
   if request.method == 'POST':
     return redirect(url_for('feed'))
   sortPostForm = SortPostForm()
@@ -300,7 +300,7 @@ def communityPage():
   upVoteHandler = UpVoteHandler()
   downVoteForm = DownVoteForm()
   downVoteHandler = DownVoteHandler()
-  communityInfo = Community.query.filter_by(community_id=3).first()
+  communityInfo = Community.query.filter_by(community_id=comm_id).first()
   posts = Post.query.all()
   print(posts)
   userName = current_user.username
