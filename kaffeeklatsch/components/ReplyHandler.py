@@ -1,3 +1,9 @@
+#File: ReplyHandler.py
+#@author: DavidHovey
+#Description: This file contains the python logic to handle
+#   the Reply posting on a Post. Sends to CommentHandler to
+#   update the database
+
 #libraries
 from kaffeeklatsch.utilities.Errors import NotAbletoPostComment
 from kaffeeklatsch.utilities.CommentHandler import CommentHandler
@@ -6,7 +12,6 @@ from kaffeeklatsch.utilities.CommentHandler import CommentHandler
 class ReplyHandler:
 
     def reply(self, original_post_id, reply_content, reply_user):
-
         try:
             print("ReplyHandler is trying to call CommentHandler")
             CommentHandler.insertReply(original_post_id, reply_content, reply_user)
