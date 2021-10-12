@@ -95,7 +95,7 @@ def register():
   else:
     print("form input is incorrect")
   
-  return render_template('register.html', form=registrationForm)
+  return render_template('register.html', registrationForm=registrationForm)
 
 @app.route('/feed', methods=['GET', 'POST'])
 def feed():
@@ -314,9 +314,12 @@ def communityPage():
   upVoteHandler = UpVoteHandler()
   downVoteForm = DownVoteForm()
   downVoteHandler = DownVoteHandler()
-  communityInfo = Community.query.filter_by(community_name=2).first()
+  communityInfo = Community.query.filter_by(community_id=7).first()
   posts = Post.query.all()
   print(posts)
+  userName = current_user.username
+  #query to pull the User db info based on given username
+  userInfo = User.query.filter_by(username=userName).first()
 
   return render_template('community_page.html', 
   makePostForm=makePostForm, 
@@ -325,7 +328,8 @@ def communityPage():
   posts=posts, 
   communityInfo=communityInfo, 
   upVoteForm=upVoteForm, 
-  downVoteForm=downVoteForm)
+  downVoteForm=downVoteForm,
+  userInfo=userInfo)
 
 
 @app.route('/logout')

@@ -15,7 +15,7 @@ class CommunityHandler:
     @classmethod
     def checkCommunityExists(cls, communityname):
         #check if the username is present
-        foundCommunity = cls.__getSelectedUser(communityname)
+        foundCommunity = cls.__getSelectedCommunity(communityname)
         if (foundCommunity !=  None):
             return True
         else:
@@ -23,7 +23,7 @@ class CommunityHandler:
     
     #find the slected community
     @classmethod
-    def __getSelectedUser(cls, inputComm):
+    def __getSelectedCommunity(cls, inputComm):
             #try to find the username from the loaded users
         comm = Community.query.filter_by(community_name=inputComm).first()
         if (comm != None):
@@ -34,7 +34,7 @@ class CommunityHandler:
     @classmethod
     def getCommunity(cls, communityname):
         #check if the community is present
-        foundComm = cls.__getSelectedUser(communityname)
+        foundComm = cls.__getSelectedCommunity(communityname)
         if (foundComm !=  None):
             return foundComm
         else:
