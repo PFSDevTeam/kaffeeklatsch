@@ -3,7 +3,7 @@
 <form action="" method="POST">
     <div class="content-change-pane">
         {{ changeContentForm.hidden_tag() }}
-        <div class="new-content">
+        <div>
             {% if changeContentForm.newContent.errors %}
             {{ changeContentForm.newContent(class="form-control form-control-lg is-invalid")}}
             <div class="invalid-feedback">

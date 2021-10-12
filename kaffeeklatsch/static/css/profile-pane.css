@@ -49,18 +49,31 @@
 
 /*bottom user content*/
 .profile-wrapper .user-content{
-    margin-top: 5%;
-    margin-left: 8%;
-    padding-left: 3%;
     border-style: groove;
     background-color: white;
     height: 50%;
-    width: 80%;
+    width: 75%;
+    margin-top: 3%;
+    margin-left: 7%;
+    border-radius: 8px;
+    padding: 3%;
+    overflow-wrap: break-word; 
+    word-wrap: soft;
 }
 
 .profile-wrapper .redirect-profile-settings{
-    margin-left: 25%;
+    width: 50%;
+    height: 10%;
+    border-style: groove;
+    display: flex;
     margin-top: 25%;
-    width: 35%;
-    padding-left: 5%;
+    margin-left: 25%;
+    
+
 }
+
+.profile-wrapper .settings-button{
+    text-decoration: none;
+    margin: auto;
+}
+

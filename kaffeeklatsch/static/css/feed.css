@@ -35,3 +35,17 @@
     font-family: "Helvetica Neue", "Arial", sans-serif;
     font-size: medium;
 }
+
+.create-comm-button{
+    width: 70%;
+    height: 10%;
+    border-style: groove;
+    display: flex;
+}
+
+.create-comm{
+    text-decoration: none;
+    font-size: small;
+    align-self: center;
+    margin-left: 23%; 
+}

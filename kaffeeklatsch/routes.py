@@ -29,10 +29,6 @@ from kaffeeklatsch.forms.ChangeContentForm import ChangeContentForm
 # Community profile page import.
 from kaffeeklatsch.forms.CommunityPageInfo import CommunityPageInfo
 
-# Profile settings change handler.
-from kaffeeklatsch.components.ProfileSettingsHandler import ProfileSettingsHandler
-
-# Imports for database model.
 from kaffeeklatsch.models.models import UserAccess, User, Post, Community
 
 # Imports for voting mechanism.
@@ -40,6 +36,15 @@ from kaffeeklatsch.forms.UpVoteForm import UpVoteForm
 from kaffeeklatsch.components.UpVoteHandler import UpVoteHandler
 from kaffeeklatsch.forms.DownVoteForm import DownVoteForm
 from kaffeeklatsch.components.DownVoteHandler import DownVoteHandler
+
+#profile settings change handler import
+from kaffeeklatsch.components.ProfileSettingsHandler import ProfileSettingsHandler
+
+#community creation page handler import
+from kaffeeklatsch.components.CommunityCreationHandler import CommunityCreationHandler
+
+#community Info Form import
+from kaffeeklatsch.forms.CommunityInfoForm import CommunityInfoForm
 
 # Flask routing for main application loging page.
 @app.route("/", methods=['GET','POST'])
@@ -279,7 +284,6 @@ def profileSettingsPage():
     changeTaglineForm=changeTaglineForm,
     changeContentForm=changeContentForm)
 
-# Here we create the route for the community page.
 @app.route('/communityPage', methods=['GET', 'POST'])
 def communityPage():
   if request.method == 'POST':
@@ -291,9 +295,12 @@ def communityPage():
   upVoteHandler = UpVoteHandler()
   downVoteForm = DownVoteForm()
   downVoteHandler = DownVoteHandler()
-  communityInfo = Community.query.filter_by(community_id = 2).first()
+  communityInfo = Community.query.filter_by(community_id=7).first()
   posts = Post.query.all()
   print(posts)
+  userName = current_user.username
+  #query to pull the User db info based on given username
+  userInfo = User.query.filter_by(username=userName).first()
 
   # Render the page and pass the relevant forms.
   return render_template('community_page.html', 
@@ -303,7 +310,8 @@ def communityPage():
   posts=posts, 
   communityInfo=communityInfo, 
   upVoteForm=upVoteForm, 
-  downVoteForm=downVoteForm)
+  downVoteForm=downVoteForm,
+  userInfo=userInfo)
 
 
 # Here we create the route for logging the user out.
@@ -311,3 +319,26 @@ def communityPage():
 def logout():
   logout_user()
   return redirect(url_for('login'))
+
+@app.route('/communityCreation', methods=['GET','POST'])
+def communityCreation():
+  communityCreationHandler = CommunityCreationHandler()
+  communityInfoForm = CommunityInfoForm()
+  userName=current_user.username
+
+  #query to pull the User db info based on given username
+  userInfo = User.query.filter_by(username=userName).first()
+
+  if communityInfoForm.validate_on_submit():
+    print("community form input is validated")
+    communityName = request.form['communityname']
+    communityTagline = request.form['communitytagline']
+    communityContent = request.form['communitycontent']
+    communityAvatar = request.form['communityavatar']
+    communityCreationHandler.createCommunity(communityName, communityTagline, communityContent, communityAvatar)
+    #redirect to communityPage?? CommunitySuccessPage (create this?)
+    return redirect(url_for('feed'))
+  else:
+    print("community form input is incorrect")
+  
+  return render_template('community_creation.html', userInfo=userInfo, communityInfoForm=communityInfoForm)
