@@ -4,6 +4,7 @@ from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired, Length, Regexp, EqualTo
 
 
+# Define the elements of the RegistrationForm
 class RegistrationForm(FlaskForm):
     username = StringField('username',
                             validators =[DataRequired(),

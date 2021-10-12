@@ -25,6 +25,7 @@ class CommentHandler:
             print(message)
             return False
     
+    # Method for inserting a reply into the database.
     @classmethod
     def insertReply(cls, original_post_id, reply_content, reply_user):
         wholePost = Reply(original_post_id=original_post_id, reply_content=reply_content,reply_user=reply_user, reply_date=datetime.utcnow())
@@ -41,6 +42,7 @@ class CommentHandler:
             print(message)
             return False
     
+    # Method for incrementing the tally of votes for a post.
     @classmethod
     def incrementTally(cls, original_post_id):
 
@@ -57,6 +59,7 @@ class CommentHandler:
             print(message)
             return False
     
+    # Method for decrementing the tally of votes for a post.
     @classmethod
     def decrementTally(cls, original_post_id):
 
