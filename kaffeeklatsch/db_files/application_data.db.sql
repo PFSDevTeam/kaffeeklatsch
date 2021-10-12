@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS "user";
 CREATE TABLE IF NOT EXISTS "user" (
 	"id"	INTEGER NOT NULL UNIQUE,
 	"username"	TEXT NOT NULL UNIQUE,
-	"avatar"	TEXT,
+	"avatar"	TEXT DEFAULT bee_avatar.png,
 	"first_name"	TEXT,
 	"last_name"	TEXT,
 	"communities"	TEXT,
