@@ -1,3 +1,8 @@
+#File: ChangeContentForm.py
+#@author: David Hovey, Emily Godwin
+#Description: this file contains the error classes to be called
+#   when exceptions are raised
+
 class Error(Exception):
     #custom error base class
     pass
