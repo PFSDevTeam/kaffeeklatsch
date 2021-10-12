@@ -1,7 +1,9 @@
+# Imports
 from flask_wtf import FlaskForm
 from wtforms.validators import DataRequired, Length
 from wtforms import StringField, SubmitField
 
+# Define the elements of the ReplyForm
 class ReplyForm(FlaskForm):
     post = SubmitField('post')
     join = SubmitField('join +')
