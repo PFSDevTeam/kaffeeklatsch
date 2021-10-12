@@ -295,7 +295,7 @@ def communityPage():
   upVoteHandler = UpVoteHandler()
   downVoteForm = DownVoteForm()
   downVoteHandler = DownVoteHandler()
-  communityInfo = Community.query.filter_by(community_id=7).first()
+  communityInfo = Community.query.filter_by(community_id=3).first()
   posts = Post.query.all()
   print(posts)
   userName = current_user.username
