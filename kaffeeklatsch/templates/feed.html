@@ -20,11 +20,7 @@
 
 <!-- avatar block -->
 {% block avatar %}
-#<a href="/profilepage"><img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/' + userInfo.avatar) }}" /></a>
-
-#adding an arrow to allow user to nav to profile page (UX improvement)
-<img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/'+ userInfo.avatar) }}/>
-<a href="/profilepage"><div class="down-arrow"></div>
+<a href="/profilepage"><img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/'+ userInfo.avatar) }}" /></a>
 <button onclick="document.location='logout'" class="button-style-credential">sign out</button>
 {% endblock %}
 
