@@ -1,0 +1,59 @@
+/*File: community-page.css
+ @author: Emily Godwin
+ Description: This file contains the css classes for
+     the community information pane on the community page */
+
+/*wrapper to contain community profile information*/
+.community-info-wrapper {
+    background-color: white;
+    border-style: groove;
+    height: 400px;
+    width: 350px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+
+/*upper panel, community information*/
+.community-info-wrapper .upper-block{
+    display: inline-flex;
+    margin-left: 20%;
+    margin-top: 2%;
+    width: 80%;
+
+}
+
+/*left side, avatar image */
+.community-info-wrapper .avatar_panel {
+    margin-top: 10%;
+    margin-bottom: 5%;
+    height: 100px;
+    width: 50px;
+}
+
+.community-info-wrapper .avatar_image {
+    height: 100%; 
+    margin-right:2%;
+}
+
+/* right side, user info */
+.community-info-wrapper .info-panel {
+    margin-top: 15%;
+    margin-left: 5%;
+    display: grid;
+    padding-top: 5%;
+    width: 90%;
+    height: 20%;
+    background-color: white;
+}
+
+/*bottom user content*/
+.community-info-wrapper .user-content{
+    margin-top: 8px;
+    margin-left: 8%;
+    border-style: groove;
+    background-color: white;
+    padding-left: 3%;
+    height: 50%;
+    width: 80%;
+}

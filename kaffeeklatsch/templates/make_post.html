@@ -1,0 +1,11 @@
+{% macro make_post(makePostForm) %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sort_post.css') }}" />
+<div class="make-post-wrapper">
+    <form action="" method="POST">
+        {{ makePostForm.hidden_tag() }}
+        {{ makePostForm.postTitle(class="post-title") }}
+        {{ makePostForm.postContent(class="post-content") }}
+        {{ makePostForm.post(class="button-style-b make-button") }}
+    </form>
+</div>
+{% endmacro %}

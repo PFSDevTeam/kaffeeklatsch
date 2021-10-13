@@ -1,0 +1,57 @@
+<!--extend base-->
+{% extends 'base.html' %}
+<!-- imports -->
+{% import 'make_post.html' as makePostTemplate %}
+{% import 'sort_post.html' as sortPostTemplate %}
+{% import 'post_reply.html' as post_reply %}
+{% import 'community.html'as community_template %}
+
+
+{% block addedCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/feed.css') }}" /> 
+{% endblock %}
+
+<!--search bar block-->
+{% block search %}
+<div class="search-container" id="search-container">
+    <input id="search-input" type="search" id="form1" class="form-control" placeholder="Search Here"/>
+</div>
+{% endblock %}
+
+<!-- avatar block -->
+{% block avatar %}
+<a href="/profilepage"><img class="avatar" src="{{ url_for('static', filename='assets/imagefiles/Profile/'+ userInfo.avatar) }}" /></a>
+<button onclick="document.location='logout'" class="button-style-credential">sign out</button>
+{% endblock %}
+
+<!--body block-->
+{% block body %}
+<div class="page">
+    <div class="content-view">
+        <!--left block-->
+        <div class="post-pane">
+            <!--float the post form at the top-->
+            <div>
+                {{ makePostTemplate.make_post(makePostForm) }}
+                {{ sortPostTemplate.sort_post(sortPostForm) }}
+            </div>
+            <!--post loop-->
+            {% for post in posts %}
+                {{ post_reply.post_reply(replyForm, upVoteForm, downVoteForm, post) }}
+            {% endfor %}
+        </div>
+        
+        <!--right block-->
+        <div class="community-pain">
+            <div class="button-style-b create-comm-button">
+                <a href='/communityCreation' class="create-comm">create community</a>
+            </div>
+            <p class="community-label">Communities</p>
+            <!--communities loop-->
+            {% for community in communities%}
+                {{ community_template.community_component(community, communityPainForm) }}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

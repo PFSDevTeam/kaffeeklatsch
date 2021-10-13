@@ -1,0 +1,30 @@
+<!--File: change_avatar.html
+    @author: David Hovey, Emily Godwin
+    Description: This file contains the form to allow a user to change
+            their avatar, based on a selectField form passed in by the
+            profile_settings_content.html template. The form sets the new avatar
+            once the submit button is pressed and the POST method executes-->
+{% macro change_avatar_form(changeAvatarForm) %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile-settings.css') }}" />
+<form action="" method="POST">
+    <div class="avatar-change-pane">
+        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/bee_avatar.png') }}" />
+        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/beaver_avatar.png') }}" />
+        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/elephant_avatar.png') }}" />
+        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/frog_avatar.png') }}" />
+        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/giraffe_avatar.png') }}" />
+        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/koala_avatar.png') }}" />
+        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/lion_avatar.png') }}" />
+        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/macaw_avatar.png') }}" />
+        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/owl_avatar.png') }}" />
+        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/penguin_avatar.png') }}" />
+        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/spider_avatar.png') }}" />
+        <img class="avatar-change-bubble" src="{{ url_for('static', filename='assets/imagefiles/Profile/whale_avatar.png') }}" />
+    </div>
+    <div class="save-avatar">
+        {{ changeAvatarForm.hidden_tag() }}
+        {{ changeAvatarForm.newAvatar(style="border-radius: 8px;height: 30px;width: 200px;") }}
+        {{ changeAvatarForm.submit(class="button-style-a save-button")}}
+    </div>
+</form>
+{% endmacro %}

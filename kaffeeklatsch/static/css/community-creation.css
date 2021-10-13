@@ -1,0 +1,99 @@
+/*File: community-creation.css
+ @author: Emily Godwin
+ Description: This file contains the css classes for
+     the community creation page */
+
+/*wrapper to contain the community creation content*/
+.community-creation-wrapper{
+    background-color: #96E6FF;
+    border-style: groove;
+    border-color: #00aaff;
+    display: inline-block;
+    height: 500px;
+    width: 800px;
+    margin-bottom: 10px;
+}
+
+/*left side, enter community info*/
+.community-creation-wrapper .comm-info-pane{
+    width: 50%;
+    height: 80%;
+    display: inline-flex;
+    margin-left: 2%;
+}
+
+/*community detail form*/
+.community-creation-wrapper .comm-details-pane{
+    display: grid;
+    margin-left: 6%;
+    margin-top: 13%;
+    margin-bottom: 2%;
+    padding: 2%;
+}
+
+/*do you need this??*/
+.community-creation-wrapper .placeholder-detail{
+    padding: 1%;
+}
+
+/*enter community content*/
+.community-creation-wrapper .content-entry{
+    height: 80px;
+    width: 225px;
+    margin-top: 3%;
+    border-radius: 8px;
+    padding: 2%;
+    overflow-wrap: break-word; 
+    word-wrap: soft;
+} 
+
+/*right side to change avatar*/
+.community-creation-wrapper .avatar-bubble-pane {
+    margin-top: 27%;
+    margin-left: 20%;
+    height: 100px;
+    width: 50%;
+}
+
+/*change avatar selection pane*/
+.community-creation-wrapper .avatar-change-pane{
+    border-style: groove;
+    border-color: #00aaff;
+    margin-left: 35%;
+    margin-top: 10%;
+    width: 280px;
+    background-color: white;
+}
+
+/*avatar bubbles*/
+.community-creation-wrapper .avatar-change-bubble{
+    height: 15%;
+    width: 15%;
+    margin-top: 5%;
+    margin-left: 7%;
+    margin-bottom: 2%;
+}
+
+/*save buttons*/
+/*Do you need both?*/
+.community-creation-wrapper .save-avatar{
+    margin-top: 15%;
+    margin-left: 8%;
+}
+
+.community-creation-wrapper .save-button{
+    width: 80%;
+    margin-top: 10%;
+    font-size: 10px;
+}
+
+/*labels*/
+.community-label{
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+}
+
+.community-entry-label{
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: small;
+}

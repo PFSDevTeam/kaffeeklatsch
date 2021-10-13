@@ -1,0 +1,8 @@
+{% macro community_pain(communityInfo, communityPainForm) %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/community-pain.css') }}" />
+<div class="community-pain-wrapper">
+    <img class="avatar community-image" src="{{ url_for('static', filename='assets/imagefiles/Profile/'+communityInfo.community_image) }}">
+    <div class=community-title><a href="{{ url_for('communityPage', comm_id=communityInfo.community_id) }}"><span>{{ communityInfo.community_name}}</span></a></div>
+    <span class="community-button">{{ communityPainForm.join(class="button-style-a community-button-settings") }} </span>
+</div>
+{% endmacro %}

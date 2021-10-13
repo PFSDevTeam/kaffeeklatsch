@@ -1,0 +1,30 @@
+<!--File: profile_pane.html
+    @author: Emily Godwin
+    Description: This file contains the html template for
+        the profile pane on the right side of the profile page template-->
+{% macro profile_pane(profileObject) %}
+<!--CSS Stylesheet-->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile-pane.css') }}" />
+
+<div class="profile-wrapper">
+    <div class="upper-block">
+        <!--left side user avatar-->
+        <div class=avatar_panel>
+            <img class="avatar avatar_image" src="{{ url_for('static', filename='assets/imagefiles/Profile/' + profileObject.avatar) }}" /> 
+        </div>
+        <!--right side user info-->
+        <div class="info-panel">
+                <span>{{ profileObject.username }}</span>
+                <span>{{ profileObject.tagline }}</span>
+                <span>{{ profileObject.date_joined }}</span>
+        </div>
+    </div>
+    <!--User content-->
+    <div class="user-content">
+        <p>{{ profileObject.summary }}</p>
+    </div>
+    <div class="redirect-profile-settings button-style-b">
+        <a href="/profileSettingsPage" class="settings-button">profile settings</a>
+    </div>
+</div>
+{% endmacro %}

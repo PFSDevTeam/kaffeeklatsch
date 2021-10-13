@@ -1,0 +1,58 @@
+<!--extend base-->
+{% extends 'base.html' %} 
+{% block register %}
+    <button onclick="document.location='register'" class="button-style-credential sign-up-button">sign up</button> 
+{% endblock %} 
+
+{% block body %}
+
+<!--Page Section-->
+<div class="page">
+    <div class="container">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="un">
+                <!--set form labels-->
+                {{ form.username.label(class="form-control-label") }}
+                <!--error catching-->
+                {% if form.username.errors %}
+                <!-- set form field-->
+                {{ form.username(class="form-control form-control-lg is-invalid") }}
+                <!-- display errors-->
+                <div class="invalid-feedback">
+                    <!-- loop through errors-->
+                    {% for error in form.username.errors %}
+                    <span>{{ error }}</span> 
+                    {% endfor %}
+                </div>
+                {% else %} {{ form.username(class="form-control form-control-lg") }} {% endif %}
+                <!-- <label for="username">username</label>
+                <input type="text" name="username" style="border-radius: 8px;height: 30px;width: 200px;"> -->
+            </div>
+            <div class="pw">
+                <!-- set form labels-->
+                {{ form.password.label() }}
+                <!--error catching-->
+                {% if form.password.errors %}
+                <!-- set form field-->
+                {{ form.password(style="border-radius: 8px;height: 30px;width: 200px;") }}
+                <!-- display errors-->
+                <div class="invalid-feedback">
+                    <!-- loop through errors-->
+                    {% for error in form.password.errors %}
+                    <span>{{ error }}</span> {% endfor %}
+                </div>
+                {% else %} {{ form.password(class="form-control form-control-lg") }} {% endif %}
+                <!-- <label for="password">password</label>
+                <input type="password" name="password" style="border-radius: 8px;height: 30px;width: 200px;"> -->
+            </div>
+            <div class="b2">
+                <!-- submit button-->
+                {{ form.submit(class="button-style-credential submit") }}
+                <!-- <input type="submit" class="submit" value="log in" > -->
+                <input type="reset" class="button-style-credential reset" value="clear form">
+            </div>
+        </form><br>
+    </div>
+</div>
+{% endblock %}

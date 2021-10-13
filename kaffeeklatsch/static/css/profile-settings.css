@@ -1,0 +1,93 @@
+/*File: profile-settings.css
+ @author: Emily Godwin
+ Description: This file contains the css classes for
+     the profile settings page */
+
+/*wrapper to contain profile settings pane*/
+.profile-settings-wrapper{
+    background-color: #96E6FF;
+    border-style: groove;
+    border-color: #00aaff;
+    display: inline-block;
+    height: 500px;
+    width: 800px;
+    margin-bottom: 10px;
+}
+
+/*information pane*/
+.profile-settings-wrapper .user-info-pane{
+    width: 50%;
+    height: 80%;
+    display: inline-flex;
+    margin-left: 2%;
+}
+
+/*user details update*/
+.profile-settings-wrapper .user-details-pane{
+    display: grid;
+    margin-left: 6%;
+    margin-top: 8%;
+    margin-bottom: 2%;
+    /* padding: 2%; */
+}
+
+/*left side, avatar image */
+.profile-settings-wrapper .avatar-bubble-pane {
+    margin-top: 15%;
+    margin-left: 2%;
+    height: 100px;
+    width: 100px;
+}
+
+.profile-settings-wrapper .avatar-bubble {  
+    margin-top: 5px;
+    height: 120%;
+}
+
+/*change avatar selection pane*/
+.profile-settings-wrapper .avatar-change-pane{
+    border-style: groove;
+    border-color: #00aaff;
+    margin-left: 25%;
+    margin-bottom: 5%;
+    margin-top: 45%;
+    width: 280px;
+    background-color: white;
+}
+
+/*change update buttons*/
+.profile-settings-wrapper .avatar-change-bubble{
+    height: 15%;
+    width: 15%;
+    margin-top: 5%;
+    margin-left: 7%;
+    margin-bottom: 2%;
+}
+
+.profile-settings-wrapper .save-changes-button{
+    margin-left: 5%;
+    margin-top: 2%;
+}
+.profile-settings-wrapper .save-button{
+    width: 50%;
+    margin-top: 2%;
+    font-size: 10px;
+}
+
+/*user content update pane*/
+.profile-settings-wrapper .new-content{
+    border-style: groove;
+    background-color: white;
+    height: 100px;
+    width: 225px;
+    margin-top: 3%;
+    border-radius: 8px;
+    padding: 3%;
+    overflow-wrap: break-word; 
+    word-wrap: soft;
+}
+
+/*button to save avatar from SelectField*/
+.profile-settings-wrapper .save-avatar{
+    margin-left: 25%;
+}

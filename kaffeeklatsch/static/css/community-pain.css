@@ -1,0 +1,42 @@
+/*File: community-pain.css
+ @author: Ryan Dombek, Emily Godwin
+ Description: This file contains the css classes for
+     the community pain on feed page */
+
+/*wrapper to contain the communities pane for feed page*/
+.community-pain-wrapper {
+    background-color: white;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 8px;
+    border-style: groove;
+    padding: 2%;
+    font-size: small;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* community image */
+.community-pain-wrapper .community-image{
+    height: 15%;
+    width: 15%;
+    float: none;
+    margin-right: 8px;
+}
+
+/* community title */
+.community-pain-wrapper .community-title{
+    width: 100%;
+}
+
+/*style for community join buttons in community pane */
+.community-pain-wrapper .community-button {
+    margin-left:8%;
+    margin-top: 2%;
+}
+
+/*button to link to community settings*/
+.community-pain-wrapper .community-button-settings{
+    font-size: small;
+    width: 95%;
+}

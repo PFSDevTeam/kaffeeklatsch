@@ -1,0 +1,20 @@
+{% macro change_content_form(changeContentForm) %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile-settings.css') }}" />
+<form action="" method="POST">
+    <div class="content-change-pane">
+        {{ changeContentForm.hidden_tag() }}
+        <div>
+            {% if changeContentForm.newContent.errors %}
+            {{ changeContentForm.newContent(class="form-control form-control-lg is-invalid")}}
+            <div class="invalid-feedback">
+                {% for error in changeContentForm.newContent.errors %}
+                <span>{{ error }}</span> {% endfor %}
+            </div>
+            {% else %} {{ changeContentForm.newContent(class="form-control form-control-lg new-content") }} {% endif %}
+            <div class="save-changes-button">
+                {{ changeContentForm.submit(class="button-style-a save-button") }}
+            </div>
+        </div>
+    </div>
+</form>
+{% endmacro %}

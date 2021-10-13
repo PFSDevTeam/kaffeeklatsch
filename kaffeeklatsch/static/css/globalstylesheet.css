@@ -1,0 +1,97 @@
+/* File: globalstylesheet.css
+    @author: Ryan Dombek, Emily Godwin
+    Description: This file contains the global style sheet
+                css classes that cascade over the entire app*/
+
+/*all background pages*/
+body {
+    background-color: #E5FFF9
+}
+
+/*header*/
+.header {
+    background-color: #C3F1FF;
+    font-size: 50px;
+    text-align: center;
+    height: 95px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+/*logo in header*/
+.logo {
+    width: 120px;
+    margin-top: 0px;
+    float: left;
+}
+
+/*avatar in header*/
+.avatar {
+    height: 100%;
+    float: right;
+    margin-right: 50px;
+}
+
+/*profile nav down arrow*/
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #f00;
+}
+
+/*page*/
+.page {
+    margin: 0px;
+    height: 100vh;
+    padding-top: 50px;
+}
+
+/* large credentialing or routing buttons */
+.button-style-credential {
+    border-radius: 8px;
+    background-color: #6259df;
+    font-size: medium;
+    color: white;
+}
+
+/* buttons to join */
+.button-style-a {
+    width: 100px;
+    height: 25px;
+    top: 225px;
+    border-radius: 8px;
+    background-color: #6259df;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: white;
+}
+
+/*posting, sorting buttons*/
+.button-style-b {
+    width: 100px;
+    height: 25px;
+    top: 225px;
+    border-radius: 8px;
+    background-color: #96E6FF;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: black;
+    margin-left: 30px;
+}
+
+/*bean button style*/
+.button-style-bean {
+    width: 100px;
+    height: 25px;
+    top: 225px;
+    border-radius: 8px;
+    background-color: #FFD075;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-size: medium;
+    color: black;
+    margin-left: 30px;
+}

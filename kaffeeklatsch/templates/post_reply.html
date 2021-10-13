@@ -1,0 +1,7 @@
+{% macro post_reply(replyForm, upVoteForm, downVoteForm, postObject) %} 
+{% import 'post.html' as replyTemplate %}
+<div>
+    {{ replyTemplate.post(replyForm, upVoteForm, downVoteForm, postObject) }}
+</div>
+
+{% endmacro %}

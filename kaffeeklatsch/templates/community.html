@@ -1,0 +1,6 @@
+{% macro community_component(communityInfo, communityPainForm) %} 
+{% import 'community_pain.html' as communityPainTemplate %}
+<form method="POST">
+    {{ communityPainTemplate.community_pain(communityInfo, communityPainForm) }}
+</form>
+{% endmacro %}

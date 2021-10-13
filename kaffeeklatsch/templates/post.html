@@ -1,0 +1,53 @@
+{% macro post(replyForm, upVoteForm, downVoteForm, postObject) %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/post.css') }}" />
+<div class="post-wrapper">
+    <!--left panel : up and down buttons-->
+    <div class="vote-panel">
+        <form action="" method="POST">
+            <input type="hidden" id="index" name="index" value="{{ postObject.UUID }}">
+            {{ upVoteForm.upArrow(class="button-style-b make-button") }}
+        </form>
+        <form action="" method="POST">
+            <input type="hidden" id="index" name="index" value="{{ postObject.UUID }}">
+            {{ downVoteForm.downArrow(class="button-style-b make-button") }}
+        </form>
+        <div class="post-tally">
+            <p>{{ postObject.tally }}</p>
+        </div>
+    </div>
+    <!--right panel: post content-->
+    <div class="post-panel">
+        <div class="post-panel__top-line">
+            <span class="owner-name">{{ postObject.posting_user }}</span> | <span class="community-content">{{ postObject.community }}</span>
+        </div>
+        {{ replyForm.join(class="button-style-a post-panel__join-button") }}
+        <div class="post-panel__title-line">
+            <span class="post-title">{{ postObject.title }}</span>
+        </div>
+        <div class="post-panel__post-content">
+            <p class="post-content">{{ postObject.content }}</p>
+        </div>
+        <!--PREVIOUS REPLIES-->
+        {% for reply in postObject.replies %}
+            <div class="post-panel__reply">
+                <span>{{reply.reply_user}}</span> | <span>{{reply.reply_date}}</span>
+                <br>
+                <p>{{reply.reply_content}}</p>
+            </div>
+        {% endfor %}
+        <!--REPLY FORM-->
+        <form action="" method="POST">
+            <div class="post-panel__reply-line">
+                {{ replyForm.hidden_tag() }}
+                <input type="hidden" id="index" name="index" value="{{ postObject.UUID }}">
+                {{ replyForm.replyContent(class="reply-content") }} 
+                {{ replyForm.post(class="button-style-b make-button") }} 
+            </div>
+        </form>
+    </div>
+
+
+    
+</div>
+
+{% endmacro %}

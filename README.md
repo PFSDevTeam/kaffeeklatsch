@@ -16,6 +16,25 @@ To install docker visit: https://www.docker.com/get-started
 
 **Docker is a containerization tool that is NOT required for local development. Standard Python run commands will work. Instructions for both methods of running the application will be included in the 'Running Instructions' setting
 
+#### Docker Compose (live reload) (recommended)
+
+to build and run the project using docker-compose (recommended)
+
+use the following command in the project root directory after docker is installed:
+```
+docker-compose up
+```
+
+to stop the application run the following command:
+```
+docker-compose  down
+```
+
+to force the application to rebuild the images with a new run you can use:
+```
+docker-compose up --build
+```
+
 #### Build
 
 to build the project container run the following from the root directory 
@@ -42,7 +61,6 @@ next use pip to install the the dependancies
 ```
 pip install -r requirements.txt
 ```
-To be continued
 
 ## Running instructions
 
@@ -69,7 +87,33 @@ Using the run script on linux:
 
 Using the docker run command:
 ```
-docker run --rm -it -p 5000:5000 cmsc-495-project
+docker run --rm -it -p 5000:5000 --name kaffeeklatsch cmsc-495-project
+
 ```
 
-TBD
+## Stopping Instructions
+
+### Docker
+
+To stop the docker container and prune images you can:
+
+use the stop script:
+
+```
+./docker-stop.sh
+```
+
+**OR**
+
+use the docker stop command:
+```
+docker stop (CONTAINER NAME OR ID)
+
+# e.g
+
+docker stop kaffeeklatsch
+
+# OR
+
+docker stop 6c9d74d7e2ce
+```

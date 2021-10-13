@@ -1,0 +1,109 @@
+/*File: post.css
+ @author: Ryan Dombek, Geoff Floding, Majestic Dwyer, Emily Godwin
+ Description: This file contains the css classes for
+     the the posts on the feed template */
+
+/*post wrapper class*/
+.post-wrapper {
+    background-color: white;
+    border-style: groove;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/*vote panel input container*/
+.post-wrapper .vote-panel input {
+    width: 50px;
+    height: 50px;
+}
+
+.post-wrapper .vote-panel {
+    margin-right: 8%;
+    margin-top: 3%;
+    width: 10%;
+    align-content: center;
+}
+
+/*tally container*/
+.post-wrapper .post-tally{
+    margin-left: 80%;
+}
+
+/*panel for post information*/
+.post-wrapper .post-panel {
+    display: inline-block;
+    width: 80%;
+    background-color: white;
+}
+
+/*post information containers, decorators*/
+.post-panel .post-panel__reply-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+/*post information containers, decorators*/
+.post-panel .post-panel__reply {
+    border-style: groove;
+    border-radius: 8px;
+    font-size: small;
+    margin-bottom: 2%;
+    padding: 1%;
+
+}
+
+.post-panel .post-panel__join-button{
+    margin-left: 80%;
+    width: 15%;
+}
+
+.post-wrapper .post-panel #replyContent {
+    width: 500px;
+    margin: auto;
+}
+
+.post-wrapper .post-panel #post {
+    width: 90px;
+    margin: auto;
+}
+
+.post-panel__top-line {
+    background-color: white;
+    display: inline-flex;
+}
+
+#communityInfo {
+    height: 20px;
+    top: 285px;
+    left: 500px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.post-wrapper #postTitle {
+    height: 20px;
+    top: 320px;
+    left: 150px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+#ownerContent {
+    height: 100px;
+    top: 355px;
+    left: 150px;
+    background-color: white;
+}
+
+#replyContent {
+    width: 80%;
+    height: 20px;
+    top: 470px;
+    left: 150px;
+    background-color: gainsboro;
+}

@@ -1,0 +1,41 @@
+/* File: forms.css
+    @author: Geoff Floding, Emily Godwin
+    Description: This file contains the credentialing form style sheet*/
+
+/* style for button to direct to opposite credentialing */
+.sign-up-button {
+    float: right;
+    margin-top: 25px;
+    margin-right: 40px;
+    width: 150px;
+    height: 40px;
+}
+
+/*container for form*/
+.container {
+    display: flex;
+    float: center;
+    width: 375px;
+    text-align: right;
+    font-size: medium;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-left: 36%;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+
+/*input styling*/
+input {
+    margin-bottom: 10px;
+    border-radius: 8px;
+    height: 25px;
+    width: 230px;
+}
+
+
+/*submit and reset form*/
+.submit,
+.reset {
+    height: 40px;
+    width: 150px;
+}
